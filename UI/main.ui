@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>V3Editor</class>
+ <widget class="QMainWindow" name="V3Editor">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>V3Editor</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="minimumSize">
+    <size>
+     <width>800</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>800</width>
+     <height>555</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_Start">
+    <property name="title">
+     <string>开始</string>
+    </property>
+    <addaction name="action_Start_Goods"/>
+    <addaction name="action_Start_PM"/>
+   </widget>
+   <widget class="QMenu" name="menu_Tool">
+    <property name="title">
+     <string>工具</string>
+    </property>
+    <widget class="QMenu" name="action_Tool_export">
+     <property name="title">
+      <string>模版下载</string>
+     </property>
+     <addaction name="action_Tool_export_Goods"/>
+    </widget>
+    <addaction name="action_Tool_export"/>
+    <addaction name="action_Tool_import"/>
+   </widget>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>帮助</string>
+    </property>
+    <addaction name="action_About"/>
+   </widget>
+   <addaction name="menu_Start"/>
+   <addaction name="menu_Tool"/>
+   <addaction name="menu_Help"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_Start_Goods">
+   <property name="text">
+    <string>商品</string>
+   </property>
+   <property name="iconText">
+    <string>商品</string>
+   </property>
+  </action>
+  <action name="action_Start_PM">
+   <property name="text">
+    <string>生产方式</string>
+   </property>
+  </action>
+  <action name="action_Tool_import">
+   <property name="text">
+    <string>生成商品文件</string>
+   </property>
+  </action>
+  <action name="action_Tool_export_Goods">
+   <property name="text">
+    <string>商品表</string>
+   </property>
+  </action>
+  <action name="action_About">
+   <property name="text">
+    <string>关于</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
