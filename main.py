@@ -83,6 +83,6 @@ if __name__ == '__main__':
     main_table1 = MainTable_export_goods()
     main_table2 = MainTable_import_goods()
     main_ui.ui.show()
-
+    
     app.exec()
 
