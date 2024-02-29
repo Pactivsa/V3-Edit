@@ -130,7 +130,7 @@
      <item>
       <widget class="QStackedWidget" name="stackedWidget">
        <property name="currentIndex">
-        <number>2</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="goods">
         <layout class="QGridLayout" name="gridLayout_2" columnstretch="2,0">
@@ -268,9 +268,9 @@
           </layout>
          </item>
          <item row="0" column="0">
-          <layout class="QVBoxLayout" name="verticalLayout_3" stretch="2">
+          <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0">
            <item>
-            <widget class="QTableView" name="tableView"/>
+            <widget class="QTableWidget" name="tableWidget"/>
            </item>
           </layout>
          </item>
@@ -402,9 +402,9 @@
           </layout>
          </item>
          <item row="0" column="0">
-          <layout class="QVBoxLayout" name="verticalLayout_3" stretch="2">
+          <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0">
            <item>
-            <widget class="QTableView" name="tableView"/>
+            <widget class="QTableWidget" name="tableWidget"/>
            </item>
           </layout>
          </item>
@@ -556,9 +556,9 @@
           </layout>
          </item>
          <item row="0" column="0">
-          <layout class="QVBoxLayout" name="verticalLayout_3" stretch="2">
+          <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0">
            <item>
-            <widget class="QTableView" name="tableView"/>
+            <widget class="QTableWidget" name="tableWidget"/>
            </item>
           </layout>
          </item>
