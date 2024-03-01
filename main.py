@@ -38,7 +38,8 @@ class OpeningUI(QDialog):
         pass
 
     def loadv3file(self, QlineEdit1, QlineEdit2):
-        # todo: 点击后，根据QlineEdit1（原版路径）与QlineEdit2（MOD路径）读取相关文件（PM与商品），建立相关结构化数据。然后，隐藏opening界面并显示MAIN界面。
+        # todo: 点击后，根据QlineEdit1（原版路径）与QlineEdit2（MOD路径）读取相关文件（PM与商品），建立相关结构化数据（并将相关数据导入到各个TABLE中）。然后，隐藏opening
+        #  界面并显示MAIN界面。
         pass
 
 
@@ -153,6 +154,10 @@ class MainTable_PM(QDialog):
 
     def init_ui(self):
         self.ui = uic.loadUi(str(SRC_PATH / "./UI/main.ui"))
+        # todo: 点击添加商品、保存修改、删除商品，分别在对应熟人/输出中添加、修改、删除商品。然后，执行recount()函数。
+        # todo: 输入或输出商品改变当前行，同步改变数量EDITLINE中的文本。
+        # todo: 建立recount()函数，计算利润率等相关内容，然后显示在相应位置。
+        # todo: 点击生成代码并复制按钮，根据输入及输出商品生成代码，并复制在剪贴板上。
 
 
 def print_hi(name):
