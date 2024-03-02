@@ -16,5 +16,5 @@ class Localization:
         return self.get_property(key)
     
     def load(self, base_path):
-        
+        pass
             
