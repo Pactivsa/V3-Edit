@@ -33,14 +33,14 @@ background-image: url(:/图片1.jpg);
 </string>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>2</number>
        </property>
        <widget class="QWidget" name="goods">
         <layout class="QGridLayout" name="gridLayout_2" columnstretch="2,0">
          <item row="0" column="0">
-          <layout class="QVBoxLayout" name="verticalLayout_3" stretch="2">
+          <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0">
            <item>
-            <widget class="QTableView" name="tableView">
+            <widget class="QTableWidget" name="tableWidget">
              <property name="styleSheet">
               <string notr="true">background-image: url(:/780.jpg);</string>
              </property>
@@ -549,9 +549,9 @@ background-color: rgb(85, 255, 255);</string>
           </layout>
          </item>
          <item row="0" column="0">
-          <layout class="QVBoxLayout" name="verticalLayout_3" stretch="2">
+          <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0">
            <item>
-            <widget class="QTableView" name="tableView"/>
+            <widget class="QTableWidget" name="tableWidget"/>
            </item>
           </layout>
          </item>
@@ -703,9 +703,9 @@ background-color: rgb(85, 255, 255);</string>
           </layout>
          </item>
          <item row="0" column="0">
-          <layout class="QVBoxLayout" name="verticalLayout_3" stretch="2">
+          <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0">
            <item>
-            <widget class="QTableView" name="tableView"/>
+            <widget class="QTableWidget" name="tableWidget"/>
            </item>
           </layout>
          </item>
