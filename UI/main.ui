@@ -20,7 +20,7 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QDialog{background-image: url(:/图片1.jpg);}</string>
+   <string notr="true">QDialog{background-image: url(:/图片1.jpg);border-radius:15px}</string>
   </property>
   <layout class="QGridLayout" name="gridLayout" columnstretch="1,4">
    <item row="0" column="1">
@@ -350,16 +350,29 @@ background-color: rgb(85, 255, 255);</string>
             <number>0</number>
            </property>
            <item>
-            <layout class="QFormLayout" name="formLayout">
-             <property name="formAlignment">
-              <set>Qt::AlignCenter</set>
-             </property>
+            <layout class="QGridLayout" name="gridLayout_4">
              <property name="horizontalSpacing">
               <number>0</number>
              </property>
              <property name="verticalSpacing">
               <number>11</number>
              </property>
+             <item row="0" column="1">
+              <spacer name="verticalSpacer_14">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Expanding</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
              <item row="1" column="0">
               <widget class="QLabel" name="label_6">
                <property name="text">
@@ -373,50 +386,6 @@ background-color: rgb(85, 255, 255);</string>
                 <string/>
                </property>
               </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QLabel" name="label_4">
-               <property name="text">
-                <string>PMG名称</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QLineEdit" name="lineEdit"/>
-             </item>
-             <item row="5" column="0">
-              <widget class="QLabel" name="label">
-               <property name="text">
-                <string>PMG成员</string>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="1">
-              <widget class="QLineEdit" name="lineEdit_2"/>
-             </item>
-             <item row="7" column="0">
-              <widget class="QLabel" name="label_8">
-               <property name="text">
-                <string>当前选择属性</string>
-               </property>
-              </widget>
-             </item>
-             <item row="7" column="1">
-              <widget class="QLabel" name="label_9">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="9" column="0">
-              <widget class="QLabel" name="label_10">
-               <property name="text">
-                <string>当前属性值</string>
-               </property>
-              </widget>
-             </item>
-             <item row="9" column="1">
-              <widget class="QLineEdit" name="lineEdit_4"/>
              </item>
              <item row="2" column="1">
               <spacer name="verticalSpacer_10">
@@ -434,6 +403,23 @@ background-color: rgb(85, 255, 255);</string>
                </property>
               </spacer>
              </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_4">
+               <property name="text">
+                <string>PMG名称</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLineEdit" name="lineEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
+             </item>
              <item row="4" column="1">
               <spacer name="verticalSpacer_11">
                <property name="orientation">
@@ -446,6 +432,23 @@ background-color: rgb(85, 255, 255);</string>
                 </size>
                </property>
               </spacer>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="label">
+               <property name="text">
+                <string>PMG成员</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QLineEdit" name="lineEdit_2">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
              <item row="6" column="1">
               <spacer name="verticalSpacer_12">
@@ -460,6 +463,20 @@ background-color: rgb(85, 255, 255);</string>
                </property>
               </spacer>
              </item>
+             <item row="7" column="0">
+              <widget class="QLabel" name="label_8">
+               <property name="text">
+                <string>当前选择属性</string>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="1">
+              <widget class="QLabel" name="label_9">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
              <item row="8" column="1">
               <spacer name="verticalSpacer_13">
                <property name="orientation">
@@ -473,21 +490,22 @@ background-color: rgb(85, 255, 255);</string>
                </property>
               </spacer>
              </item>
-             <item row="0" column="1">
-              <spacer name="verticalSpacer_14">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
+             <item row="9" column="0">
+              <widget class="QLabel" name="label_10">
+               <property name="text">
+                <string>当前属性值</string>
                </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Minimum</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
+              </widget>
+             </item>
+             <item row="9" column="1">
+              <widget class="QLineEdit" name="lineEdit_4">
+               <property name="minimumSize">
                 <size>
-                 <width>20</width>
-                 <height>40</height>
+                 <width>0</width>
+                 <height>30</height>
                 </size>
                </property>
-              </spacer>
+              </widget>
              </item>
              <item row="10" column="1">
               <spacer name="verticalSpacer_15">
@@ -495,7 +513,7 @@ background-color: rgb(85, 255, 255);</string>
                 <enum>Qt::Vertical</enum>
                </property>
                <property name="sizeType">
-                <enum>QSizePolicy::Minimum</enum>
+                <enum>QSizePolicy::Expanding</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
@@ -515,6 +533,11 @@ background-color: rgb(85, 255, 255);</string>
                <height>60</height>
               </size>
              </property>
+             <property name="styleSheet">
+              <string notr="true">font: 12pt;
+border-top-color: rgb(255, 255, 255);
+background-color: rgb(85, 255, 255);</string>
+             </property>
              <property name="text">
               <string>光标处删除成员</string>
              </property>
@@ -527,6 +550,11 @@ background-color: rgb(85, 255, 255);</string>
                <width>0</width>
                <height>60</height>
               </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 12pt;
+border-top-color: rgb(255, 255, 255);
+background-color: rgb(85, 255, 255);</string>
              </property>
              <property name="text">
               <string>光标处插入成员</string>
@@ -541,6 +569,11 @@ background-color: rgb(85, 255, 255);</string>
                <height>60</height>
               </size>
              </property>
+             <property name="styleSheet">
+              <string notr="true">font: 12pt;
+border-top-color: rgb(255, 255, 255);
+background-color: rgb(85, 255, 255);</string>
+             </property>
              <property name="text">
               <string>保存修改</string>
              </property>
@@ -551,7 +584,11 @@ background-color: rgb(85, 255, 255);</string>
          <item row="0" column="0">
           <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0">
            <item>
-            <widget class="QTableWidget" name="tableWidget"/>
+            <widget class="QTableWidget" name="tableWidget">
+             <property name="styleSheet">
+              <string notr="true">background-image: url(:/780.jpg);</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </item>
@@ -571,93 +608,229 @@ background-color: rgb(85, 255, 255);</string>
             <number>0</number>
            </property>
            <item>
-            <layout class="QFormLayout" name="formLayout">
-             <property name="formAlignment">
-              <set>Qt::AlignCenter</set>
-             </property>
+            <layout class="QGridLayout" name="gridLayout_5">
              <property name="horizontalSpacing">
               <number>0</number>
              </property>
              <property name="verticalSpacing">
               <number>11</number>
              </property>
-             <item row="0" column="0">
+             <item row="0" column="1">
+              <spacer name="verticalSpacer_23">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="1" column="0">
               <widget class="QLabel" name="label_6">
                <property name="text">
                 <string>建筑代码</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
+             <item row="1" column="1">
               <widget class="QLabel" name="label_7">
                <property name="text">
                 <string/>
                </property>
               </widget>
              </item>
-             <item row="1" column="0">
+             <item row="2" column="1">
+              <spacer name="verticalSpacer_16">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="3" column="0">
               <widget class="QLabel" name="label_4">
                <property name="text">
                 <string>建筑名称</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="lineEdit"/>
+             <item row="3" column="1">
+              <widget class="QLineEdit" name="lineEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
-             <item row="2" column="0">
+             <item row="4" column="1">
+              <spacer name="verticalSpacer_17">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="5" column="0">
               <widget class="QLabel" name="label">
                <property name="text">
                 <string>建筑力需求</string>
                </property>
               </widget>
              </item>
-             <item row="2" column="1">
-              <widget class="QLineEdit" name="lineEdit_2"/>
+             <item row="5" column="1">
+              <widget class="QLineEdit" name="lineEdit_2">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
-             <item row="3" column="0">
+             <item row="6" column="1">
+              <spacer name="verticalSpacer_18">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="7" column="0">
               <widget class="QLabel" name="label_5">
                <property name="text">
                 <string>解锁法律</string>
                </property>
               </widget>
              </item>
-             <item row="3" column="1">
-              <widget class="QLineEdit" name="lineEdit_3"/>
-             </item>
-             <item row="5" column="1">
-              <widget class="QLabel" name="label_9">
-               <property name="text">
-                <string/>
+             <item row="7" column="1">
+              <widget class="QLineEdit" name="lineEdit_3">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
                </property>
               </widget>
              </item>
-             <item row="6" column="0">
-              <widget class="QLabel" name="label_10">
-               <property name="text">
-                <string>当前属性值</string>
+             <item row="8" column="1">
+              <spacer name="verticalSpacer_19">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
                </property>
-              </widget>
-             </item>
-             <item row="6" column="1">
-              <widget class="QLineEdit" name="lineEdit_4"/>
-             </item>
-             <item row="5" column="0">
-              <widget class="QLabel" name="label_8">
-               <property name="text">
-                <string>当前选择属性</string>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
                </property>
-              </widget>
+              </spacer>
              </item>
-             <item row="4" column="0">
+             <item row="9" column="0">
               <widget class="QLabel" name="label_2">
                <property name="text">
                 <string>PMG成员</string>
                </property>
               </widget>
              </item>
-             <item row="4" column="1">
-              <widget class="QLineEdit" name="lineEdit_5"/>
+             <item row="9" column="1">
+              <widget class="QLineEdit" name="lineEdit_5">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item row="10" column="1">
+              <spacer name="verticalSpacer_20">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="11" column="0">
+              <widget class="QLabel" name="label_8">
+               <property name="text">
+                <string>当前选择属性</string>
+               </property>
+              </widget>
+             </item>
+             <item row="11" column="1">
+              <widget class="QLabel" name="label_9">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="12" column="1">
+              <spacer name="verticalSpacer_21">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="13" column="0">
+              <widget class="QLabel" name="label_10">
+               <property name="text">
+                <string>当前属性值</string>
+               </property>
+              </widget>
+             </item>
+             <item row="13" column="1">
+              <widget class="QLineEdit" name="lineEdit_4">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item row="14" column="1">
+              <spacer name="verticalSpacer_22">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
              </item>
             </layout>
            </item>
@@ -668,6 +841,11 @@ background-color: rgb(85, 255, 255);</string>
                <width>0</width>
                <height>60</height>
               </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 12pt;
+border-top-color: rgb(255, 255, 255);
+background-color: rgb(85, 255, 255);</string>
              </property>
              <property name="text">
               <string>光标处删除成员</string>
@@ -682,6 +860,11 @@ background-color: rgb(85, 255, 255);</string>
                <height>60</height>
               </size>
              </property>
+             <property name="styleSheet">
+              <string notr="true">font: 12pt;
+border-top-color: rgb(255, 255, 255);
+background-color: rgb(85, 255, 255);</string>
+             </property>
              <property name="text">
               <string>光标处插入成员</string>
              </property>
@@ -695,6 +878,11 @@ background-color: rgb(85, 255, 255);</string>
                <height>60</height>
               </size>
              </property>
+             <property name="styleSheet">
+              <string notr="true">font: 12pt;
+border-top-color: rgb(255, 255, 255);
+background-color: rgb(85, 255, 255);</string>
+             </property>
              <property name="text">
               <string>保存修改</string>
              </property>
@@ -705,7 +893,11 @@ background-color: rgb(85, 255, 255);</string>
          <item row="0" column="0">
           <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0">
            <item>
-            <widget class="QTableWidget" name="tableWidget"/>
+            <widget class="QTableWidget" name="tableWidget">
+             <property name="styleSheet">
+              <string notr="true">background-image: url(:/780.jpg);</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </item>
@@ -717,6 +909,12 @@ background-color: rgb(85, 255, 255);</string>
    </item>
    <item row="0" column="0">
     <widget class="QStackedWidget" name="stackedWidget_2">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="styleSheet">
       <string notr="true"/>
      </property>
@@ -782,6 +980,12 @@ background-color: rgb(85, 255, 255);</string>
        </item>
        <item>
         <widget class="QPushButton" name="pushButton_5">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -810,6 +1014,12 @@ color:white
        </item>
        <item>
         <widget class="QPushButton" name="pushButton_6">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -838,6 +1048,12 @@ color:white
        </item>
        <item>
         <widget class="QPushButton" name="pushButton_4">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -866,6 +1082,12 @@ color:white
        </item>
        <item>
         <widget class="QPushButton" name="pushButton_7">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -875,7 +1097,7 @@ color:white
          <property name="styleSheet">
           <string notr="true">QPushButton{
 border:none;        
-		border-bottom:1px solid white;
+
 border-top:1px solid white;
         font-size:18px;
         font-weight:700;
@@ -894,6 +1116,12 @@ color:white
        </item>
        <item>
         <widget class="QPushButton" name="pushButton_8">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -903,7 +1131,6 @@ color:white
          <property name="styleSheet">
           <string notr="true">QPushButton{
 border:none;        
-		border-bottom:1px solid white;
 border-top:1px solid white;
         font-size:18px;
         font-weight:700;
@@ -922,6 +1149,12 @@ color:white
        </item>
        <item>
         <widget class="QPushButton" name="pushButton_9">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
            <width>0</width>
