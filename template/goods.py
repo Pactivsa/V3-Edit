@@ -6,12 +6,12 @@ class Goods(BaseTemplate):
         original_file = "template/original/goods.txt"
         super().__init__(name,original_file, if_init)
 
-    def _clone(self):
-        return Goods(self.name, self.if_init)
+    def _clone(self,name):
+        return Goods(name, self.if_init)
     
     @staticmethod
     #从goods_manager中获取所有的goods与对应的cost
-    def goods_dict(goods_manager: "BaseManager"):
+    def goods_dict(goods_manager: BaseManager):
         #检测goods_manager中的prototype是否为Goods
         if not isinstance(goods_manager.prototype, Goods):
             raise Exception("goods_manager中的prototype必须为Goods")
@@ -25,7 +25,7 @@ class Goods(BaseTemplate):
     
     @staticmethod
     #获取指定key的goods的cost
-    def goods(goods_manager: "BaseManager", key: str):
+    def goods(goods_manager: BaseManager, key: str):
         #检测goods_manager中的prototype是否为Goods
         if not isinstance(goods_manager.prototype, Goods):
             raise Exception("goods_manager中的prototype必须为Goods")

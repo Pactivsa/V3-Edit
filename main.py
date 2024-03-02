@@ -4,7 +4,7 @@ from PyQt5 import uic
 import openpyxl as op
 from pathlib import Path
 import shutil
-import pyperclip
+#import pyperclip
 
 # 这是一个示例 Python 脚本。
 # 按 Shift+F10 执行或将其替换为您的代码。
