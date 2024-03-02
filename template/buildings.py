@@ -15,6 +15,43 @@ class Buildings(BaseTemplate):
 
     def _clone(self,name):
         return Buildings(name,  self.if_init)
+    
+    def set_texture(self, texture_path):
+        self.add("texture", "=", texture_path)
+
+    def set_city_type(self, city_type):
+        self.add("city_type", "=", city_type)
+
+    def set_lpm(self, lpm):
+        self.add("level_per_mesh", "=", lpm)
+
+    # unlocking_technologies
+    def add_unlocking_technology(self, tech):
+        self.insert(tech, "unlocking_technologies",True)
+
+    def remove_unlocking_technology(self, tech):
+        self.delete(tech, "unlocking_technologies")
+
+    def get_unlocking_technologies(self):
+        return self.trace("unlocking_technologies")
+    
+    # production_method_groups
+    def add_production_method_group(self, pmg):
+        self.insert(pmg, "production_method_groups",True)
+
+    def remove_production_method_group(self, pmg):
+        self.delete(pmg, "production_method_groups")
+
+    def get_production_method_groups(self):
+        return self.trace("production_method_groups")
+    
+    # required_construction
+    def set_required_construction(self, construction):
+        self.add("required_construction", "=", construction)
+
+    def get_required_construction(self):
+        return self.trace("required_construction")
+    
 
 class Pmg(BaseTemplate):
     def __init__(self,name , if_init=False,Buildings: Buildings=None):
