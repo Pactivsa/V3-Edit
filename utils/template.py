@@ -3,22 +3,16 @@ from typing import Literal
 from enum import Enum
 from abc import ABC, abstractmethod
 
-
-from utils.folder import parser_file
 from utils.utils import output_to_txt
 from utils.folder import parser_folder
 
-class Localization():
-    def __init__(self):
-        simp_chinese = None
-        english = None
 
 class BaseTemplate:
     def __init__(self, name ,original_file,if_init=False):
         self.if_init = if_init
         self.original_file = original_file
         self.name = name
-        self.Localizations = Localization()
+        #self.Localizations = Localization()
         self.data = {
             name: 
                 [
@@ -33,6 +27,21 @@ class BaseTemplate:
     @abstractmethod
     def _clone(self, name):
         pass
+
+    def clone_from(self, prototype: "BaseTemplate", new_name: str):
+        '''
+            从原型中克隆一个新的对象
+        '''
+        result:"BaseTemplate" = prototype._clone(new_name)
+        result.data[new_name] = prototype.data[prototype.name]
+        return result
+    
+    def rename(self, new_name: str):
+        '''
+            重命名
+        '''
+        self.data[new_name] = self.data.pop(self.name)
+        self.name = new_name
 
     def radd(self, key:str
              , link_type:Literal["=","!=","?=","<",">","<=",">="]
@@ -280,32 +289,55 @@ class BaseManager:
         self.prototype = self.class_type(name="prototype",if_init=if_init)
 
 
-    def set_property(self, name, property):
+    def set_property(self, name, property) -> None:
         '''
             设置属性
         '''
         self.map[name] = property
 
-    def get_property(self, name,if_create:bool = True):
+    def get_property(self, name,if_create:bool = True) -> BaseTemplate:
         '''
             获取属性
         '''
         property = self.map.get(name)
         if not property:
             if not if_create:
-                raise Exception("未找到对应的属性:"+name)
+                return None
+                #raise Exception("未找到对应的属性:"+name)
             #未找到对应的属性，则返回一个新的属性
             property = self.prototype._clone(name)
             self.map[name] = property
         return property
     
-    def output(self, output_file: str):
+    def rename(self, old_name, new_name) -> None:
+        '''
+            重命名
+        '''
+        if old_name in self.map:
+            self.map[new_name] = self.map.pop(old_name)
+            self.map[new_name].rename(new_name)
+        else:
+            raise Exception("未找到对应的属性:"+old_name)
+        
+    def clone_from(self, prototype_name: str , new_name: str) -> BaseTemplate:
+        '''
+            从指定的一项克隆一个新的对象
+        '''
+        prototype = self.get_property(prototype_name, False)
+        if not prototype:
+            raise Exception("未找到对应的属性:"+prototype_name)
+        result = prototype.clone_from(prototype, new_name)
+        self.map[new_name] = result
+        return result
+
+    
+    def output(self, output_file: str) -> None:
         '''
             输出
         '''
         BaseTemplate.compile_template(list(self.map.values()), output_file)
     
-    def output_as_json(self, output_file: str):
+    def output_as_json(self, output_file: str) -> None:
         '''
             输出为json
         '''
@@ -316,7 +348,7 @@ class BaseManager:
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write(json.dumps(result, indent=4, ensure_ascii=False))
 
-    def init_from_folder(self, folder_path: str):
+    def init_from_folder(self, folder_path: str) -> None:
         '''
             从文件夹初始化
         '''
@@ -328,13 +360,22 @@ class BaseManager:
                 key: result[key]
             }
 
+    def keys(self) -> list:
+        '''
+            获取所有的key
+        '''
+        return self.map.keys()
+        
+    def pop(self, key) -> BaseTemplate:
+        return self.map.pop(key)
+    
 
     # manager输出时把map中的所有template合并输出
-    def __iter__(self):
+    def __iter__(self) -> iter:
         return iter(self.map.values())
     
-    def __getitem__(self, key, if_create:bool = True):
-        return self.get_property(key, if_create)
+    def __getitem__(self, key) -> BaseTemplate:
+        return self.get_property(name=key, if_create=False)
     
     def __str__(self) -> str:
         list = []
@@ -342,7 +383,7 @@ class BaseManager:
             
             list.append(str(self.map[key].data))
         return "\n".join(list)
-    
+
 
 
             
