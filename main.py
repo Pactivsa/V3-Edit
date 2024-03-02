@@ -23,6 +23,7 @@ class OpeningUI(QDialog):
         self.init_ui()
 
     def init_ui(self):
+        print(str(SRC_PATH / "./UI/opening.ui"))
         self.ui = uic.loadUi(str(SRC_PATH / "./UI/opening.ui"))
 
         pushButton = self.ui.pushButton

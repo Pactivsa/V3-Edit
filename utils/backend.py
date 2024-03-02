@@ -55,7 +55,7 @@ class BackendManager():
         mods_manager:BaseManager = self.mods[part]
         raw_manager:BaseManager = self.raw[part]
 
-        return mods_manager.get_all_keys() , raw_manager.get_all_keys()
+        return mods_manager.keys() , raw_manager.keys()
     
     def get_part_detail(self, part:str, key:str):
         '''

@@ -12,6 +12,6 @@ BM = BackendManager(GamePath, ModPath)
 
 building_textile_mills ,rc = get_building_detail(BM, "building_textile_mills")
 
-print(building_textile_mills.get_production_method_groups())
+print(BM.get_part("pmgs"))
 
 

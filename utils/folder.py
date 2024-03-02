@@ -98,7 +98,7 @@ def parser_default(path) -> dict:
     building_groups_path = join(path, 'common','building_groups')
     building_groups_manager = BaseManager(Buildings_group)
     building_groups_manager.init_from_folder(building_groups_path)
-    result['building_groups'] = building_groups_manager
+    result['bg'] = building_groups_manager
 
     #解析buildings,路径 path' , 'common' , 'buildings
     buildings_path = join(path, 'common','buildings')
