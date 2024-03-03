@@ -12,6 +12,9 @@ BM = BackendManager(GamePath, ModPath)
 
 building_textile_mills ,rc = get_building_detail(BM, "building_textile_mills")
 
-print(BM.get_part("pmgs"))
 
+pm_test, rc = get_pm_detail(BM, "pm_atmospheric_engine_pump_building_coal_mine")
+
+for key in pm_test.keys():
+    print(key, pm_test[key])
 
