@@ -6,7 +6,8 @@ from template.buildings import *
 
 
 GamePath = r"D:\Steam\steamapps\common\Victoria 3\game"
-ModPath = r"D:\Steam\steamapps\workshop\content\529340\2890076329"
+# ModPath = r"D:\Steam\steamapps\workshop\content\529340\2890076329"
+ModPath = r"mod\test"
 
 BM = BackendManager(GamePath, ModPath)
 
@@ -17,4 +18,6 @@ pm_test, rc = get_pm_detail(BM, "pm_atmospheric_engine_pump_building_coal_mine")
 
 for key in pm_test.keys():
     print(key, pm_test[key])
+
+BM.output()
 
