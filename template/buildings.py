@@ -110,6 +110,8 @@ class Pm(BaseTemplate):
     def get_inputs(self):
         goods_dict = self.trace("building_modifiers.workforce_scaled")
         result = {}
+        if goods_dict is None:
+            return result
         # 解析存在的输入
         for good in goods_dict:
             if good.startswith("goods_input_"):
@@ -121,6 +123,9 @@ class Pm(BaseTemplate):
     def get_outputs(self):
         goods_dict = self.trace("building_modifiers.workforce_scaled")
         result = {}
+
+        if goods_dict is None:
+            return result
         # 解析存在的输入
         for good in goods_dict:
             if good.startswith("goods_output_"):
@@ -136,7 +141,11 @@ class Pm(BaseTemplate):
         key = "goods_output_"+good+"_add"
         self.add(key,"=",amount,path, True)
 
+    def get_level_scaled(self):
+        return self.trace("building_modifiers.level_scaled")
     
+    def get_unscaled(self):
+        return self.trace("building_modifiers.unscaled")
 
     def remove_output(self, good):
         key = "goods_output_"+good+"_add"

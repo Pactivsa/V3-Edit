@@ -225,7 +225,8 @@ class BaseTemplate:
             trace = trace + path + "."
             #如果当前层级不存在,则报错
             if path not in current_data.keys():
-                raise Exception("当前层级不存在:"+trace)
+                return None
+                #raise Exception("当前层级不存在:"+trace)
             #进入下一层级
             current_data = current_data[path][1]
         return current_data
