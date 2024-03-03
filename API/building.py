@@ -11,6 +11,10 @@ def get_building_detail(BM:BackendManager, name:str):
     buildings, source = BM.get_part_detail("buildings", name)
     return buildings, source
 
+def get_goods_detail(BM:BackendManager, name:str):
+    goods, source = BM.get_part_detail("goods", name)
+    return goods, source
+
 def get_pm_detail(BM:BackendManager, name:str):
     pm, source = BM.get_part_detail("pm", name)
     pm: Pm

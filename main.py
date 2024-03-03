@@ -4,7 +4,12 @@ from PyQt5 import uic
 import openpyxl as op
 from pathlib import Path
 import shutil
-#import pyperclip
+import pyperclip
+from utils.backend import BackendManager
+from API.building import *
+from template.buildings import *
+import os
+import ast
 
 # 这是一个示例 Python 脚本。
 # 按 Shift+F10 执行或将其替换为您的代码。
@@ -16,11 +21,23 @@ SRC_PATH = Path.absolute(Path(__file__)).parent
 # file_path = str(SRC_PATH / "a/b.ui")
 # todo: 不要引相对路径。打包时会有问题，把所有相对路径都改成上面的格式。
 
+def copy_folder(source_folder, destination_folder):
+    if not os.path.exists(destination_folder):
+        os.mkdir(destination_folder)
+
+    for item in os.listdir(source_folder):
+        if os.path.isfile(os.path.join(source_folder, item)):
+            shutil.copy(os.path.join(source_folder, item), destination_folder)
+        else:
+            copy_folder(os.path.join(source_folder, item), os.path.join(destination_folder, item))
+
+
 class OpeningUI(QDialog):
     def __init__(self):
         super().__init__()
         self.ui = None
         self.init_ui()
+        self.folder = None
 
     def init_ui(self):
         print(str(SRC_PATH / "./UI/opening.ui"))
@@ -30,17 +47,51 @@ class OpeningUI(QDialog):
         pushButton_2 = self.ui.pushButton_2
         pushButton_3 = self.ui.pushButton_3
 
-        pushButton.clicked.connect(lambda: self.importfolder(self.ui.lineEdit))
-        pushButton_3.clicked.connect(lambda: self.importfolder(self.ui.lineEdit_2))
-        pushButton_2.clicked.connect(lambda: self.loadv3file(self.ui.lineEdit, self.ui.lineEdit_2))
+        pushButton.clicked.connect(lambda: self.importfolder(self.ui.lineEdit_2))
+        pushButton_3.clicked.connect(lambda: self.importfolder(self.ui.lineEdit))
+        pushButton_2.clicked.connect(lambda: self.loadv3file(self.ui.lineEdit_2, self.ui.lineEdit))
 
     def importfolder(self, QlineEdit):
-        # todo: 点击后，弹出文件夹选择界面并且在选择后将其显示在QlineEdit中。
-        pass
+        self.folder = QFileDialog.getExistingDirectory(self, "选择文件夹")
+        print(self.folder)
+        QlineEdit.setText(self.folder)
 
     def loadv3file(self, QlineEdit1, QlineEdit2):
+        GamePath = QlineEdit1.text()
+        ModPath = QlineEdit2.text()
+
+        tempmodpath = str(SRC_PATH / "./mod/test")
+
+        copy_folder(GamePath + '/common', tempmodpath + '/common')
+        copy_folder(ModPath + '/common', tempmodpath + '/common')
+        BM = BackendManager(GamePath, tempmodpath)
+        goods, rowgoods = BM.get_part("goods")
+        pm,rowpm = BM.get_part("pm")
+        print(BM.get_part("pm"))
+        header_labels = ["Name", "Cost"]
+        main_ui.ui.tableWidget_2.setHorizontalHeaderLabels(header_labels)
+
+        k = 0
+        for i in goods:
+            single_goods, rc = get_goods_detail(BM, i)
+            single_goods_str = str(single_goods)
+            single_goods_dict = ast.literal_eval(single_goods_str)
+            main_ui.ui.tableWidget_2.setItem(k, 0, QTableWidgetItem(i))
+            main_ui.ui.tableWidget_2.setItem(k, 1, QTableWidgetItem(str(single_goods_dict[i][1]['cost'][1])))
+            row_count = main_ui.ui.tableWidget_2.rowCount()  # 返回当前行数(尾部)
+            main_ui.ui.tableWidget_2.insertRow(row_count)
+            k = k+1
+        for j in pm:
+            single_pm, rc = get_goods_detail(BM, j)
+            single_pm_str = str(single_pm)
+            single_pm_dict = ast.literal_eval(single_pm_str)
+
+
         # todo: 点击后，根据QlineEdit1（原版路径）与QlineEdit2（MOD路径）读取相关文件（PM与商品），建立相关结构化数据（并将相关数据导入到各个TABLE中）。然后，隐藏opening
-        #  界面并显示MAIN界面。
+        opening.ui.close()
+        main_ui.ui.show()
+        main_ui.ui.tableWidget1.show()
+        #  隐藏并显示MAIN界面。
         pass
 
 
