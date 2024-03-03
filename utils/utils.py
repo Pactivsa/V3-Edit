@@ -169,6 +169,7 @@ class ContentParser():
         if depth > self.max_depth:
             raise ValueError('Block parser depth error at token %d,Currrent token is %s' % (self.current, token))
 
+
         #获取当前指针指向的token
         token = self.current_token()
         #如果当前token不是block_start，抛出异常
@@ -178,6 +179,11 @@ class ContentParser():
         self.next_token()
         #获取下一个token
         token = self.current_token()
+
+        #检测当前token是否为block_end，如果是，返回空字典
+        if token[1] == 'BLOCK_END':
+            return {}
+
         #探测下一个token是否为KEY_VALUE，如果不是KEY_VALUE，则为list，否则为dict
         next_token = self.peek()
         #如果下一个token是KEY_VALUE，则为dict

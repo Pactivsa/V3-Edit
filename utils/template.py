@@ -370,6 +370,22 @@ class BaseManager:
     def pop(self, key) -> BaseTemplate:
         return self.map.pop(key)
     
+    #将两个manager合并
+    def merge(self, manager: "BaseManager") -> None:
+        # 检测manager的class_type是否与当前的class_type相同
+        if self.class_type != manager.class_type:
+            raise Exception("class_type不一致")
+        for key in manager.map:
+            self.map[key] = manager.map[key]
+
+    def __add__(self, manager: "BaseManager") -> "BaseManager":
+        result = BaseManager(self.class_type)
+        result.merge(self)
+        result.merge(manager)
+        return result
+    
+    
+    
 
     # manager输出时把map中的所有template合并输出
     def __iter__(self) -> iter:
