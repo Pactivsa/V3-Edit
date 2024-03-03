@@ -6,7 +6,7 @@ from template.buildings import *
 
 
 GamePath = r"D:\Steam\steamapps\common\Victoria 3\game"
-ModPath = r"mod\test"
+ModPath = r"D:\Steam\steamapps\workshop\content\529340\2890076329"
 
 BM = BackendManager(GamePath, ModPath)
 
