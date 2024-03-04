@@ -69,6 +69,13 @@ class BackendManager():
         '''
             从raw和mods中获取指定的组件的所有key
             @param part: 组件的名称
+            允许值从 utls.structure获取，包括：[
+                "buildings",
+                "bg",
+                "pmg",
+                "pm",
+                "goods"
+            ]
             @return: mods中的key列表，raw中的key列表
         '''
         mods_manager:BaseManager = self.mods[part]
@@ -80,7 +87,15 @@ class BackendManager():
         '''
             从raw和mods中获取指定的组件的详细信息
             @param part: 组件的名称
-            @param key: 组件的key
+            @param key: 组件的key,
+            
+            允许值从 utls.structure获取，包括：[
+                "buildings",
+                "bg",
+                "pmg",
+                "pm",
+                "goods"
+            ]
             @return: mods中的组件，raw中的组件
         '''
         mods_manager:BaseManager = self.mods[part]

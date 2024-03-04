@@ -7,11 +7,33 @@ def get_buildings(BM:BackendManager):
     ans = mods_list + raw_list
     return ans.sort()
 
-def get_building_detail(BM:BackendManager, name:str):
+def get_bgs(BM:BackendManager):
+    mods_list, raw_list = BM.get_part("bg")
+    ans = mods_list + raw_list
+    return ans.sort()
+
+def get_pmgs(BM:BackendManager):
+    mods_list, raw_list = BM.get_part("pmg")
+    ans = mods_list + raw_list
+    return ans.sort()
+
+def get_pms(BM:BackendManager):
+    mods_list, raw_list = BM.get_part("pm")
+    ans = mods_list + raw_list
+    return ans.sort()
+
+def get_goods(BM:BackendManager):
+    mods_list, raw_list = BM.get_part("goods")
+    ans = mods_list + raw_list
+    return ans.sort()
+
+def get_building(BM:BackendManager, name:str):
     buildings, source = BM.get_part_detail("buildings", name)
+    buildings: Buildings
+
     return buildings, source
 
-def get_pm_detail(BM:BackendManager, name:str):
+def get_pm(BM:BackendManager, name:str):
     pm, source = BM.get_part_detail("pm", name)
     pm: Pm
     pm_dict = {
