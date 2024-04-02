@@ -1,6 +1,7 @@
 from utils.template import BaseTemplate
 from template.goods import Goods
 from typing import Literal
+import pandas as pd
 
 class Buildings_group(BaseTemplate):
     def __init__(self, name ,if_init=False):
@@ -9,6 +10,37 @@ class Buildings_group(BaseTemplate):
 
     def _clone(self,name):
         return Buildings_group(name, self.if_init)
+    
+    @staticmethod
+    def structure() -> dict:
+        '''
+            返回建筑组的结构
+            以 key: path返回
+        '''
+        return {
+            "name": "name",
+            "category": "category",
+            "always_possible": "always_possible",
+            "economy_of_scale": "economy_of_scale",
+            "cash_reserves_max": "cash_reserves_max",
+            "should_auto_expand": "should_auto_expand"
+        }
+
+    def __getitem__(self, key):
+        structure = self.structure()
+        #检测key是否存在
+        if key not in structure:
+            raise KeyError(f"bg不存在{key}，允许的key有{list(structure.keys())}")
+        #返回对应的值
+        return self.trace(structure[key])
+    
+    def __setitem__(self, key, value):
+        structure = self.structure()
+        #检测key是否存在
+        if key not in structure:
+            raise KeyError(f"bg不存在{key}，允许的key有{list(structure.keys())}")
+        #设置对应的值
+        self.add(structure[key], "=", value)
     
     #category
 
@@ -47,7 +79,9 @@ class Buildings_group(BaseTemplate):
 
     def get_SAE(self) -> str:
         return self.trace("should_auto_expand")
-
+    
+    
+    
     
 
     
@@ -59,6 +93,41 @@ class Buildings(BaseTemplate):
     def _clone(self,name) -> "Buildings":
         return Buildings(name,  self.if_init)
     
+    @staticmethod
+    def structure() -> dict:
+        '''
+            返回建筑的结构
+            以 key: path返回
+        '''
+        return {
+            "name": "name",
+            "category": "category",
+            "level_per_mesh": "level_per_mesh",
+            "building_group": "building_group",
+            "unlocking_technologies": "unlocking_technologies",
+            "production_method_groups": "production_method_groups",
+            "required_construction": "required_construction",
+            "terrain_manipulator": "terrain_manipulator",
+            "texture": "texture",
+            "city_type": "city_type"
+        }
+    
+    def __getitem__(self, key):
+        structure = self.structure()
+        #检测key是否存在
+        if key not in structure:
+            raise KeyError(f"building不存在{key}，允许的key有{list(structure.keys())}")
+        #返回对应的值
+        return self.trace(structure[key])
+    
+    def __setitem__(self, key, value):
+        structure = self.structure()
+        #检测key是否存在
+        if key not in structure:
+            raise KeyError(f"building不存在{key}，允许的key有{list(structure.keys())}")
+        #设置对应的值
+        self.add(structure[key], "=", value)
+
     # texture
     def set_texture(self, texture_path) -> None:
         self.add("texture", "=", texture_path)
@@ -134,6 +203,8 @@ class Buildings(BaseTemplate):
 
     def get_terrain_manipulator(self) -> str:
         return self.trace("terrain_manipulator")
+
+    
     
 
 class Pmg(BaseTemplate):
@@ -147,6 +218,34 @@ class Pmg(BaseTemplate):
 
     def _clone(self,name):
         return Pmg(name, self.if_init)
+    
+    @staticmethod
+    def structure() -> dict:
+        '''
+            返回生产方法组的结构
+            以 key: path返回
+        '''
+        return {
+            "name": "name",
+            "production_methods": "production_methods",
+            "texture": "texture"
+        }
+    
+    def __getitem__(self, key):
+        structure = self.structure()
+        #检测key是否存在
+        if key not in structure:
+            raise KeyError(f"pmg不存在{key}，允许的key有{list(structure.keys())}")
+        #返回对应的值
+        return self.trace(structure[key])
+    
+    def __setitem__(self, key, value):
+        structure = self.structure()
+        #检测key是否存在
+        if key not in structure:
+            raise KeyError(f"pmg不存在{key}，允许的key有{list(structure.keys())}")
+        #设置对应的值
+        self.add(structure[key], "=", value)
     
     # production_methods
     def add_pm(self, pm_name: str):
@@ -184,6 +283,45 @@ class Pm(BaseTemplate):
     def _clone(self,name):
         return Pm(name, self.if_init)
     
+    @staticmethod
+    def structure() -> dict:
+        '''
+            返回生产方法的结构
+            以 key: path返回
+        '''
+        f_structure = {
+            "name": "name",
+            "texture": "texture",
+            "disallowing_laws": "disallowing_laws",
+            "building_modifiers": "building_modifiers",
+            "unlocking_technologies": "unlocking_technologies",
+            "workforce_scaled": "building_modifiers.workforce_scaled",
+            "level_scaled": "building_modifiers.level_scaled",
+            "unscaled": "building_modifiers.unscaled"
+        }
+
+        p_structure = {
+            "inputs": "building_modifiers.workforce_scaled",
+            "outputs": "building_modifiers.workforce_scaled",
+            "employees": "building_modifiers.level_scaled",
+            "shares": "building_modifiers.unscaled"
+        }
+
+        return f_structure, p_structure
+
+    
+    def __getitem__(self, key):
+        f_structure, p_structure = self.structure()
+        #检测key是否存在
+        if key in f_structure:
+            #返回对应的值
+            return self.trace(f_structure[key])
+        elif key in p_structure:
+            return self.trace(p_structure[key])
+        else:
+            raise KeyError(f"pm不存在{key}，允许的key有{list(f_structure.keys())+list(p_structure.keys())}")
+
+
     # texture
     def set_texture(self, texture_path):
         self.add("texture", "=", texture_path)

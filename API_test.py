@@ -11,7 +11,7 @@ ModPath = r"mod\test"
 
 BM = BackendManager(GamePath, ModPath)
 print(BM.get_part("buildings"))
-building_textile_mills ,rc = get_building_detail(BM, "building_textile_mills")
+building_textile_mills ,rc = get_building(BM, "building_textile_mills")
 
 
 pm_test, rc = get_pm_detail(BM, "pm_atmospheric_engine_pump_building_coal_mine")
