@@ -32,8 +32,8 @@
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>40</y>
+     <x>60</x>
+     <y>30</y>
      <width>281</width>
      <height>20</height>
     </rect>
@@ -89,8 +89,6 @@
    </property>
   </widget>
  </widget>
- <resources>
-  <include location="我不知道我抄csdn的.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

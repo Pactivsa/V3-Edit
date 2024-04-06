@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1027</width>
-    <height>737</height>
+    <width>1072</width>
+    <height>768</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -67,7 +67,964 @@ border-radius:15px;
         </spacer>
        </item>
        <item>
-        <widget class="PillPushButton" name="pushButton_5">
+        <widget class="PillPushButton" name="pushButton_load_goods">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">PushButton, ToolButton, ToggleButton, ToggleToolButton {
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.073);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+    border-radius: 5px;
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 5px 12px 6px 12px;
+    outline: none;
+}
+
+ToolButton {
+    padding: 5px 9px 6px 8px;
+}
+
+PushButton[isPlaceholderText=true] {
+    color: rgba(0, 0, 0, 0.6063);
+}
+
+PushButton[hasIcon=false] {
+    padding: 5px 12px 6px 12px;
+}
+
+PushButton[hasIcon=true] {
+    padding: 5px 12px 6px 36px;
+}
+
+DropDownToolButton, PrimaryDropDownToolButton {
+    padding: 5px 31px 6px 8px;
+}
+
+DropDownPushButton[hasIcon=false],
+PrimaryDropDownPushButton[hasIcon=false] {
+    padding: 5px 31px 6px 12px;
+}
+
+DropDownPushButton[hasIcon=true],
+PrimaryDropDownPushButton[hasIcon=true] {
+    padding: 5px 31px 6px 36px;
+}
+
+PushButton:hover, ToolButton:hover, ToggleButton:hover, ToggleToolButton:hover {
+    background: rgba(249, 249, 249, 0.5);
+}
+
+PushButton:pressed, ToolButton:pressed, ToggleButton:pressed, ToggleToolButton:pressed {
+    color: rgba(0, 0, 0, 0.63);
+    background: rgba(249, 249, 249, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.073);
+}
+
+PushButton:disabled, ToolButton:disabled, ToggleButton:disabled, ToggleToolButton:disabled {
+    color: rgba(0, 0, 0, 0.36);
+    background: rgba(249, 249, 249, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+
+PrimaryPushButton,
+PrimaryToolButton,
+ToggleButton:checked,
+ToggleToolButton:checked {
+    color: white;
+    background-color: #009faa;
+    border: 1px solid #00a7b3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:hover,
+PrimaryToolButton:hover,
+ToggleButton:checked:hover,
+ToggleToolButton:checked:hover {
+    background-color: #00a7b3;
+    border: 1px solid #2daab3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:pressed,
+PrimaryToolButton:pressed,
+ToggleButton:checked:pressed,
+ToggleToolButton:checked:pressed {
+    color: rgba(255, 255, 255, 0.63);
+    background-color: #3eabb3;
+    border: 1px solid #3eabb3;
+}
+
+PrimaryPushButton:disabled,
+PrimaryToolButton:disabled,
+ToggleButton:checked:disabled,
+ToggleToolButton:checked:disabled {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(205, 205, 205);
+    border: 1px solid rgb(205, 205, 205);
+}
+
+SplitDropButton,
+PrimarySplitDropButton {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#splitPushButton,
+#splitToolButton,
+#primarySplitPushButton,
+#primarySplitToolButton {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#splitPushButton:pressed,
+#splitToolButton:pressed,
+SplitDropButton:pressed {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+}
+
+PrimarySplitDropButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+#primarySplitPushButton, #primarySplitToolButton {
+    border-right: 1px solid #3eabb3;
+}
+
+#primarySplitPushButton:pressed, #primarySplitToolButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+HyperlinkButton {
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 6px 12px 6px 12px;
+    color: #009faa;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+HyperlinkButton[hasIcon=false] {
+    padding: 6px 12px 6px 12px;
+}
+
+HyperlinkButton[hasIcon=true] {
+    padding: 6px 12px 6px 36px;
+}
+
+HyperlinkButton:hover {
+    color: #009faa;
+    background-color: rgba(0, 0, 0, 10);
+    border: none;
+}
+
+HyperlinkButton:pressed {
+    color: #009faa;
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+HyperlinkButton:disabled {
+    color: rgba(0, 0, 0, 0.43);
+    background-color: transparent;
+    border: none;
+}
+
+
+RadioButton {
+    min-height: 24px;
+    max-height: 24px;
+    background-color: transparent;
+    font: 14px 'Segoe UI', 'Microsoft YaHei', 'PingFang SC';
+    color: black;
+}
+
+RadioButton::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 11px;
+    border: 2px solid #999999;
+    background-color: rgba(0, 0, 0, 5);
+    margin-right: 4px;
+}
+
+RadioButton::indicator:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+RadioButton::indicator:pressed {
+    border: 2px solid #bbbbbb;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgb(225, 224, 223),
+            stop:1 rgb(225, 224, 223));
+}
+
+RadioButton::indicator:checked {
+    height: 22px;
+    width: 22px;
+    border: none;
+    border-radius: 11px;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #009faa,
+            stop:1 #009faa);
+}
+
+RadioButton::indicator:checked:hover {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.6 rgb(255, 255, 255),
+            stop:0.7 #009faa,
+            stop:1 #009faa);
+}
+
+RadioButton::indicator:checked:pressed {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #009faa,
+            stop:1 #009faa);
+}
+
+RadioButton:disabled {
+    color: rgba(0, 0, 0, 110);
+}
+
+RadioButton::indicator:disabled {
+    border: 2px solid #bbbbbb;
+    background-color: transparent;
+}
+
+RadioButton::indicator:disabled:checked {
+    border: none;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgba(0, 0, 0, 0.2169),
+            stop:1 rgba(0, 0, 0, 0.2169));
+}
+
+TransparentToolButton,
+TransparentToggleToolButton,
+TransparentDropDownToolButton,
+TransparentPushButton,
+TransparentDropDownPushButton,
+TransparentTogglePushButton {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    margin: 0;
+}
+
+TransparentToolButton:hover,
+TransparentToggleToolButton:hover,
+TransparentDropDownToolButton:hover,
+TransparentPushButton:hover,
+TransparentDropDownPushButton:hover,
+TransparentTogglePushButton:hover {
+    background-color: rgba(0, 0, 0, 9);
+    border: none;
+}
+
+TransparentToolButton:pressed,
+TransparentToggleToolButton:pressed,
+TransparentDropDownToolButton:pressed,
+TransparentPushButton:pressed,
+TransparentDropDownPushButton:pressed,
+TransparentTogglePushButton:pressed {
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+TransparentToolButton:disabled,
+TransparentToggleToolButton:disabled,
+TransparentDropDownToolButton:disabled,
+TransparentPushButton:disabled,
+TransparentDropDownPushButton:disabled,
+TransparentTogglePushButton:disabled {
+    background-color: transparent;
+    border: none;
+}
+
+
+PillPushButton,
+PillPushButton:hover,
+PillPushButton:pressed,
+PillPushButton:disabled,
+PillPushButton:checked,
+PillPushButton:checked:hover,
+PillPushButton:checked:pressed,
+PillPushButton:disabled:checked,
+PillToolButton,
+PillToolButton:hover,
+PillToolButton:pressed,
+PillToolButton:disabled,
+PillToolButton:checked,
+PillToolButton:checked:hover,
+PillToolButton:checked:pressed,
+PillToolButton:disabled:checked {
+    background-color: transparent;
+    border: none;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>载入商品</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="PillPushButton" name="pushButton_load_pm">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">PushButton, ToolButton, ToggleButton, ToggleToolButton {
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.073);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+    border-radius: 5px;
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 5px 12px 6px 12px;
+    outline: none;
+}
+
+ToolButton {
+    padding: 5px 9px 6px 8px;
+}
+
+PushButton[isPlaceholderText=true] {
+    color: rgba(0, 0, 0, 0.6063);
+}
+
+PushButton[hasIcon=false] {
+    padding: 5px 12px 6px 12px;
+}
+
+PushButton[hasIcon=true] {
+    padding: 5px 12px 6px 36px;
+}
+
+DropDownToolButton, PrimaryDropDownToolButton {
+    padding: 5px 31px 6px 8px;
+}
+
+DropDownPushButton[hasIcon=false],
+PrimaryDropDownPushButton[hasIcon=false] {
+    padding: 5px 31px 6px 12px;
+}
+
+DropDownPushButton[hasIcon=true],
+PrimaryDropDownPushButton[hasIcon=true] {
+    padding: 5px 31px 6px 36px;
+}
+
+PushButton:hover, ToolButton:hover, ToggleButton:hover, ToggleToolButton:hover {
+    background: rgba(249, 249, 249, 0.5);
+}
+
+PushButton:pressed, ToolButton:pressed, ToggleButton:pressed, ToggleToolButton:pressed {
+    color: rgba(0, 0, 0, 0.63);
+    background: rgba(249, 249, 249, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.073);
+}
+
+PushButton:disabled, ToolButton:disabled, ToggleButton:disabled, ToggleToolButton:disabled {
+    color: rgba(0, 0, 0, 0.36);
+    background: rgba(249, 249, 249, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+
+PrimaryPushButton,
+PrimaryToolButton,
+ToggleButton:checked,
+ToggleToolButton:checked {
+    color: white;
+    background-color: #009faa;
+    border: 1px solid #00a7b3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:hover,
+PrimaryToolButton:hover,
+ToggleButton:checked:hover,
+ToggleToolButton:checked:hover {
+    background-color: #00a7b3;
+    border: 1px solid #2daab3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:pressed,
+PrimaryToolButton:pressed,
+ToggleButton:checked:pressed,
+ToggleToolButton:checked:pressed {
+    color: rgba(255, 255, 255, 0.63);
+    background-color: #3eabb3;
+    border: 1px solid #3eabb3;
+}
+
+PrimaryPushButton:disabled,
+PrimaryToolButton:disabled,
+ToggleButton:checked:disabled,
+ToggleToolButton:checked:disabled {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(205, 205, 205);
+    border: 1px solid rgb(205, 205, 205);
+}
+
+SplitDropButton,
+PrimarySplitDropButton {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#splitPushButton,
+#splitToolButton,
+#primarySplitPushButton,
+#primarySplitToolButton {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#splitPushButton:pressed,
+#splitToolButton:pressed,
+SplitDropButton:pressed {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+}
+
+PrimarySplitDropButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+#primarySplitPushButton, #primarySplitToolButton {
+    border-right: 1px solid #3eabb3;
+}
+
+#primarySplitPushButton:pressed, #primarySplitToolButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+HyperlinkButton {
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 6px 12px 6px 12px;
+    color: #009faa;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+HyperlinkButton[hasIcon=false] {
+    padding: 6px 12px 6px 12px;
+}
+
+HyperlinkButton[hasIcon=true] {
+    padding: 6px 12px 6px 36px;
+}
+
+HyperlinkButton:hover {
+    color: #009faa;
+    background-color: rgba(0, 0, 0, 10);
+    border: none;
+}
+
+HyperlinkButton:pressed {
+    color: #009faa;
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+HyperlinkButton:disabled {
+    color: rgba(0, 0, 0, 0.43);
+    background-color: transparent;
+    border: none;
+}
+
+
+RadioButton {
+    min-height: 24px;
+    max-height: 24px;
+    background-color: transparent;
+    font: 14px 'Segoe UI', 'Microsoft YaHei', 'PingFang SC';
+    color: black;
+}
+
+RadioButton::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 11px;
+    border: 2px solid #999999;
+    background-color: rgba(0, 0, 0, 5);
+    margin-right: 4px;
+}
+
+RadioButton::indicator:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+RadioButton::indicator:pressed {
+    border: 2px solid #bbbbbb;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgb(225, 224, 223),
+            stop:1 rgb(225, 224, 223));
+}
+
+RadioButton::indicator:checked {
+    height: 22px;
+    width: 22px;
+    border: none;
+    border-radius: 11px;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #009faa,
+            stop:1 #009faa);
+}
+
+RadioButton::indicator:checked:hover {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.6 rgb(255, 255, 255),
+            stop:0.7 #009faa,
+            stop:1 #009faa);
+}
+
+RadioButton::indicator:checked:pressed {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #009faa,
+            stop:1 #009faa);
+}
+
+RadioButton:disabled {
+    color: rgba(0, 0, 0, 110);
+}
+
+RadioButton::indicator:disabled {
+    border: 2px solid #bbbbbb;
+    background-color: transparent;
+}
+
+RadioButton::indicator:disabled:checked {
+    border: none;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgba(0, 0, 0, 0.2169),
+            stop:1 rgba(0, 0, 0, 0.2169));
+}
+
+TransparentToolButton,
+TransparentToggleToolButton,
+TransparentDropDownToolButton,
+TransparentPushButton,
+TransparentDropDownPushButton,
+TransparentTogglePushButton {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    margin: 0;
+}
+
+TransparentToolButton:hover,
+TransparentToggleToolButton:hover,
+TransparentDropDownToolButton:hover,
+TransparentPushButton:hover,
+TransparentDropDownPushButton:hover,
+TransparentTogglePushButton:hover {
+    background-color: rgba(0, 0, 0, 9);
+    border: none;
+}
+
+TransparentToolButton:pressed,
+TransparentToggleToolButton:pressed,
+TransparentDropDownToolButton:pressed,
+TransparentPushButton:pressed,
+TransparentDropDownPushButton:pressed,
+TransparentTogglePushButton:pressed {
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+TransparentToolButton:disabled,
+TransparentToggleToolButton:disabled,
+TransparentDropDownToolButton:disabled,
+TransparentPushButton:disabled,
+TransparentDropDownPushButton:disabled,
+TransparentTogglePushButton:disabled {
+    background-color: transparent;
+    border: none;
+}
+
+
+PillPushButton,
+PillPushButton:hover,
+PillPushButton:pressed,
+PillPushButton:disabled,
+PillPushButton:checked,
+PillPushButton:checked:hover,
+PillPushButton:checked:pressed,
+PillPushButton:disabled:checked,
+PillToolButton,
+PillToolButton:hover,
+PillToolButton:pressed,
+PillToolButton:disabled,
+PillToolButton:checked,
+PillToolButton:checked:hover,
+PillToolButton:checked:pressed,
+PillToolButton:disabled:checked {
+    background-color: transparent;
+    border: none;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>载入PM</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="PillPushButton" name="pushButton_load_pmg">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">PushButton, ToolButton, ToggleButton, ToggleToolButton {
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.073);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+    border-radius: 5px;
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 5px 12px 6px 12px;
+    outline: none;
+}
+
+ToolButton {
+    padding: 5px 9px 6px 8px;
+}
+
+PushButton[isPlaceholderText=true] {
+    color: rgba(0, 0, 0, 0.6063);
+}
+
+PushButton[hasIcon=false] {
+    padding: 5px 12px 6px 12px;
+}
+
+PushButton[hasIcon=true] {
+    padding: 5px 12px 6px 36px;
+}
+
+DropDownToolButton, PrimaryDropDownToolButton {
+    padding: 5px 31px 6px 8px;
+}
+
+DropDownPushButton[hasIcon=false],
+PrimaryDropDownPushButton[hasIcon=false] {
+    padding: 5px 31px 6px 12px;
+}
+
+DropDownPushButton[hasIcon=true],
+PrimaryDropDownPushButton[hasIcon=true] {
+    padding: 5px 31px 6px 36px;
+}
+
+PushButton:hover, ToolButton:hover, ToggleButton:hover, ToggleToolButton:hover {
+    background: rgba(249, 249, 249, 0.5);
+}
+
+PushButton:pressed, ToolButton:pressed, ToggleButton:pressed, ToggleToolButton:pressed {
+    color: rgba(0, 0, 0, 0.63);
+    background: rgba(249, 249, 249, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.073);
+}
+
+PushButton:disabled, ToolButton:disabled, ToggleButton:disabled, ToggleToolButton:disabled {
+    color: rgba(0, 0, 0, 0.36);
+    background: rgba(249, 249, 249, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+
+PrimaryPushButton,
+PrimaryToolButton,
+ToggleButton:checked,
+ToggleToolButton:checked {
+    color: white;
+    background-color: #009faa;
+    border: 1px solid #00a7b3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:hover,
+PrimaryToolButton:hover,
+ToggleButton:checked:hover,
+ToggleToolButton:checked:hover {
+    background-color: #00a7b3;
+    border: 1px solid #2daab3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:pressed,
+PrimaryToolButton:pressed,
+ToggleButton:checked:pressed,
+ToggleToolButton:checked:pressed {
+    color: rgba(255, 255, 255, 0.63);
+    background-color: #3eabb3;
+    border: 1px solid #3eabb3;
+}
+
+PrimaryPushButton:disabled,
+PrimaryToolButton:disabled,
+ToggleButton:checked:disabled,
+ToggleToolButton:checked:disabled {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(205, 205, 205);
+    border: 1px solid rgb(205, 205, 205);
+}
+
+SplitDropButton,
+PrimarySplitDropButton {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#splitPushButton,
+#splitToolButton,
+#primarySplitPushButton,
+#primarySplitToolButton {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#splitPushButton:pressed,
+#splitToolButton:pressed,
+SplitDropButton:pressed {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+}
+
+PrimarySplitDropButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+#primarySplitPushButton, #primarySplitToolButton {
+    border-right: 1px solid #3eabb3;
+}
+
+#primarySplitPushButton:pressed, #primarySplitToolButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+HyperlinkButton {
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 6px 12px 6px 12px;
+    color: #009faa;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+HyperlinkButton[hasIcon=false] {
+    padding: 6px 12px 6px 12px;
+}
+
+HyperlinkButton[hasIcon=true] {
+    padding: 6px 12px 6px 36px;
+}
+
+HyperlinkButton:hover {
+    color: #009faa;
+    background-color: rgba(0, 0, 0, 10);
+    border: none;
+}
+
+HyperlinkButton:pressed {
+    color: #009faa;
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+HyperlinkButton:disabled {
+    color: rgba(0, 0, 0, 0.43);
+    background-color: transparent;
+    border: none;
+}
+
+
+RadioButton {
+    min-height: 24px;
+    max-height: 24px;
+    background-color: transparent;
+    font: 14px 'Segoe UI', 'Microsoft YaHei', 'PingFang SC';
+    color: black;
+}
+
+RadioButton::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 11px;
+    border: 2px solid #999999;
+    background-color: rgba(0, 0, 0, 5);
+    margin-right: 4px;
+}
+
+RadioButton::indicator:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+RadioButton::indicator:pressed {
+    border: 2px solid #bbbbbb;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgb(225, 224, 223),
+            stop:1 rgb(225, 224, 223));
+}
+
+RadioButton::indicator:checked {
+    height: 22px;
+    width: 22px;
+    border: none;
+    border-radius: 11px;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #009faa,
+            stop:1 #009faa);
+}
+
+RadioButton::indicator:checked:hover {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.6 rgb(255, 255, 255),
+            stop:0.7 #009faa,
+            stop:1 #009faa);
+}
+
+RadioButton::indicator:checked:pressed {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #009faa,
+            stop:1 #009faa);
+}
+
+RadioButton:disabled {
+    color: rgba(0, 0, 0, 110);
+}
+
+RadioButton::indicator:disabled {
+    border: 2px solid #bbbbbb;
+    background-color: transparent;
+}
+
+RadioButton::indicator:disabled:checked {
+    border: none;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgba(0, 0, 0, 0.2169),
+            stop:1 rgba(0, 0, 0, 0.2169));
+}
+
+TransparentToolButton,
+TransparentToggleToolButton,
+TransparentDropDownToolButton,
+TransparentPushButton,
+TransparentDropDownPushButton,
+TransparentTogglePushButton {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    margin: 0;
+}
+
+TransparentToolButton:hover,
+TransparentToggleToolButton:hover,
+TransparentDropDownToolButton:hover,
+TransparentPushButton:hover,
+TransparentDropDownPushButton:hover,
+TransparentTogglePushButton:hover {
+    background-color: rgba(0, 0, 0, 9);
+    border: none;
+}
+
+TransparentToolButton:pressed,
+TransparentToggleToolButton:pressed,
+TransparentDropDownToolButton:pressed,
+TransparentPushButton:pressed,
+TransparentDropDownPushButton:pressed,
+TransparentTogglePushButton:pressed {
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+TransparentToolButton:disabled,
+TransparentToggleToolButton:disabled,
+TransparentDropDownToolButton:disabled,
+TransparentPushButton:disabled,
+TransparentDropDownPushButton:disabled,
+TransparentTogglePushButton:disabled {
+    background-color: transparent;
+    border: none;
+}
+
+
+PillPushButton,
+PillPushButton:hover,
+PillPushButton:pressed,
+PillPushButton:disabled,
+PillPushButton:checked,
+PillPushButton:checked:hover,
+PillPushButton:checked:pressed,
+PillPushButton:disabled:checked,
+PillToolButton,
+PillToolButton:hover,
+PillToolButton:pressed,
+PillToolButton:disabled,
+PillToolButton:checked,
+PillToolButton:checked:hover,
+PillToolButton:checked:pressed,
+PillToolButton:disabled:checked {
+    background-color: transparent;
+    border: none;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>载入PMG</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="PillPushButton" name="pushButton_load_bg">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -389,658 +1346,7 @@ PillToolButton:disabled:checked {
         </widget>
        </item>
        <item>
-        <widget class="PillPushButton" name="pushButton_14">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">PushButton, ToolButton, ToggleButton, ToggleToolButton {
-    color: black;
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(0, 0, 0, 0.073);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
-    border-radius: 5px;
-    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
-    padding: 5px 12px 6px 12px;
-    outline: none;
-}
-
-ToolButton {
-    padding: 5px 9px 6px 8px;
-}
-
-PushButton[isPlaceholderText=true] {
-    color: rgba(0, 0, 0, 0.6063);
-}
-
-PushButton[hasIcon=false] {
-    padding: 5px 12px 6px 12px;
-}
-
-PushButton[hasIcon=true] {
-    padding: 5px 12px 6px 36px;
-}
-
-DropDownToolButton, PrimaryDropDownToolButton {
-    padding: 5px 31px 6px 8px;
-}
-
-DropDownPushButton[hasIcon=false],
-PrimaryDropDownPushButton[hasIcon=false] {
-    padding: 5px 31px 6px 12px;
-}
-
-DropDownPushButton[hasIcon=true],
-PrimaryDropDownPushButton[hasIcon=true] {
-    padding: 5px 31px 6px 36px;
-}
-
-PushButton:hover, ToolButton:hover, ToggleButton:hover, ToggleToolButton:hover {
-    background: rgba(249, 249, 249, 0.5);
-}
-
-PushButton:pressed, ToolButton:pressed, ToggleButton:pressed, ToggleToolButton:pressed {
-    color: rgba(0, 0, 0, 0.63);
-    background: rgba(249, 249, 249, 0.3);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.073);
-}
-
-PushButton:disabled, ToolButton:disabled, ToggleButton:disabled, ToggleToolButton:disabled {
-    color: rgba(0, 0, 0, 0.36);
-    background: rgba(249, 249, 249, 0.3);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-
-PrimaryPushButton,
-PrimaryToolButton,
-ToggleButton:checked,
-ToggleToolButton:checked {
-    color: white;
-    background-color: #009faa;
-    border: 1px solid #00a7b3;
-    border-bottom: 1px solid #007780;
-}
-
-PrimaryPushButton:hover,
-PrimaryToolButton:hover,
-ToggleButton:checked:hover,
-ToggleToolButton:checked:hover {
-    background-color: #00a7b3;
-    border: 1px solid #2daab3;
-    border-bottom: 1px solid #007780;
-}
-
-PrimaryPushButton:pressed,
-PrimaryToolButton:pressed,
-ToggleButton:checked:pressed,
-ToggleToolButton:checked:pressed {
-    color: rgba(255, 255, 255, 0.63);
-    background-color: #3eabb3;
-    border: 1px solid #3eabb3;
-}
-
-PrimaryPushButton:disabled,
-PrimaryToolButton:disabled,
-ToggleButton:checked:disabled,
-ToggleToolButton:checked:disabled {
-    color: rgba(255, 255, 255, 0.9);
-    background-color: rgb(205, 205, 205);
-    border: 1px solid rgb(205, 205, 205);
-}
-
-SplitDropButton,
-PrimarySplitDropButton {
-    border-left: none;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-#splitPushButton,
-#splitToolButton,
-#primarySplitPushButton,
-#primarySplitToolButton {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-#splitPushButton:pressed,
-#splitToolButton:pressed,
-SplitDropButton:pressed {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
-}
-
-PrimarySplitDropButton:pressed {
-    border-bottom: 1px solid #007780;
-}
-
-#primarySplitPushButton, #primarySplitToolButton {
-    border-right: 1px solid #3eabb3;
-}
-
-#primarySplitPushButton:pressed, #primarySplitToolButton:pressed {
-    border-bottom: 1px solid #007780;
-}
-
-HyperlinkButton {
-    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
-    padding: 6px 12px 6px 12px;
-    color: #009faa;
-    border: none;
-    border-radius: 6px;
-    background-color: transparent;
-}
-
-HyperlinkButton[hasIcon=false] {
-    padding: 6px 12px 6px 12px;
-}
-
-HyperlinkButton[hasIcon=true] {
-    padding: 6px 12px 6px 36px;
-}
-
-HyperlinkButton:hover {
-    color: #009faa;
-    background-color: rgba(0, 0, 0, 10);
-    border: none;
-}
-
-HyperlinkButton:pressed {
-    color: #009faa;
-    background-color: rgba(0, 0, 0, 6);
-    border: none;
-}
-
-HyperlinkButton:disabled {
-    color: rgba(0, 0, 0, 0.43);
-    background-color: transparent;
-    border: none;
-}
-
-
-RadioButton {
-    min-height: 24px;
-    max-height: 24px;
-    background-color: transparent;
-    font: 14px 'Segoe UI', 'Microsoft YaHei', 'PingFang SC';
-    color: black;
-}
-
-RadioButton::indicator {
-    width: 18px;
-    height: 18px;
-    border-radius: 11px;
-    border: 2px solid #999999;
-    background-color: rgba(0, 0, 0, 5);
-    margin-right: 4px;
-}
-
-RadioButton::indicator:hover {
-    background-color: rgba(0, 0, 0, 0);
-}
-
-RadioButton::indicator:pressed {
-    border: 2px solid #bbbbbb;
-    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
-            stop:0 rgb(255, 255, 255),
-            stop:0.5 rgb(255, 255, 255),
-            stop:0.6 rgb(225, 224, 223),
-            stop:1 rgb(225, 224, 223));
-}
-
-RadioButton::indicator:checked {
-    height: 22px;
-    width: 22px;
-    border: none;
-    border-radius: 11px;
-    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
-            stop:0 rgb(255, 255, 255),
-            stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
-}
-
-RadioButton::indicator:checked:hover {
-    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
-            stop:0 rgb(255, 255, 255),
-            stop:0.6 rgb(255, 255, 255),
-            stop:0.7 #009faa,
-            stop:1 #009faa);
-}
-
-RadioButton::indicator:checked:pressed {
-    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
-            stop:0 rgb(255, 255, 255),
-            stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
-}
-
-RadioButton:disabled {
-    color: rgba(0, 0, 0, 110);
-}
-
-RadioButton::indicator:disabled {
-    border: 2px solid #bbbbbb;
-    background-color: transparent;
-}
-
-RadioButton::indicator:disabled:checked {
-    border: none;
-    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
-            stop:0 rgb(255, 255, 255),
-            stop:0.5 rgb(255, 255, 255),
-            stop:0.6 rgba(0, 0, 0, 0.2169),
-            stop:1 rgba(0, 0, 0, 0.2169));
-}
-
-TransparentToolButton,
-TransparentToggleToolButton,
-TransparentDropDownToolButton,
-TransparentPushButton,
-TransparentDropDownPushButton,
-TransparentTogglePushButton {
-    background-color: transparent;
-    border: none;
-    border-radius: 5px;
-    margin: 0;
-}
-
-TransparentToolButton:hover,
-TransparentToggleToolButton:hover,
-TransparentDropDownToolButton:hover,
-TransparentPushButton:hover,
-TransparentDropDownPushButton:hover,
-TransparentTogglePushButton:hover {
-    background-color: rgba(0, 0, 0, 9);
-    border: none;
-}
-
-TransparentToolButton:pressed,
-TransparentToggleToolButton:pressed,
-TransparentDropDownToolButton:pressed,
-TransparentPushButton:pressed,
-TransparentDropDownPushButton:pressed,
-TransparentTogglePushButton:pressed {
-    background-color: rgba(0, 0, 0, 6);
-    border: none;
-}
-
-TransparentToolButton:disabled,
-TransparentToggleToolButton:disabled,
-TransparentDropDownToolButton:disabled,
-TransparentPushButton:disabled,
-TransparentDropDownPushButton:disabled,
-TransparentTogglePushButton:disabled {
-    background-color: transparent;
-    border: none;
-}
-
-
-PillPushButton,
-PillPushButton:hover,
-PillPushButton:pressed,
-PillPushButton:disabled,
-PillPushButton:checked,
-PillPushButton:checked:hover,
-PillPushButton:checked:pressed,
-PillPushButton:disabled:checked,
-PillToolButton,
-PillToolButton:hover,
-PillToolButton:pressed,
-PillToolButton:disabled,
-PillToolButton:checked,
-PillToolButton:checked:hover,
-PillToolButton:checked:pressed,
-PillToolButton:disabled:checked {
-    background-color: transparent;
-    border: none;
-}
-</string>
-         </property>
-         <property name="text">
-          <string>载入PMG</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="PillPushButton" name="pushButton_6">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">PushButton, ToolButton, ToggleButton, ToggleToolButton {
-    color: black;
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(0, 0, 0, 0.073);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
-    border-radius: 5px;
-    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
-    padding: 5px 12px 6px 12px;
-    outline: none;
-}
-
-ToolButton {
-    padding: 5px 9px 6px 8px;
-}
-
-PushButton[isPlaceholderText=true] {
-    color: rgba(0, 0, 0, 0.6063);
-}
-
-PushButton[hasIcon=false] {
-    padding: 5px 12px 6px 12px;
-}
-
-PushButton[hasIcon=true] {
-    padding: 5px 12px 6px 36px;
-}
-
-DropDownToolButton, PrimaryDropDownToolButton {
-    padding: 5px 31px 6px 8px;
-}
-
-DropDownPushButton[hasIcon=false],
-PrimaryDropDownPushButton[hasIcon=false] {
-    padding: 5px 31px 6px 12px;
-}
-
-DropDownPushButton[hasIcon=true],
-PrimaryDropDownPushButton[hasIcon=true] {
-    padding: 5px 31px 6px 36px;
-}
-
-PushButton:hover, ToolButton:hover, ToggleButton:hover, ToggleToolButton:hover {
-    background: rgba(249, 249, 249, 0.5);
-}
-
-PushButton:pressed, ToolButton:pressed, ToggleButton:pressed, ToggleToolButton:pressed {
-    color: rgba(0, 0, 0, 0.63);
-    background: rgba(249, 249, 249, 0.3);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.073);
-}
-
-PushButton:disabled, ToolButton:disabled, ToggleButton:disabled, ToggleToolButton:disabled {
-    color: rgba(0, 0, 0, 0.36);
-    background: rgba(249, 249, 249, 0.3);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-
-PrimaryPushButton,
-PrimaryToolButton,
-ToggleButton:checked,
-ToggleToolButton:checked {
-    color: white;
-    background-color: #009faa;
-    border: 1px solid #00a7b3;
-    border-bottom: 1px solid #007780;
-}
-
-PrimaryPushButton:hover,
-PrimaryToolButton:hover,
-ToggleButton:checked:hover,
-ToggleToolButton:checked:hover {
-    background-color: #00a7b3;
-    border: 1px solid #2daab3;
-    border-bottom: 1px solid #007780;
-}
-
-PrimaryPushButton:pressed,
-PrimaryToolButton:pressed,
-ToggleButton:checked:pressed,
-ToggleToolButton:checked:pressed {
-    color: rgba(255, 255, 255, 0.63);
-    background-color: #3eabb3;
-    border: 1px solid #3eabb3;
-}
-
-PrimaryPushButton:disabled,
-PrimaryToolButton:disabled,
-ToggleButton:checked:disabled,
-ToggleToolButton:checked:disabled {
-    color: rgba(255, 255, 255, 0.9);
-    background-color: rgb(205, 205, 205);
-    border: 1px solid rgb(205, 205, 205);
-}
-
-SplitDropButton,
-PrimarySplitDropButton {
-    border-left: none;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-#splitPushButton,
-#splitToolButton,
-#primarySplitPushButton,
-#primarySplitToolButton {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-#splitPushButton:pressed,
-#splitToolButton:pressed,
-SplitDropButton:pressed {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
-}
-
-PrimarySplitDropButton:pressed {
-    border-bottom: 1px solid #007780;
-}
-
-#primarySplitPushButton, #primarySplitToolButton {
-    border-right: 1px solid #3eabb3;
-}
-
-#primarySplitPushButton:pressed, #primarySplitToolButton:pressed {
-    border-bottom: 1px solid #007780;
-}
-
-HyperlinkButton {
-    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
-    padding: 6px 12px 6px 12px;
-    color: #009faa;
-    border: none;
-    border-radius: 6px;
-    background-color: transparent;
-}
-
-HyperlinkButton[hasIcon=false] {
-    padding: 6px 12px 6px 12px;
-}
-
-HyperlinkButton[hasIcon=true] {
-    padding: 6px 12px 6px 36px;
-}
-
-HyperlinkButton:hover {
-    color: #009faa;
-    background-color: rgba(0, 0, 0, 10);
-    border: none;
-}
-
-HyperlinkButton:pressed {
-    color: #009faa;
-    background-color: rgba(0, 0, 0, 6);
-    border: none;
-}
-
-HyperlinkButton:disabled {
-    color: rgba(0, 0, 0, 0.43);
-    background-color: transparent;
-    border: none;
-}
-
-
-RadioButton {
-    min-height: 24px;
-    max-height: 24px;
-    background-color: transparent;
-    font: 14px 'Segoe UI', 'Microsoft YaHei', 'PingFang SC';
-    color: black;
-}
-
-RadioButton::indicator {
-    width: 18px;
-    height: 18px;
-    border-radius: 11px;
-    border: 2px solid #999999;
-    background-color: rgba(0, 0, 0, 5);
-    margin-right: 4px;
-}
-
-RadioButton::indicator:hover {
-    background-color: rgba(0, 0, 0, 0);
-}
-
-RadioButton::indicator:pressed {
-    border: 2px solid #bbbbbb;
-    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
-            stop:0 rgb(255, 255, 255),
-            stop:0.5 rgb(255, 255, 255),
-            stop:0.6 rgb(225, 224, 223),
-            stop:1 rgb(225, 224, 223));
-}
-
-RadioButton::indicator:checked {
-    height: 22px;
-    width: 22px;
-    border: none;
-    border-radius: 11px;
-    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
-            stop:0 rgb(255, 255, 255),
-            stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
-}
-
-RadioButton::indicator:checked:hover {
-    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
-            stop:0 rgb(255, 255, 255),
-            stop:0.6 rgb(255, 255, 255),
-            stop:0.7 #009faa,
-            stop:1 #009faa);
-}
-
-RadioButton::indicator:checked:pressed {
-    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
-            stop:0 rgb(255, 255, 255),
-            stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
-}
-
-RadioButton:disabled {
-    color: rgba(0, 0, 0, 110);
-}
-
-RadioButton::indicator:disabled {
-    border: 2px solid #bbbbbb;
-    background-color: transparent;
-}
-
-RadioButton::indicator:disabled:checked {
-    border: none;
-    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
-            stop:0 rgb(255, 255, 255),
-            stop:0.5 rgb(255, 255, 255),
-            stop:0.6 rgba(0, 0, 0, 0.2169),
-            stop:1 rgba(0, 0, 0, 0.2169));
-}
-
-TransparentToolButton,
-TransparentToggleToolButton,
-TransparentDropDownToolButton,
-TransparentPushButton,
-TransparentDropDownPushButton,
-TransparentTogglePushButton {
-    background-color: transparent;
-    border: none;
-    border-radius: 5px;
-    margin: 0;
-}
-
-TransparentToolButton:hover,
-TransparentToggleToolButton:hover,
-TransparentDropDownToolButton:hover,
-TransparentPushButton:hover,
-TransparentDropDownPushButton:hover,
-TransparentTogglePushButton:hover {
-    background-color: rgba(0, 0, 0, 9);
-    border: none;
-}
-
-TransparentToolButton:pressed,
-TransparentToggleToolButton:pressed,
-TransparentDropDownToolButton:pressed,
-TransparentPushButton:pressed,
-TransparentDropDownPushButton:pressed,
-TransparentTogglePushButton:pressed {
-    background-color: rgba(0, 0, 0, 6);
-    border: none;
-}
-
-TransparentToolButton:disabled,
-TransparentToggleToolButton:disabled,
-TransparentDropDownToolButton:disabled,
-TransparentPushButton:disabled,
-TransparentDropDownPushButton:disabled,
-TransparentTogglePushButton:disabled {
-    background-color: transparent;
-    border: none;
-}
-
-
-PillPushButton,
-PillPushButton:hover,
-PillPushButton:pressed,
-PillPushButton:disabled,
-PillPushButton:checked,
-PillPushButton:checked:hover,
-PillPushButton:checked:pressed,
-PillPushButton:disabled:checked,
-PillToolButton,
-PillToolButton:hover,
-PillToolButton:pressed,
-PillToolButton:disabled,
-PillToolButton:checked,
-PillToolButton:checked:hover,
-PillToolButton:checked:pressed,
-PillToolButton:disabled:checked {
-    background-color: transparent;
-    border: none;
-}
-</string>
-         </property>
-         <property name="text">
-          <string>载入PM</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="PillPushButton" name="pushButton_4">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>载入商品</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_8">
+        <widget class="QPushButton" name="pushButton_tools_export_goods">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -1073,7 +1379,7 @@ color:white
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_9">
+        <widget class="QPushButton" name="pushButton_tools_import_goods">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -1107,7 +1413,7 @@ color:white
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_10">
+        <widget class="QPushButton" name="pushButton_tools_about">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1156,29 +1462,346 @@ color:white
      <item>
       <widget class="QStackedWidget" name="stackedWidget">
        <property name="styleSheet">
-        <string notr="true">QstackedWidget{}
-background-image: url(:/图片1.jpg);
+        <string notr="true">PushButton, ToolButton, ToggleButton, ToggleToolButton {
+	font: 15pt &quot;幼圆&quot;;
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.073);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+    border-radius: 10px;
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 5px 12px 6px 12px;
+    outline: none;
+}
+
+ToolButton {
+    padding: 5px 9px 6px 8px;
+}
+
+PushButton[isPlaceholderText=true] {
+    color: rgba(0, 0, 0, 0.6063);
+}
+
+PushButton[hasIcon=false] {
+    padding: 5px 12px 6px 12px;
+}
+
+PushButton[hasIcon=true] {
+    padding: 5px 12px 6px 36px;
+}
+
+DropDownToolButton, PrimaryDropDownToolButton {
+    padding: 5px 31px 6px 8px;
+}
+
+DropDownPushButton[hasIcon=false],
+PrimaryDropDownPushButton[hasIcon=false] {
+    padding: 5px 31px 6px 12px;
+}
+
+DropDownPushButton[hasIcon=true],
+PrimaryDropDownPushButton[hasIcon=true] {
+    padding: 5px 31px 6px 36px;
+}
+
+PushButton:hover, ToolButton:hover, ToggleButton:hover, ToggleToolButton:hover {
+    background: rgba(249, 249, 249, 0.5);
+}
+
+PushButton:pressed, ToolButton:pressed, ToggleButton:pressed, ToggleToolButton:pressed {
+    color: rgba(0, 0, 0, 0.63);
+    background: rgba(249, 249, 249, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.073);
+}
+
+PushButton:disabled, ToolButton:disabled, ToggleButton:disabled, ToggleToolButton:disabled {
+    color: rgba(0, 0, 0, 0.36);
+    background: rgba(249, 249, 249, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+
+PrimaryPushButton,
+PrimaryToolButton,
+ToggleButton:checked,
+ToggleToolButton:checked {
+    color: white;
+    background-color: #5f9ea0;
+    border: 1px solid #00a7b3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:hover,
+PrimaryToolButton:hover,
+ToggleButton:checked:hover,
+ToggleToolButton:checked:hover {
+    background-color: #00a7b3;
+    border: 1px solid #2daab3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:pressed,
+PrimaryToolButton:pressed,
+ToggleButton:checked:pressed,
+ToggleToolButton:checked:pressed {
+    color: rgba(255, 255, 255, 0.63);
+    background-color: #3eabb3;
+    border: 1px solid #3eabb3;
+}
+
+PrimaryPushButton:disabled,
+PrimaryToolButton:disabled,
+ToggleButton:checked:disabled,
+ToggleToolButton:checked:disabled {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(205, 205, 205);
+    border: 1px solid rgb(205, 205, 205);
+}
+
+SplitDropButton,
+PrimarySplitDropButton {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#splitPushButton,
+#splitToolButton,
+#primarySplitPushButton,
+#primarySplitToolButton {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#splitPushButton:pressed,
+#splitToolButton:pressed,
+SplitDropButton:pressed {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+}
+
+PrimarySplitDropButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+#primarySplitPushButton, #primarySplitToolButton {
+    border-right: 1px solid #3eabb3;
+}
+
+#primarySplitPushButton:pressed, #primarySplitToolButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+HyperlinkButton {
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 6px 12px 6px 12px;
+    color: #5f9ea0;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+HyperlinkButton[hasIcon=false] {
+    padding: 6px 12px 6px 12px;
+}
+
+HyperlinkButton[hasIcon=true] {
+    padding: 6px 12px 6px 36px;
+}
+
+HyperlinkButton:hover {
+    color: #5f9ea0;
+    background-color: rgba(0, 0, 0, 10);
+    border: none;
+}
+
+HyperlinkButton:pressed {
+    color: #5f9ea0;
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+HyperlinkButton:disabled {
+    color: rgba(0, 0, 0, 0.43);
+    background-color: transparent;
+    border: none;
+}
+
+
+RadioButton {
+    min-height: 24px;
+    max-height: 24px;
+    background-color: transparent;
+    font: 14px 'Segoe UI', 'Microsoft YaHei', 'PingFang SC';
+    color: black;
+}
+
+RadioButton::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 11px;
+    border: 2px solid #999999;
+    background-color: rgba(0, 0, 0, 5);
+    margin-right: 4px;
+}
+
+RadioButton::indicator:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+RadioButton::indicator:pressed {
+    border: 2px solid #bbbbbb;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgb(225, 224, 223),
+            stop:1 rgb(225, 224, 223));
+}
+
+RadioButton::indicator:checked {
+    height: 22px;
+    width: 22px;
+    border: none;
+    border-radius: 11px;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton::indicator:checked:hover {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.6 rgb(255, 255, 255),
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton::indicator:checked:pressed {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton:disabled {
+    color: rgba(0, 0, 0, 110);
+}
+
+RadioButton::indicator:disabled {
+    border: 2px solid #bbbbbb;
+    background-color: transparent;
+}
+
+RadioButton::indicator:disabled:checked {
+    border: none;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgba(0, 0, 0, 0.2169),
+            stop:1 rgba(0, 0, 0, 0.2169));
+}
+
+TransparentToolButton,
+TransparentToggleToolButton,
+TransparentDropDownToolButton,
+TransparentPushButton,
+TransparentDropDownPushButton,
+TransparentTogglePushButton {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    margin: 0;
+}
+
+TransparentToolButton:hover,
+TransparentToggleToolButton:hover,
+TransparentDropDownToolButton:hover,
+TransparentPushButton:hover,
+TransparentDropDownPushButton:hover,
+TransparentTogglePushButton:hover {
+    background-color: rgba(0, 0, 0, 9);
+    border: none;
+}
+
+TransparentToolButton:pressed,
+TransparentToggleToolButton:pressed,
+TransparentDropDownToolButton:pressed,
+TransparentPushButton:pressed,
+TransparentDropDownPushButton:pressed,
+TransparentTogglePushButton:pressed {
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+TransparentToolButton:disabled,
+TransparentToggleToolButton:disabled,
+TransparentDropDownToolButton:disabled,
+TransparentPushButton:disabled,
+TransparentDropDownPushButton:disabled,
+TransparentTogglePushButton:disabled {
+    background-color: transparent;
+    border: none;
+}
+
+
+PillPushButton,
+PillPushButton:hover,
+PillPushButton:pressed,
+PillPushButton:disabled,
+PillPushButton:checked,
+PillPushButton:checked:hover,
+PillPushButton:checked:pressed,
+PillPushButton:disabled:checked,
+PillToolButton,
+PillToolButton:hover,
+PillToolButton:pressed,
+PillToolButton:disabled,
+PillToolButton:checked,
+PillToolButton:checked:hover,
+PillToolButton:checked:pressed,
+PillToolButton:disabled:checked {
+    background-color: transparent;
+    border: none;
+}
 </string>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="goods">
-        <layout class="QGridLayout" name="gridLayout_2" columnstretch="2,0">
-         <item row="0" column="1">
+        <layout class="QGridLayout" name="gridLayout_6" columnstretch="2,0,0,0">
+         <property name="leftMargin">
+          <number>9</number>
+         </property>
+         <property name="topMargin">
+          <number>9</number>
+         </property>
+         <property name="rightMargin">
+          <number>9</number>
+         </property>
+         <item row="0" column="3">
           <widget class="QWidget" name="widget" native="true">
            <property name="styleSheet">
             <string notr="true"/>
            </property>
-           <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,0,0,0,0">
+           <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,0,0,0">
             <property name="spacing">
              <number>5</number>
             </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
             <property name="topMargin">
-             <number>1</number>
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
             </property>
             <property name="bottomMargin">
-             <number>1</number>
+             <number>0</number>
             </property>
             <item>
              <layout class="QGridLayout" name="gridLayout_3">
@@ -1188,23 +1811,23 @@ background-image: url(:/图片1.jpg);
               <property name="verticalSpacing">
                <number>11</number>
               </property>
-              <item row="1" column="0">
-               <widget class="TextEdit" name="TextEdit_2"/>
-              </item>
               <item row="0" column="0">
-               <widget class="BodyLabel" name="BodyLabel_2">
+               <widget class="QLabel" name="label">
+                <property name="styleSheet">
+                 <string notr="true">image: url(:/图片6.png);</string>
+                </property>
                 <property name="text">
-                 <string>代码预览：</string>
+                 <string/>
                 </property>
                </widget>
               </item>
              </layout>
             </item>
             <item>
-             <widget class="PrimaryPushButton" name="PrimaryPushButton_5">
+             <widget class="PrimaryPushButton" name="pushButton_goods_del">
               <property name="minimumSize">
                <size>
-                <width>0</width>
+                <width>256</width>
                 <height>60</height>
                </size>
               </property>
@@ -1274,7 +1897,7 @@ PrimaryToolButton,
 ToggleButton:checked,
 ToggleToolButton:checked {
     color: white;
-    background-color: #009faa;
+    background-color: #5f9ea0;
     border: 1px solid #00a7b3;
     border-bottom: 1px solid #007780;
 }
@@ -1342,7 +1965,7 @@ PrimarySplitDropButton:pressed {
 HyperlinkButton {
     /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
     padding: 6px 12px 6px 12px;
-    color: #009faa;
+    color: #5f9ea0;
     border: none;
     border-radius: 6px;
     background-color: transparent;
@@ -1357,13 +1980,13 @@ HyperlinkButton[hasIcon=true] {
 }
 
 HyperlinkButton:hover {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 10);
     border: none;
 }
 
 HyperlinkButton:pressed {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 6);
     border: none;
 }
@@ -1413,24 +2036,24 @@ RadioButton::indicator:checked {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:hover {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.6 rgb(255, 255, 255),
-            stop:0.7 #009faa,
-            stop:1 #009faa);
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:pressed {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton:disabled {
@@ -1521,10 +2144,10 @@ PillToolButton:disabled:checked {
              </widget>
             </item>
             <item>
-             <widget class="PrimaryPushButton" name="PrimaryPushButton_6">
+             <widget class="PrimaryPushButton" name="pushButton_goods_add">
               <property name="minimumSize">
                <size>
-                <width>0</width>
+                <width>256</width>
                 <height>60</height>
                </size>
               </property>
@@ -1594,7 +2217,7 @@ PrimaryToolButton,
 ToggleButton:checked,
 ToggleToolButton:checked {
     color: white;
-    background-color: #009faa;
+    background-color: #5f9ea0;
     border: 1px solid #00a7b3;
     border-bottom: 1px solid #007780;
 }
@@ -1662,7 +2285,7 @@ PrimarySplitDropButton:pressed {
 HyperlinkButton {
     /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
     padding: 6px 12px 6px 12px;
-    color: #009faa;
+    color: #5f9ea0;
     border: none;
     border-radius: 6px;
     background-color: transparent;
@@ -1677,13 +2300,13 @@ HyperlinkButton[hasIcon=true] {
 }
 
 HyperlinkButton:hover {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 10);
     border: none;
 }
 
 HyperlinkButton:pressed {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 6);
     border: none;
 }
@@ -1733,24 +2356,24 @@ RadioButton::indicator:checked {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:hover {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.6 rgb(255, 255, 255),
-            stop:0.7 #009faa,
-            stop:1 #009faa);
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:pressed {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton:disabled {
@@ -1841,10 +2464,10 @@ PillToolButton:disabled:checked {
              </widget>
             </item>
             <item>
-             <widget class="PrimaryPushButton" name="PrimaryPushButton_7">
+             <widget class="PrimaryPushButton" name="pushButton_goods_export">
               <property name="minimumSize">
                <size>
-                <width>0</width>
+                <width>256</width>
                 <height>60</height>
                </size>
               </property>
@@ -1914,7 +2537,7 @@ PrimaryToolButton,
 ToggleButton:checked,
 ToggleToolButton:checked {
     color: white;
-    background-color: #009faa;
+    background-color: #5f9ea0;
     border: 1px solid #00a7b3;
     border-bottom: 1px solid #007780;
 }
@@ -1982,7 +2605,7 @@ PrimarySplitDropButton:pressed {
 HyperlinkButton {
     /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
     padding: 6px 12px 6px 12px;
-    color: #009faa;
+    color: #5f9ea0;
     border: none;
     border-radius: 6px;
     background-color: transparent;
@@ -1997,13 +2620,13 @@ HyperlinkButton[hasIcon=true] {
 }
 
 HyperlinkButton:hover {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 10);
     border: none;
 }
 
 HyperlinkButton:pressed {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 6);
     border: none;
 }
@@ -2053,24 +2676,24 @@ RadioButton::indicator:checked {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:hover {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.6 rgb(255, 255, 255),
-            stop:0.7 #009faa,
-            stop:1 #009faa);
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:pressed {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton:disabled {
@@ -2160,364 +2783,45 @@ PillToolButton:disabled:checked {
               </property>
              </widget>
             </item>
-            <item>
-             <widget class="PrimaryPushButton" name="PrimaryPushButton_8">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>60</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">PushButton, ToolButton, ToggleButton, ToggleToolButton {
-	font: 15pt &quot;幼圆&quot;;
-    color: black;
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(0, 0, 0, 0.073);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
-    border-radius: 10px;
-    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
-    padding: 5px 12px 6px 12px;
-    outline: none;
-}
-
-ToolButton {
-    padding: 5px 9px 6px 8px;
-}
-
-PushButton[isPlaceholderText=true] {
-    color: rgba(0, 0, 0, 0.6063);
-}
-
-PushButton[hasIcon=false] {
-    padding: 5px 12px 6px 12px;
-}
-
-PushButton[hasIcon=true] {
-    padding: 5px 12px 6px 36px;
-}
-
-DropDownToolButton, PrimaryDropDownToolButton {
-    padding: 5px 31px 6px 8px;
-}
-
-DropDownPushButton[hasIcon=false],
-PrimaryDropDownPushButton[hasIcon=false] {
-    padding: 5px 31px 6px 12px;
-}
-
-DropDownPushButton[hasIcon=true],
-PrimaryDropDownPushButton[hasIcon=true] {
-    padding: 5px 31px 6px 36px;
-}
-
-PushButton:hover, ToolButton:hover, ToggleButton:hover, ToggleToolButton:hover {
-    background: rgba(249, 249, 249, 0.5);
-}
-
-PushButton:pressed, ToolButton:pressed, ToggleButton:pressed, ToggleToolButton:pressed {
-    color: rgba(0, 0, 0, 0.63);
-    background: rgba(249, 249, 249, 0.3);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.073);
-}
-
-PushButton:disabled, ToolButton:disabled, ToggleButton:disabled, ToggleToolButton:disabled {
-    color: rgba(0, 0, 0, 0.36);
-    background: rgba(249, 249, 249, 0.3);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-
-PrimaryPushButton,
-PrimaryToolButton,
-ToggleButton:checked,
-ToggleToolButton:checked {
-    color: white;
-    background-color: #009faa;
-    border: 1px solid #00a7b3;
-    border-bottom: 1px solid #007780;
-}
-
-PrimaryPushButton:hover,
-PrimaryToolButton:hover,
-ToggleButton:checked:hover,
-ToggleToolButton:checked:hover {
-    background-color: #00a7b3;
-    border: 1px solid #2daab3;
-    border-bottom: 1px solid #007780;
-}
-
-PrimaryPushButton:pressed,
-PrimaryToolButton:pressed,
-ToggleButton:checked:pressed,
-ToggleToolButton:checked:pressed {
-    color: rgba(255, 255, 255, 0.63);
-    background-color: #3eabb3;
-    border: 1px solid #3eabb3;
-}
-
-PrimaryPushButton:disabled,
-PrimaryToolButton:disabled,
-ToggleButton:checked:disabled,
-ToggleToolButton:checked:disabled {
-    color: rgba(255, 255, 255, 0.9);
-    background-color: rgb(205, 205, 205);
-    border: 1px solid rgb(205, 205, 205);
-}
-
-SplitDropButton,
-PrimarySplitDropButton {
-    border-left: none;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-#splitPushButton,
-#splitToolButton,
-#primarySplitPushButton,
-#primarySplitToolButton {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-#splitPushButton:pressed,
-#splitToolButton:pressed,
-SplitDropButton:pressed {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
-}
-
-PrimarySplitDropButton:pressed {
-    border-bottom: 1px solid #007780;
-}
-
-#primarySplitPushButton, #primarySplitToolButton {
-    border-right: 1px solid #3eabb3;
-}
-
-#primarySplitPushButton:pressed, #primarySplitToolButton:pressed {
-    border-bottom: 1px solid #007780;
-}
-
-HyperlinkButton {
-    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
-    padding: 6px 12px 6px 12px;
-    color: #009faa;
-    border: none;
-    border-radius: 6px;
-    background-color: transparent;
-}
-
-HyperlinkButton[hasIcon=false] {
-    padding: 6px 12px 6px 12px;
-}
-
-HyperlinkButton[hasIcon=true] {
-    padding: 6px 12px 6px 36px;
-}
-
-HyperlinkButton:hover {
-    color: #009faa;
-    background-color: rgba(0, 0, 0, 10);
-    border: none;
-}
-
-HyperlinkButton:pressed {
-    color: #009faa;
-    background-color: rgba(0, 0, 0, 6);
-    border: none;
-}
-
-HyperlinkButton:disabled {
-    color: rgba(0, 0, 0, 0.43);
-    background-color: transparent;
-    border: none;
-}
-
-
-RadioButton {
-    min-height: 24px;
-    max-height: 24px;
-    background-color: transparent;
-    font: 14px 'Segoe UI', 'Microsoft YaHei', 'PingFang SC';
-    color: black;
-}
-
-RadioButton::indicator {
-    width: 18px;
-    height: 18px;
-    border-radius: 11px;
-    border: 2px solid #999999;
-    background-color: rgba(0, 0, 0, 5);
-    margin-right: 4px;
-}
-
-RadioButton::indicator:hover {
-    background-color: rgba(0, 0, 0, 0);
-}
-
-RadioButton::indicator:pressed {
-    border: 2px solid #bbbbbb;
-    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
-            stop:0 rgb(255, 255, 255),
-            stop:0.5 rgb(255, 255, 255),
-            stop:0.6 rgb(225, 224, 223),
-            stop:1 rgb(225, 224, 223));
-}
-
-RadioButton::indicator:checked {
-    height: 22px;
-    width: 22px;
-    border: none;
-    border-radius: 11px;
-    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
-            stop:0 rgb(255, 255, 255),
-            stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
-}
-
-RadioButton::indicator:checked:hover {
-    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
-            stop:0 rgb(255, 255, 255),
-            stop:0.6 rgb(255, 255, 255),
-            stop:0.7 #009faa,
-            stop:1 #009faa);
-}
-
-RadioButton::indicator:checked:pressed {
-    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
-            stop:0 rgb(255, 255, 255),
-            stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
-}
-
-RadioButton:disabled {
-    color: rgba(0, 0, 0, 110);
-}
-
-RadioButton::indicator:disabled {
-    border: 2px solid #bbbbbb;
-    background-color: transparent;
-}
-
-RadioButton::indicator:disabled:checked {
-    border: none;
-    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
-            stop:0 rgb(255, 255, 255),
-            stop:0.5 rgb(255, 255, 255),
-            stop:0.6 rgba(0, 0, 0, 0.2169),
-            stop:1 rgba(0, 0, 0, 0.2169));
-}
-
-TransparentToolButton,
-TransparentToggleToolButton,
-TransparentDropDownToolButton,
-TransparentPushButton,
-TransparentDropDownPushButton,
-TransparentTogglePushButton {
-    background-color: transparent;
-    border: none;
-    border-radius: 5px;
-    margin: 0;
-}
-
-TransparentToolButton:hover,
-TransparentToggleToolButton:hover,
-TransparentDropDownToolButton:hover,
-TransparentPushButton:hover,
-TransparentDropDownPushButton:hover,
-TransparentTogglePushButton:hover {
-    background-color: rgba(0, 0, 0, 9);
-    border: none;
-}
-
-TransparentToolButton:pressed,
-TransparentToggleToolButton:pressed,
-TransparentDropDownToolButton:pressed,
-TransparentPushButton:pressed,
-TransparentDropDownPushButton:pressed,
-TransparentTogglePushButton:pressed {
-    background-color: rgba(0, 0, 0, 6);
-    border: none;
-}
-
-TransparentToolButton:disabled,
-TransparentToggleToolButton:disabled,
-TransparentDropDownToolButton:disabled,
-TransparentPushButton:disabled,
-TransparentDropDownPushButton:disabled,
-TransparentTogglePushButton:disabled {
-    background-color: transparent;
-    border: none;
-}
-
-
-PillPushButton,
-PillPushButton:hover,
-PillPushButton:pressed,
-PillPushButton:disabled,
-PillPushButton:checked,
-PillPushButton:checked:hover,
-PillPushButton:checked:pressed,
-PillPushButton:disabled:checked,
-PillToolButton,
-PillToolButton:hover,
-PillToolButton:pressed,
-PillToolButton:disabled,
-PillToolButton:checked,
-PillToolButton:checked:hover,
-PillToolButton:checked:pressed,
-PillToolButton:disabled:checked {
-    background-color: transparent;
-    border: none;
-}
-</string>
-              </property>
-              <property name="text">
-               <string>打开商品编辑器</string>
-              </property>
-             </widget>
-            </item>
            </layout>
           </widget>
          </item>
          <item row="0" column="0">
-          <widget class="QTableWidget" name="tableWidget_2">
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <property name="rowCount">
-            <number>1</number>
-           </property>
-           <property name="columnCount">
-            <number>12</number>
-           </property>
-           <attribute name="horizontalHeaderDefaultSectionSize">
-            <number>100</number>
-           </attribute>
-           <row/>
-           <column/>
-           <column/>
-           <column/>
-           <column/>
-           <column/>
-           <column/>
-           <column/>
-           <column/>
-           <column/>
-           <column/>
-           <column/>
-           <column/>
-          </widget>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="TableWidget" name="tableWidget_goods">
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectItems</enum>
+             </property>
+             <property name="rowCount">
+              <number>1</number>
+             </property>
+             <property name="columnCount">
+              <number>12</number>
+             </property>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </widget>
        <widget class="QWidget" name="pm">
         <layout class="QGridLayout" name="gridLayout_2" columnstretch="2,0,0">
          <item row="0" column="2">
-          <layout class="QVBoxLayout" name="verticalLayout_5" stretch="2,0,0,0,0">
+          <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,0,0,0,0,0,0">
            <property name="spacing">
             <number>5</number>
            </property>
@@ -2528,27 +2832,17 @@ PillToolButton:disabled:checked {
             <number>0</number>
            </property>
            <item>
-            <layout class="QGridLayout" name="gridLayout_4">
-             <property name="horizontalSpacing">
-              <number>0</number>
+            <widget class="BodyLabel" name="BodyLabel">
+             <property name="text">
+              <string>代码预览：</string>
              </property>
-             <property name="verticalSpacing">
-              <number>11</number>
-             </property>
-             <item row="1" column="0">
-              <widget class="TextEdit" name="textEdit"/>
-             </item>
-             <item row="0" column="0">
-              <widget class="BodyLabel" name="BodyLabel">
-               <property name="text">
-                <string>代码预览：</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
+            </widget>
            </item>
            <item>
-            <widget class="PrimaryPushButton" name="pushButton_pm_3">
+            <widget class="TextEdit" name="textEdit_pm"/>
+           </item>
+           <item>
+            <widget class="PrimaryPushButton" name="pushButton_pm_del">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -2621,7 +2915,7 @@ PrimaryToolButton,
 ToggleButton:checked,
 ToggleToolButton:checked {
     color: white;
-    background-color: #009faa;
+    background-color: #5f9ea0;
     border: 1px solid #00a7b3;
     border-bottom: 1px solid #007780;
 }
@@ -2689,7 +2983,7 @@ PrimarySplitDropButton:pressed {
 HyperlinkButton {
     /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
     padding: 6px 12px 6px 12px;
-    color: #009faa;
+    color: #5f9ea0;
     border: none;
     border-radius: 6px;
     background-color: transparent;
@@ -2704,13 +2998,13 @@ HyperlinkButton[hasIcon=true] {
 }
 
 HyperlinkButton:hover {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 10);
     border: none;
 }
 
 HyperlinkButton:pressed {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 6);
     border: none;
 }
@@ -2760,24 +3054,24 @@ RadioButton::indicator:checked {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:hover {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.6 rgb(255, 255, 255),
-            stop:0.7 #009faa,
-            stop:1 #009faa);
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:pressed {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton:disabled {
@@ -2868,7 +3162,7 @@ PillToolButton:disabled:checked {
             </widget>
            </item>
            <item>
-            <widget class="PrimaryPushButton" name="pushButton_pm_2">
+            <widget class="PrimaryPushButton" name="pushButton_pm_add">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -2941,7 +3235,7 @@ PrimaryToolButton,
 ToggleButton:checked,
 ToggleToolButton:checked {
     color: white;
-    background-color: #009faa;
+    background-color: #5f9ea0;
     border: 1px solid #00a7b3;
     border-bottom: 1px solid #007780;
 }
@@ -3009,7 +3303,7 @@ PrimarySplitDropButton:pressed {
 HyperlinkButton {
     /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
     padding: 6px 12px 6px 12px;
-    color: #009faa;
+    color: #5f9ea0;
     border: none;
     border-radius: 6px;
     background-color: transparent;
@@ -3024,13 +3318,13 @@ HyperlinkButton[hasIcon=true] {
 }
 
 HyperlinkButton:hover {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 10);
     border: none;
 }
 
 HyperlinkButton:pressed {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 6);
     border: none;
 }
@@ -3080,24 +3374,24 @@ RadioButton::indicator:checked {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:hover {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.6 rgb(255, 255, 255),
-            stop:0.7 #009faa,
-            stop:1 #009faa);
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:pressed {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton:disabled {
@@ -3188,7 +3482,7 @@ PillToolButton:disabled:checked {
             </widget>
            </item>
            <item>
-            <widget class="PrimaryPushButton" name="pushButton_pm">
+            <widget class="PrimaryPushButton" name="pushButton_pm_save">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -3261,7 +3555,7 @@ PrimaryToolButton,
 ToggleButton:checked,
 ToggleToolButton:checked {
     color: white;
-    background-color: #009faa;
+    background-color: #5f9ea0;
     border: 1px solid #00a7b3;
     border-bottom: 1px solid #007780;
 }
@@ -3329,7 +3623,7 @@ PrimarySplitDropButton:pressed {
 HyperlinkButton {
     /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
     padding: 6px 12px 6px 12px;
-    color: #009faa;
+    color: #5f9ea0;
     border: none;
     border-radius: 6px;
     background-color: transparent;
@@ -3344,13 +3638,13 @@ HyperlinkButton[hasIcon=true] {
 }
 
 HyperlinkButton:hover {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 10);
     border: none;
 }
 
 HyperlinkButton:pressed {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 6);
     border: none;
 }
@@ -3400,24 +3694,344 @@ RadioButton::indicator:checked {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:hover {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.6 rgb(255, 255, 255),
-            stop:0.7 #009faa,
-            stop:1 #009faa);
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:pressed {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton:disabled {
+    color: rgba(0, 0, 0, 110);
+}
+
+RadioButton::indicator:disabled {
+    border: 2px solid #bbbbbb;
+    background-color: transparent;
+}
+
+RadioButton::indicator:disabled:checked {
+    border: none;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgba(0, 0, 0, 0.2169),
+            stop:1 rgba(0, 0, 0, 0.2169));
+}
+
+TransparentToolButton,
+TransparentToggleToolButton,
+TransparentDropDownToolButton,
+TransparentPushButton,
+TransparentDropDownPushButton,
+TransparentTogglePushButton {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    margin: 0;
+}
+
+TransparentToolButton:hover,
+TransparentToggleToolButton:hover,
+TransparentDropDownToolButton:hover,
+TransparentPushButton:hover,
+TransparentDropDownPushButton:hover,
+TransparentTogglePushButton:hover {
+    background-color: rgba(0, 0, 0, 9);
+    border: none;
+}
+
+TransparentToolButton:pressed,
+TransparentToggleToolButton:pressed,
+TransparentDropDownToolButton:pressed,
+TransparentPushButton:pressed,
+TransparentDropDownPushButton:pressed,
+TransparentTogglePushButton:pressed {
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+TransparentToolButton:disabled,
+TransparentToggleToolButton:disabled,
+TransparentDropDownToolButton:disabled,
+TransparentPushButton:disabled,
+TransparentDropDownPushButton:disabled,
+TransparentTogglePushButton:disabled {
+    background-color: transparent;
+    border: none;
+}
+
+
+PillPushButton,
+PillPushButton:hover,
+PillPushButton:pressed,
+PillPushButton:disabled,
+PillPushButton:checked,
+PillPushButton:checked:hover,
+PillPushButton:checked:pressed,
+PillPushButton:disabled:checked,
+PillToolButton,
+PillToolButton:hover,
+PillToolButton:pressed,
+PillToolButton:disabled,
+PillToolButton:checked,
+PillToolButton:checked:hover,
+PillToolButton:checked:pressed,
+PillToolButton:disabled:checked {
+    background-color: transparent;
+    border: none;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>保存修改</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="PrimaryPushButton" name="pushButton_pm_export">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">PushButton, ToolButton, ToggleButton, ToggleToolButton {
+	font: 15pt &quot;幼圆&quot;;
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.073);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+    border-radius: 10px;
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 5px 12px 6px 12px;
+    outline: none;
+}
+
+ToolButton {
+    padding: 5px 9px 6px 8px;
+}
+
+PushButton[isPlaceholderText=true] {
+    color: rgba(0, 0, 0, 0.6063);
+}
+
+PushButton[hasIcon=false] {
+    padding: 5px 12px 6px 12px;
+}
+
+PushButton[hasIcon=true] {
+    padding: 5px 12px 6px 36px;
+}
+
+DropDownToolButton, PrimaryDropDownToolButton {
+    padding: 5px 31px 6px 8px;
+}
+
+DropDownPushButton[hasIcon=false],
+PrimaryDropDownPushButton[hasIcon=false] {
+    padding: 5px 31px 6px 12px;
+}
+
+DropDownPushButton[hasIcon=true],
+PrimaryDropDownPushButton[hasIcon=true] {
+    padding: 5px 31px 6px 36px;
+}
+
+PushButton:hover, ToolButton:hover, ToggleButton:hover, ToggleToolButton:hover {
+    background: rgba(249, 249, 249, 0.5);
+}
+
+PushButton:pressed, ToolButton:pressed, ToggleButton:pressed, ToggleToolButton:pressed {
+    color: rgba(0, 0, 0, 0.63);
+    background: rgba(249, 249, 249, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.073);
+}
+
+PushButton:disabled, ToolButton:disabled, ToggleButton:disabled, ToggleToolButton:disabled {
+    color: rgba(0, 0, 0, 0.36);
+    background: rgba(249, 249, 249, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+
+PrimaryPushButton,
+PrimaryToolButton,
+ToggleButton:checked,
+ToggleToolButton:checked {
+    color: white;
+    background-color: #5f9ea0;
+    border: 1px solid #00a7b3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:hover,
+PrimaryToolButton:hover,
+ToggleButton:checked:hover,
+ToggleToolButton:checked:hover {
+    background-color: #00a7b3;
+    border: 1px solid #2daab3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:pressed,
+PrimaryToolButton:pressed,
+ToggleButton:checked:pressed,
+ToggleToolButton:checked:pressed {
+    color: rgba(255, 255, 255, 0.63);
+    background-color: #3eabb3;
+    border: 1px solid #3eabb3;
+}
+
+PrimaryPushButton:disabled,
+PrimaryToolButton:disabled,
+ToggleButton:checked:disabled,
+ToggleToolButton:checked:disabled {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(205, 205, 205);
+    border: 1px solid rgb(205, 205, 205);
+}
+
+SplitDropButton,
+PrimarySplitDropButton {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#splitPushButton,
+#splitToolButton,
+#primarySplitPushButton,
+#primarySplitToolButton {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#splitPushButton:pressed,
+#splitToolButton:pressed,
+SplitDropButton:pressed {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+}
+
+PrimarySplitDropButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+#primarySplitPushButton, #primarySplitToolButton {
+    border-right: 1px solid #3eabb3;
+}
+
+#primarySplitPushButton:pressed, #primarySplitToolButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+HyperlinkButton {
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 6px 12px 6px 12px;
+    color: #5f9ea0;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+HyperlinkButton[hasIcon=false] {
+    padding: 6px 12px 6px 12px;
+}
+
+HyperlinkButton[hasIcon=true] {
+    padding: 6px 12px 6px 36px;
+}
+
+HyperlinkButton:hover {
+    color: #5f9ea0;
+    background-color: rgba(0, 0, 0, 10);
+    border: none;
+}
+
+HyperlinkButton:pressed {
+    color: #5f9ea0;
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+HyperlinkButton:disabled {
+    color: rgba(0, 0, 0, 0.43);
+    background-color: transparent;
+    border: none;
+}
+
+
+RadioButton {
+    min-height: 24px;
+    max-height: 24px;
+    background-color: transparent;
+    font: 14px 'Segoe UI', 'Microsoft YaHei', 'PingFang SC';
+    color: black;
+}
+
+RadioButton::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 11px;
+    border: 2px solid #999999;
+    background-color: rgba(0, 0, 0, 5);
+    margin-right: 4px;
+}
+
+RadioButton::indicator:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+RadioButton::indicator:pressed {
+    border: 2px solid #bbbbbb;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgb(225, 224, 223),
+            stop:1 rgb(225, 224, 223));
+}
+
+RadioButton::indicator:checked {
+    height: 22px;
+    width: 22px;
+    border: none;
+    border-radius: 11px;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton::indicator:checked:hover {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.6 rgb(255, 255, 255),
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton::indicator:checked:pressed {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton:disabled {
@@ -3508,7 +4122,7 @@ PillToolButton:disabled:checked {
             </widget>
            </item>
            <item>
-            <widget class="PrimaryPushButton" name="pushButton_pm_10">
+            <widget class="PrimaryPushButton" name="pushButton_pm_tools">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -3581,7 +4195,7 @@ PrimaryToolButton,
 ToggleButton:checked,
 ToggleToolButton:checked {
     color: white;
-    background-color: #009faa;
+    background-color: #5f9ea0;
     border: 1px solid #00a7b3;
     border-bottom: 1px solid #007780;
 }
@@ -3649,7 +4263,7 @@ PrimarySplitDropButton:pressed {
 HyperlinkButton {
     /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
     padding: 6px 12px 6px 12px;
-    color: #009faa;
+    color: #5f9ea0;
     border: none;
     border-radius: 6px;
     background-color: transparent;
@@ -3664,13 +4278,13 @@ HyperlinkButton[hasIcon=true] {
 }
 
 HyperlinkButton:hover {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 10);
     border: none;
 }
 
 HyperlinkButton:pressed {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 6);
     border: none;
 }
@@ -3720,24 +4334,24 @@ RadioButton::indicator:checked {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:hover {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.6 rgb(255, 255, 255),
-            stop:0.7 #009faa,
-            stop:1 #009faa);
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:pressed {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton:disabled {
@@ -3832,23 +4446,18 @@ PillToolButton:disabled:checked {
          <item row="0" column="0" colspan="2">
           <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0">
            <item>
-            <widget class="TableWidget" name="tableWidget_3">
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
+            <widget class="TableWidget" name="tableWidget_pm">
              <property name="selectionBehavior">
               <enum>QAbstractItemView::SelectItems</enum>
-             </property>
-             <property name="showGrid">
-              <bool>false</bool>
              </property>
              <property name="rowCount">
               <number>1</number>
              </property>
              <property name="columnCount">
-              <number>21</number>
+              <number>22</number>
              </property>
              <row/>
+             <column/>
              <column/>
              <column/>
              <column/>
@@ -3876,41 +4485,67 @@ PillToolButton:disabled:checked {
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="buildings">
-        <layout class="QGridLayout" name="gridLayout_2" columnstretch="2,0">
-         <item row="0" column="1">
-          <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,0,0,0,0">
+       <widget class="QWidget" name="pmg">
+        <layout class="QGridLayout" name="gridLayout_7" columnstretch="2,0" columnminimumwidth="2,0">
+         <item row="0" column="0">
+          <layout class="QVBoxLayout" name="verticalLayout" stretch="2">
            <property name="spacing">
             <number>5</number>
            </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
+           <item>
+            <widget class="TableWidget" name="tableWidget_pmg">
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectItems</enum>
+             </property>
+             <property name="showGrid">
+              <bool>false</bool>
+             </property>
+             <property name="rowCount">
+              <number>2</number>
+             </property>
+             <property name="columnCount">
+              <number>10</number>
+             </property>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="0" column="1">
+          <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,2,0,0,0,0,0">
+           <property name="spacing">
+            <number>5</number>
            </property>
            <item>
-            <layout class="QGridLayout" name="gridLayout_5">
-             <property name="horizontalSpacing">
-              <number>0</number>
+            <widget class="BodyLabel" name="BodyLabel_4">
+             <property name="text">
+              <string>代码预览：</string>
              </property>
-             <property name="verticalSpacing">
-              <number>11</number>
-             </property>
-             <item row="1" column="0">
-              <widget class="TextEdit" name="TextEdit"/>
-             </item>
-             <item row="0" column="0">
-              <widget class="BodyLabel" name="BodyLabel_3">
-               <property name="text">
-                <string>代码预览：</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
+            </widget>
            </item>
            <item>
-            <widget class="PrimaryPushButton" name="PrimaryPushButton">
+            <widget class="TextEdit" name="TextEdit_pmg">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="PrimaryPushButton" name="pushButton_pmg_del">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -3983,7 +4618,7 @@ PrimaryToolButton,
 ToggleButton:checked,
 ToggleToolButton:checked {
     color: white;
-    background-color: #009faa;
+    background-color: #5f9ea0;
     border: 1px solid #00a7b3;
     border-bottom: 1px solid #007780;
 }
@@ -4051,7 +4686,7 @@ PrimarySplitDropButton:pressed {
 HyperlinkButton {
     /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
     padding: 6px 12px 6px 12px;
-    color: #009faa;
+    color: #5f9ea0;
     border: none;
     border-radius: 6px;
     background-color: transparent;
@@ -4066,13 +4701,13 @@ HyperlinkButton[hasIcon=true] {
 }
 
 HyperlinkButton:hover {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 10);
     border: none;
 }
 
 HyperlinkButton:pressed {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 6);
     border: none;
 }
@@ -4122,24 +4757,1850 @@ RadioButton::indicator:checked {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:hover {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.6 rgb(255, 255, 255),
-            stop:0.7 #009faa,
-            stop:1 #009faa);
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:pressed {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton:disabled {
+    color: rgba(0, 0, 0, 110);
+}
+
+RadioButton::indicator:disabled {
+    border: 2px solid #bbbbbb;
+    background-color: transparent;
+}
+
+RadioButton::indicator:disabled:checked {
+    border: none;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgba(0, 0, 0, 0.2169),
+            stop:1 rgba(0, 0, 0, 0.2169));
+}
+
+TransparentToolButton,
+TransparentToggleToolButton,
+TransparentDropDownToolButton,
+TransparentPushButton,
+TransparentDropDownPushButton,
+TransparentTogglePushButton {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    margin: 0;
+}
+
+TransparentToolButton:hover,
+TransparentToggleToolButton:hover,
+TransparentDropDownToolButton:hover,
+TransparentPushButton:hover,
+TransparentDropDownPushButton:hover,
+TransparentTogglePushButton:hover {
+    background-color: rgba(0, 0, 0, 9);
+    border: none;
+}
+
+TransparentToolButton:pressed,
+TransparentToggleToolButton:pressed,
+TransparentDropDownToolButton:pressed,
+TransparentPushButton:pressed,
+TransparentDropDownPushButton:pressed,
+TransparentTogglePushButton:pressed {
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+TransparentToolButton:disabled,
+TransparentToggleToolButton:disabled,
+TransparentDropDownToolButton:disabled,
+TransparentPushButton:disabled,
+TransparentDropDownPushButton:disabled,
+TransparentTogglePushButton:disabled {
+    background-color: transparent;
+    border: none;
+}
+
+
+PillPushButton,
+PillPushButton:hover,
+PillPushButton:pressed,
+PillPushButton:disabled,
+PillPushButton:checked,
+PillPushButton:checked:hover,
+PillPushButton:checked:pressed,
+PillPushButton:disabled:checked,
+PillToolButton,
+PillToolButton:hover,
+PillToolButton:pressed,
+PillToolButton:disabled,
+PillToolButton:checked,
+PillToolButton:checked:hover,
+PillToolButton:checked:pressed,
+PillToolButton:disabled:checked {
+    background-color: transparent;
+    border: none;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>删除</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="PrimaryPushButton" name="pushButton_pmg_add">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">PushButton, ToolButton, ToggleButton, ToggleToolButton {
+	font: 15pt &quot;幼圆&quot;;
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.073);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+    border-radius: 10px;
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 5px 12px 6px 12px;
+    outline: none;
+}
+
+ToolButton {
+    padding: 5px 9px 6px 8px;
+}
+
+PushButton[isPlaceholderText=true] {
+    color: rgba(0, 0, 0, 0.6063);
+}
+
+PushButton[hasIcon=false] {
+    padding: 5px 12px 6px 12px;
+}
+
+PushButton[hasIcon=true] {
+    padding: 5px 12px 6px 36px;
+}
+
+DropDownToolButton, PrimaryDropDownToolButton {
+    padding: 5px 31px 6px 8px;
+}
+
+DropDownPushButton[hasIcon=false],
+PrimaryDropDownPushButton[hasIcon=false] {
+    padding: 5px 31px 6px 12px;
+}
+
+DropDownPushButton[hasIcon=true],
+PrimaryDropDownPushButton[hasIcon=true] {
+    padding: 5px 31px 6px 36px;
+}
+
+PushButton:hover, ToolButton:hover, ToggleButton:hover, ToggleToolButton:hover {
+    background: rgba(249, 249, 249, 0.5);
+}
+
+PushButton:pressed, ToolButton:pressed, ToggleButton:pressed, ToggleToolButton:pressed {
+    color: rgba(0, 0, 0, 0.63);
+    background: rgba(249, 249, 249, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.073);
+}
+
+PushButton:disabled, ToolButton:disabled, ToggleButton:disabled, ToggleToolButton:disabled {
+    color: rgba(0, 0, 0, 0.36);
+    background: rgba(249, 249, 249, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+
+PrimaryPushButton,
+PrimaryToolButton,
+ToggleButton:checked,
+ToggleToolButton:checked {
+    color: white;
+    background-color: #5f9ea0;
+    border: 1px solid #00a7b3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:hover,
+PrimaryToolButton:hover,
+ToggleButton:checked:hover,
+ToggleToolButton:checked:hover {
+    background-color: #00a7b3;
+    border: 1px solid #2daab3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:pressed,
+PrimaryToolButton:pressed,
+ToggleButton:checked:pressed,
+ToggleToolButton:checked:pressed {
+    color: rgba(255, 255, 255, 0.63);
+    background-color: #3eabb3;
+    border: 1px solid #3eabb3;
+}
+
+PrimaryPushButton:disabled,
+PrimaryToolButton:disabled,
+ToggleButton:checked:disabled,
+ToggleToolButton:checked:disabled {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(205, 205, 205);
+    border: 1px solid rgb(205, 205, 205);
+}
+
+SplitDropButton,
+PrimarySplitDropButton {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#splitPushButton,
+#splitToolButton,
+#primarySplitPushButton,
+#primarySplitToolButton {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#splitPushButton:pressed,
+#splitToolButton:pressed,
+SplitDropButton:pressed {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+}
+
+PrimarySplitDropButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+#primarySplitPushButton, #primarySplitToolButton {
+    border-right: 1px solid #3eabb3;
+}
+
+#primarySplitPushButton:pressed, #primarySplitToolButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+HyperlinkButton {
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 6px 12px 6px 12px;
+    color: #5f9ea0;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+HyperlinkButton[hasIcon=false] {
+    padding: 6px 12px 6px 12px;
+}
+
+HyperlinkButton[hasIcon=true] {
+    padding: 6px 12px 6px 36px;
+}
+
+HyperlinkButton:hover {
+    color: #5f9ea0;
+    background-color: rgba(0, 0, 0, 10);
+    border: none;
+}
+
+HyperlinkButton:pressed {
+    color: #5f9ea0;
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+HyperlinkButton:disabled {
+    color: rgba(0, 0, 0, 0.43);
+    background-color: transparent;
+    border: none;
+}
+
+
+RadioButton {
+    min-height: 24px;
+    max-height: 24px;
+    background-color: transparent;
+    font: 14px 'Segoe UI', 'Microsoft YaHei', 'PingFang SC';
+    color: black;
+}
+
+RadioButton::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 11px;
+    border: 2px solid #999999;
+    background-color: rgba(0, 0, 0, 5);
+    margin-right: 4px;
+}
+
+RadioButton::indicator:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+RadioButton::indicator:pressed {
+    border: 2px solid #bbbbbb;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgb(225, 224, 223),
+            stop:1 rgb(225, 224, 223));
+}
+
+RadioButton::indicator:checked {
+    height: 22px;
+    width: 22px;
+    border: none;
+    border-radius: 11px;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton::indicator:checked:hover {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.6 rgb(255, 255, 255),
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton::indicator:checked:pressed {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton:disabled {
+    color: rgba(0, 0, 0, 110);
+}
+
+RadioButton::indicator:disabled {
+    border: 2px solid #bbbbbb;
+    background-color: transparent;
+}
+
+RadioButton::indicator:disabled:checked {
+    border: none;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgba(0, 0, 0, 0.2169),
+            stop:1 rgba(0, 0, 0, 0.2169));
+}
+
+TransparentToolButton,
+TransparentToggleToolButton,
+TransparentDropDownToolButton,
+TransparentPushButton,
+TransparentDropDownPushButton,
+TransparentTogglePushButton {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    margin: 0;
+}
+
+TransparentToolButton:hover,
+TransparentToggleToolButton:hover,
+TransparentDropDownToolButton:hover,
+TransparentPushButton:hover,
+TransparentDropDownPushButton:hover,
+TransparentTogglePushButton:hover {
+    background-color: rgba(0, 0, 0, 9);
+    border: none;
+}
+
+TransparentToolButton:pressed,
+TransparentToggleToolButton:pressed,
+TransparentDropDownToolButton:pressed,
+TransparentPushButton:pressed,
+TransparentDropDownPushButton:pressed,
+TransparentTogglePushButton:pressed {
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+TransparentToolButton:disabled,
+TransparentToggleToolButton:disabled,
+TransparentDropDownToolButton:disabled,
+TransparentPushButton:disabled,
+TransparentDropDownPushButton:disabled,
+TransparentTogglePushButton:disabled {
+    background-color: transparent;
+    border: none;
+}
+
+
+PillPushButton,
+PillPushButton:hover,
+PillPushButton:pressed,
+PillPushButton:disabled,
+PillPushButton:checked,
+PillPushButton:checked:hover,
+PillPushButton:checked:pressed,
+PillPushButton:disabled:checked,
+PillToolButton,
+PillToolButton:hover,
+PillToolButton:pressed,
+PillToolButton:disabled,
+PillToolButton:checked,
+PillToolButton:checked:hover,
+PillToolButton:checked:pressed,
+PillToolButton:disabled:checked {
+    background-color: transparent;
+    border: none;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>添加</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="PrimaryPushButton" name="pushButton_pmg_save">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">PushButton, ToolButton, ToggleButton, ToggleToolButton {
+	font: 15pt &quot;幼圆&quot;;
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.073);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+    border-radius: 10px;
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 5px 12px 6px 12px;
+    outline: none;
+}
+
+ToolButton {
+    padding: 5px 9px 6px 8px;
+}
+
+PushButton[isPlaceholderText=true] {
+    color: rgba(0, 0, 0, 0.6063);
+}
+
+PushButton[hasIcon=false] {
+    padding: 5px 12px 6px 12px;
+}
+
+PushButton[hasIcon=true] {
+    padding: 5px 12px 6px 36px;
+}
+
+DropDownToolButton, PrimaryDropDownToolButton {
+    padding: 5px 31px 6px 8px;
+}
+
+DropDownPushButton[hasIcon=false],
+PrimaryDropDownPushButton[hasIcon=false] {
+    padding: 5px 31px 6px 12px;
+}
+
+DropDownPushButton[hasIcon=true],
+PrimaryDropDownPushButton[hasIcon=true] {
+    padding: 5px 31px 6px 36px;
+}
+
+PushButton:hover, ToolButton:hover, ToggleButton:hover, ToggleToolButton:hover {
+    background: rgba(249, 249, 249, 0.5);
+}
+
+PushButton:pressed, ToolButton:pressed, ToggleButton:pressed, ToggleToolButton:pressed {
+    color: rgba(0, 0, 0, 0.63);
+    background: rgba(249, 249, 249, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.073);
+}
+
+PushButton:disabled, ToolButton:disabled, ToggleButton:disabled, ToggleToolButton:disabled {
+    color: rgba(0, 0, 0, 0.36);
+    background: rgba(249, 249, 249, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+
+PrimaryPushButton,
+PrimaryToolButton,
+ToggleButton:checked,
+ToggleToolButton:checked {
+    color: white;
+    background-color: #5f9ea0;
+    border: 1px solid #00a7b3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:hover,
+PrimaryToolButton:hover,
+ToggleButton:checked:hover,
+ToggleToolButton:checked:hover {
+    background-color: #00a7b3;
+    border: 1px solid #2daab3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:pressed,
+PrimaryToolButton:pressed,
+ToggleButton:checked:pressed,
+ToggleToolButton:checked:pressed {
+    color: rgba(255, 255, 255, 0.63);
+    background-color: #3eabb3;
+    border: 1px solid #3eabb3;
+}
+
+PrimaryPushButton:disabled,
+PrimaryToolButton:disabled,
+ToggleButton:checked:disabled,
+ToggleToolButton:checked:disabled {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(205, 205, 205);
+    border: 1px solid rgb(205, 205, 205);
+}
+
+SplitDropButton,
+PrimarySplitDropButton {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#splitPushButton,
+#splitToolButton,
+#primarySplitPushButton,
+#primarySplitToolButton {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#splitPushButton:pressed,
+#splitToolButton:pressed,
+SplitDropButton:pressed {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+}
+
+PrimarySplitDropButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+#primarySplitPushButton, #primarySplitToolButton {
+    border-right: 1px solid #3eabb3;
+}
+
+#primarySplitPushButton:pressed, #primarySplitToolButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+HyperlinkButton {
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 6px 12px 6px 12px;
+    color: #5f9ea0;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+HyperlinkButton[hasIcon=false] {
+    padding: 6px 12px 6px 12px;
+}
+
+HyperlinkButton[hasIcon=true] {
+    padding: 6px 12px 6px 36px;
+}
+
+HyperlinkButton:hover {
+    color: #5f9ea0;
+    background-color: rgba(0, 0, 0, 10);
+    border: none;
+}
+
+HyperlinkButton:pressed {
+    color: #5f9ea0;
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+HyperlinkButton:disabled {
+    color: rgba(0, 0, 0, 0.43);
+    background-color: transparent;
+    border: none;
+}
+
+
+RadioButton {
+    min-height: 24px;
+    max-height: 24px;
+    background-color: transparent;
+    font: 14px 'Segoe UI', 'Microsoft YaHei', 'PingFang SC';
+    color: black;
+}
+
+RadioButton::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 11px;
+    border: 2px solid #999999;
+    background-color: rgba(0, 0, 0, 5);
+    margin-right: 4px;
+}
+
+RadioButton::indicator:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+RadioButton::indicator:pressed {
+    border: 2px solid #bbbbbb;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgb(225, 224, 223),
+            stop:1 rgb(225, 224, 223));
+}
+
+RadioButton::indicator:checked {
+    height: 22px;
+    width: 22px;
+    border: none;
+    border-radius: 11px;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton::indicator:checked:hover {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.6 rgb(255, 255, 255),
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton::indicator:checked:pressed {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton:disabled {
+    color: rgba(0, 0, 0, 110);
+}
+
+RadioButton::indicator:disabled {
+    border: 2px solid #bbbbbb;
+    background-color: transparent;
+}
+
+RadioButton::indicator:disabled:checked {
+    border: none;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgba(0, 0, 0, 0.2169),
+            stop:1 rgba(0, 0, 0, 0.2169));
+}
+
+TransparentToolButton,
+TransparentToggleToolButton,
+TransparentDropDownToolButton,
+TransparentPushButton,
+TransparentDropDownPushButton,
+TransparentTogglePushButton {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    margin: 0;
+}
+
+TransparentToolButton:hover,
+TransparentToggleToolButton:hover,
+TransparentDropDownToolButton:hover,
+TransparentPushButton:hover,
+TransparentDropDownPushButton:hover,
+TransparentTogglePushButton:hover {
+    background-color: rgba(0, 0, 0, 9);
+    border: none;
+}
+
+TransparentToolButton:pressed,
+TransparentToggleToolButton:pressed,
+TransparentDropDownToolButton:pressed,
+TransparentPushButton:pressed,
+TransparentDropDownPushButton:pressed,
+TransparentTogglePushButton:pressed {
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+TransparentToolButton:disabled,
+TransparentToggleToolButton:disabled,
+TransparentDropDownToolButton:disabled,
+TransparentPushButton:disabled,
+TransparentDropDownPushButton:disabled,
+TransparentTogglePushButton:disabled {
+    background-color: transparent;
+    border: none;
+}
+
+
+PillPushButton,
+PillPushButton:hover,
+PillPushButton:pressed,
+PillPushButton:disabled,
+PillPushButton:checked,
+PillPushButton:checked:hover,
+PillPushButton:checked:pressed,
+PillPushButton:disabled:checked,
+PillToolButton,
+PillToolButton:hover,
+PillToolButton:pressed,
+PillToolButton:disabled,
+PillToolButton:checked,
+PillToolButton:checked:hover,
+PillToolButton:checked:pressed,
+PillToolButton:disabled:checked {
+    background-color: transparent;
+    border: none;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>保存修改</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="PrimaryPushButton" name="pushButton_pmg_export">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">PushButton, ToolButton, ToggleButton, ToggleToolButton {
+	font: 15pt &quot;幼圆&quot;;
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.073);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+    border-radius: 10px;
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 5px 12px 6px 12px;
+    outline: none;
+}
+
+ToolButton {
+    padding: 5px 9px 6px 8px;
+}
+
+PushButton[isPlaceholderText=true] {
+    color: rgba(0, 0, 0, 0.6063);
+}
+
+PushButton[hasIcon=false] {
+    padding: 5px 12px 6px 12px;
+}
+
+PushButton[hasIcon=true] {
+    padding: 5px 12px 6px 36px;
+}
+
+DropDownToolButton, PrimaryDropDownToolButton {
+    padding: 5px 31px 6px 8px;
+}
+
+DropDownPushButton[hasIcon=false],
+PrimaryDropDownPushButton[hasIcon=false] {
+    padding: 5px 31px 6px 12px;
+}
+
+DropDownPushButton[hasIcon=true],
+PrimaryDropDownPushButton[hasIcon=true] {
+    padding: 5px 31px 6px 36px;
+}
+
+PushButton:hover, ToolButton:hover, ToggleButton:hover, ToggleToolButton:hover {
+    background: rgba(249, 249, 249, 0.5);
+}
+
+PushButton:pressed, ToolButton:pressed, ToggleButton:pressed, ToggleToolButton:pressed {
+    color: rgba(0, 0, 0, 0.63);
+    background: rgba(249, 249, 249, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.073);
+}
+
+PushButton:disabled, ToolButton:disabled, ToggleButton:disabled, ToggleToolButton:disabled {
+    color: rgba(0, 0, 0, 0.36);
+    background: rgba(249, 249, 249, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+
+PrimaryPushButton,
+PrimaryToolButton,
+ToggleButton:checked,
+ToggleToolButton:checked {
+    color: white;
+    background-color: #5f9ea0;
+    border: 1px solid #00a7b3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:hover,
+PrimaryToolButton:hover,
+ToggleButton:checked:hover,
+ToggleToolButton:checked:hover {
+    background-color: #00a7b3;
+    border: 1px solid #2daab3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:pressed,
+PrimaryToolButton:pressed,
+ToggleButton:checked:pressed,
+ToggleToolButton:checked:pressed {
+    color: rgba(255, 255, 255, 0.63);
+    background-color: #3eabb3;
+    border: 1px solid #3eabb3;
+}
+
+PrimaryPushButton:disabled,
+PrimaryToolButton:disabled,
+ToggleButton:checked:disabled,
+ToggleToolButton:checked:disabled {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(205, 205, 205);
+    border: 1px solid rgb(205, 205, 205);
+}
+
+SplitDropButton,
+PrimarySplitDropButton {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#splitPushButton,
+#splitToolButton,
+#primarySplitPushButton,
+#primarySplitToolButton {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#splitPushButton:pressed,
+#splitToolButton:pressed,
+SplitDropButton:pressed {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+}
+
+PrimarySplitDropButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+#primarySplitPushButton, #primarySplitToolButton {
+    border-right: 1px solid #3eabb3;
+}
+
+#primarySplitPushButton:pressed, #primarySplitToolButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+HyperlinkButton {
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 6px 12px 6px 12px;
+    color: #5f9ea0;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+HyperlinkButton[hasIcon=false] {
+    padding: 6px 12px 6px 12px;
+}
+
+HyperlinkButton[hasIcon=true] {
+    padding: 6px 12px 6px 36px;
+}
+
+HyperlinkButton:hover {
+    color: #5f9ea0;
+    background-color: rgba(0, 0, 0, 10);
+    border: none;
+}
+
+HyperlinkButton:pressed {
+    color: #5f9ea0;
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+HyperlinkButton:disabled {
+    color: rgba(0, 0, 0, 0.43);
+    background-color: transparent;
+    border: none;
+}
+
+
+RadioButton {
+    min-height: 24px;
+    max-height: 24px;
+    background-color: transparent;
+    font: 14px 'Segoe UI', 'Microsoft YaHei', 'PingFang SC';
+    color: black;
+}
+
+RadioButton::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 11px;
+    border: 2px solid #999999;
+    background-color: rgba(0, 0, 0, 5);
+    margin-right: 4px;
+}
+
+RadioButton::indicator:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+RadioButton::indicator:pressed {
+    border: 2px solid #bbbbbb;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgb(225, 224, 223),
+            stop:1 rgb(225, 224, 223));
+}
+
+RadioButton::indicator:checked {
+    height: 22px;
+    width: 22px;
+    border: none;
+    border-radius: 11px;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton::indicator:checked:hover {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.6 rgb(255, 255, 255),
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton::indicator:checked:pressed {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton:disabled {
+    color: rgba(0, 0, 0, 110);
+}
+
+RadioButton::indicator:disabled {
+    border: 2px solid #bbbbbb;
+    background-color: transparent;
+}
+
+RadioButton::indicator:disabled:checked {
+    border: none;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgba(0, 0, 0, 0.2169),
+            stop:1 rgba(0, 0, 0, 0.2169));
+}
+
+TransparentToolButton,
+TransparentToggleToolButton,
+TransparentDropDownToolButton,
+TransparentPushButton,
+TransparentDropDownPushButton,
+TransparentTogglePushButton {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    margin: 0;
+}
+
+TransparentToolButton:hover,
+TransparentToggleToolButton:hover,
+TransparentDropDownToolButton:hover,
+TransparentPushButton:hover,
+TransparentDropDownPushButton:hover,
+TransparentTogglePushButton:hover {
+    background-color: rgba(0, 0, 0, 9);
+    border: none;
+}
+
+TransparentToolButton:pressed,
+TransparentToggleToolButton:pressed,
+TransparentDropDownToolButton:pressed,
+TransparentPushButton:pressed,
+TransparentDropDownPushButton:pressed,
+TransparentTogglePushButton:pressed {
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+TransparentToolButton:disabled,
+TransparentToggleToolButton:disabled,
+TransparentDropDownToolButton:disabled,
+TransparentPushButton:disabled,
+TransparentDropDownPushButton:disabled,
+TransparentTogglePushButton:disabled {
+    background-color: transparent;
+    border: none;
+}
+
+
+PillPushButton,
+PillPushButton:hover,
+PillPushButton:pressed,
+PillPushButton:disabled,
+PillPushButton:checked,
+PillPushButton:checked:hover,
+PillPushButton:checked:pressed,
+PillPushButton:disabled:checked,
+PillToolButton,
+PillToolButton:hover,
+PillToolButton:pressed,
+PillToolButton:disabled,
+PillToolButton:checked,
+PillToolButton:checked:hover,
+PillToolButton:checked:pressed,
+PillToolButton:disabled:checked {
+    background-color: transparent;
+    border: none;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>保存为文件</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="PrimaryPushButton" name="pushButton_pmg_tools">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">PushButton, ToolButton, ToggleButton, ToggleToolButton {
+	font: 15pt &quot;幼圆&quot;;
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.073);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+    border-radius: 10px;
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 5px 12px 6px 12px;
+    outline: none;
+}
+
+ToolButton {
+    padding: 5px 9px 6px 8px;
+}
+
+PushButton[isPlaceholderText=true] {
+    color: rgba(0, 0, 0, 0.6063);
+}
+
+PushButton[hasIcon=false] {
+    padding: 5px 12px 6px 12px;
+}
+
+PushButton[hasIcon=true] {
+    padding: 5px 12px 6px 36px;
+}
+
+DropDownToolButton, PrimaryDropDownToolButton {
+    padding: 5px 31px 6px 8px;
+}
+
+DropDownPushButton[hasIcon=false],
+PrimaryDropDownPushButton[hasIcon=false] {
+    padding: 5px 31px 6px 12px;
+}
+
+DropDownPushButton[hasIcon=true],
+PrimaryDropDownPushButton[hasIcon=true] {
+    padding: 5px 31px 6px 36px;
+}
+
+PushButton:hover, ToolButton:hover, ToggleButton:hover, ToggleToolButton:hover {
+    background: rgba(249, 249, 249, 0.5);
+}
+
+PushButton:pressed, ToolButton:pressed, ToggleButton:pressed, ToggleToolButton:pressed {
+    color: rgba(0, 0, 0, 0.63);
+    background: rgba(249, 249, 249, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.073);
+}
+
+PushButton:disabled, ToolButton:disabled, ToggleButton:disabled, ToggleToolButton:disabled {
+    color: rgba(0, 0, 0, 0.36);
+    background: rgba(249, 249, 249, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+
+PrimaryPushButton,
+PrimaryToolButton,
+ToggleButton:checked,
+ToggleToolButton:checked {
+    color: white;
+    background-color: #5f9ea0;
+    border: 1px solid #00a7b3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:hover,
+PrimaryToolButton:hover,
+ToggleButton:checked:hover,
+ToggleToolButton:checked:hover {
+    background-color: #00a7b3;
+    border: 1px solid #2daab3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:pressed,
+PrimaryToolButton:pressed,
+ToggleButton:checked:pressed,
+ToggleToolButton:checked:pressed {
+    color: rgba(255, 255, 255, 0.63);
+    background-color: #3eabb3;
+    border: 1px solid #3eabb3;
+}
+
+PrimaryPushButton:disabled,
+PrimaryToolButton:disabled,
+ToggleButton:checked:disabled,
+ToggleToolButton:checked:disabled {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(205, 205, 205);
+    border: 1px solid rgb(205, 205, 205);
+}
+
+SplitDropButton,
+PrimarySplitDropButton {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#splitPushButton,
+#splitToolButton,
+#primarySplitPushButton,
+#primarySplitToolButton {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#splitPushButton:pressed,
+#splitToolButton:pressed,
+SplitDropButton:pressed {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+}
+
+PrimarySplitDropButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+#primarySplitPushButton, #primarySplitToolButton {
+    border-right: 1px solid #3eabb3;
+}
+
+#primarySplitPushButton:pressed, #primarySplitToolButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+HyperlinkButton {
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 6px 12px 6px 12px;
+    color: #5f9ea0;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+HyperlinkButton[hasIcon=false] {
+    padding: 6px 12px 6px 12px;
+}
+
+HyperlinkButton[hasIcon=true] {
+    padding: 6px 12px 6px 36px;
+}
+
+HyperlinkButton:hover {
+    color: #5f9ea0;
+    background-color: rgba(0, 0, 0, 10);
+    border: none;
+}
+
+HyperlinkButton:pressed {
+    color: #5f9ea0;
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+HyperlinkButton:disabled {
+    color: rgba(0, 0, 0, 0.43);
+    background-color: transparent;
+    border: none;
+}
+
+
+RadioButton {
+    min-height: 24px;
+    max-height: 24px;
+    background-color: transparent;
+    font: 14px 'Segoe UI', 'Microsoft YaHei', 'PingFang SC';
+    color: black;
+}
+
+RadioButton::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 11px;
+    border: 2px solid #999999;
+    background-color: rgba(0, 0, 0, 5);
+    margin-right: 4px;
+}
+
+RadioButton::indicator:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+RadioButton::indicator:pressed {
+    border: 2px solid #bbbbbb;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgb(225, 224, 223),
+            stop:1 rgb(225, 224, 223));
+}
+
+RadioButton::indicator:checked {
+    height: 22px;
+    width: 22px;
+    border: none;
+    border-radius: 11px;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton::indicator:checked:hover {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.6 rgb(255, 255, 255),
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton::indicator:checked:pressed {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton:disabled {
+    color: rgba(0, 0, 0, 110);
+}
+
+RadioButton::indicator:disabled {
+    border: 2px solid #bbbbbb;
+    background-color: transparent;
+}
+
+RadioButton::indicator:disabled:checked {
+    border: none;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgba(0, 0, 0, 0.2169),
+            stop:1 rgba(0, 0, 0, 0.2169));
+}
+
+TransparentToolButton,
+TransparentToggleToolButton,
+TransparentDropDownToolButton,
+TransparentPushButton,
+TransparentDropDownPushButton,
+TransparentTogglePushButton {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    margin: 0;
+}
+
+TransparentToolButton:hover,
+TransparentToggleToolButton:hover,
+TransparentDropDownToolButton:hover,
+TransparentPushButton:hover,
+TransparentDropDownPushButton:hover,
+TransparentTogglePushButton:hover {
+    background-color: rgba(0, 0, 0, 9);
+    border: none;
+}
+
+TransparentToolButton:pressed,
+TransparentToggleToolButton:pressed,
+TransparentDropDownToolButton:pressed,
+TransparentPushButton:pressed,
+TransparentDropDownPushButton:pressed,
+TransparentTogglePushButton:pressed {
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+TransparentToolButton:disabled,
+TransparentToggleToolButton:disabled,
+TransparentDropDownToolButton:disabled,
+TransparentPushButton:disabled,
+TransparentDropDownPushButton:disabled,
+TransparentTogglePushButton:disabled {
+    background-color: transparent;
+    border: none;
+}
+
+
+PillPushButton,
+PillPushButton:hover,
+PillPushButton:pressed,
+PillPushButton:disabled,
+PillPushButton:checked,
+PillPushButton:checked:hover,
+PillPushButton:checked:pressed,
+PillPushButton:disabled:checked,
+PillToolButton,
+PillToolButton:hover,
+PillToolButton:pressed,
+PillToolButton:disabled,
+PillToolButton:checked,
+PillToolButton:checked:hover,
+PillToolButton:checked:pressed,
+PillToolButton:disabled:checked {
+    background-color: transparent;
+    border: none;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>打开PMG编辑器</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="buildings">
+        <layout class="QGridLayout" name="gridLayout_2" columnstretch="2,0">
+         <item row="0" column="1">
+          <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,0,0,0,0,0,0">
+           <property name="spacing">
+            <number>5</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="BodyLabel" name="BodyLabel_3">
+             <property name="text">
+              <string>代码预览：</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="TextEdit" name="TextEdit_bg"/>
+           </item>
+           <item>
+            <widget class="PrimaryPushButton" name="pushButton_bg_del">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="palette">
+              <palette>
+               <active>
+                <colorrole role="WindowText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>255</red>
+                   <green>255</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Button">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>95</red>
+                   <green>158</green>
+                   <blue>160</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Text">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>255</red>
+                   <green>255</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="ButtonText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>255</red>
+                   <green>255</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Base">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>95</red>
+                   <green>158</green>
+                   <blue>160</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Window">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>95</red>
+                   <green>158</green>
+                   <blue>160</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>255</red>
+                   <green>255</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+               </active>
+               <inactive>
+                <colorrole role="WindowText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>255</red>
+                   <green>255</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Button">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>95</red>
+                   <green>158</green>
+                   <blue>160</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Text">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>255</red>
+                   <green>255</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="ButtonText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>255</red>
+                   <green>255</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Base">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>95</red>
+                   <green>158</green>
+                   <blue>160</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Window">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>95</red>
+                   <green>158</green>
+                   <blue>160</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>255</red>
+                   <green>255</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+               </inactive>
+               <disabled>
+                <colorrole role="WindowText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="229">
+                   <red>255</red>
+                   <green>255</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Button">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>205</red>
+                   <green>205</green>
+                   <blue>205</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Text">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="229">
+                   <red>255</red>
+                   <green>255</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="ButtonText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="229">
+                   <red>255</red>
+                   <green>255</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Base">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>205</red>
+                   <green>205</green>
+                   <blue>205</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Window">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>205</red>
+                   <green>205</green>
+                   <blue>205</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="NoBrush">
+                  <color alpha="128">
+                   <red>255</red>
+                   <green>255</green>
+                   <blue>255</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+               </disabled>
+              </palette>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">PushButton, ToolButton, ToggleButton, ToggleToolButton {
+	font: 15pt &quot;幼圆&quot;;
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.073);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+    border-radius: 10px;
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 5px 12px 6px 12px;
+    outline: none;
+}
+
+ToolButton {
+    padding: 5px 9px 6px 8px;
+}
+
+PushButton[isPlaceholderText=true] {
+    color: rgba(0, 0, 0, 0.6063);
+}
+
+PushButton[hasIcon=false] {
+    padding: 5px 12px 6px 12px;
+}
+
+PushButton[hasIcon=true] {
+    padding: 5px 12px 6px 36px;
+}
+
+DropDownToolButton, PrimaryDropDownToolButton {
+    padding: 5px 31px 6px 8px;
+}
+
+DropDownPushButton[hasIcon=false],
+PrimaryDropDownPushButton[hasIcon=false] {
+    padding: 5px 31px 6px 12px;
+}
+
+DropDownPushButton[hasIcon=true],
+PrimaryDropDownPushButton[hasIcon=true] {
+    padding: 5px 31px 6px 36px;
+}
+
+PushButton:hover, ToolButton:hover, ToggleButton:hover, ToggleToolButton:hover {
+    background: rgba(249, 249, 249, 0.5);
+}
+
+PushButton:pressed, ToolButton:pressed, ToggleButton:pressed, ToggleToolButton:pressed {
+    color: rgba(0, 0, 0, 0.63);
+    background: rgba(249, 249, 249, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.073);
+}
+
+PushButton:disabled, ToolButton:disabled, ToggleButton:disabled, ToggleToolButton:disabled {
+    color: rgba(0, 0, 0, 0.36);
+    background: rgba(249, 249, 249, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+
+PrimaryPushButton,
+PrimaryToolButton,
+ToggleButton:checked,
+ToggleToolButton:checked {
+    color: white;
+    background-color: #5f9ea0;
+    border: 1px solid #00a7b3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:hover,
+PrimaryToolButton:hover,
+ToggleButton:checked:hover,
+ToggleToolButton:checked:hover {
+    background-color: #00a7b3;
+    border: 1px solid #2daab3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:pressed,
+PrimaryToolButton:pressed,
+ToggleButton:checked:pressed,
+ToggleToolButton:checked:pressed {
+    color: rgba(255, 255, 255, 0.63);
+    background-color: #3eabb3;
+    border: 1px solid #3eabb3;
+}
+
+PrimaryPushButton:disabled,
+PrimaryToolButton:disabled,
+ToggleButton:checked:disabled,
+ToggleToolButton:checked:disabled {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(205, 205, 205);
+    border: 1px solid rgb(205, 205, 205);
+}
+
+SplitDropButton,
+PrimarySplitDropButton {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#splitPushButton,
+#splitToolButton,
+#primarySplitPushButton,
+#primarySplitToolButton {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#splitPushButton:pressed,
+#splitToolButton:pressed,
+SplitDropButton:pressed {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+}
+
+PrimarySplitDropButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+#primarySplitPushButton, #primarySplitToolButton {
+    border-right: 1px solid #3eabb3;
+}
+
+#primarySplitPushButton:pressed, #primarySplitToolButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+HyperlinkButton {
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 6px 12px 6px 12px;
+    color: #5f9ea0;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+HyperlinkButton[hasIcon=false] {
+    padding: 6px 12px 6px 12px;
+}
+
+HyperlinkButton[hasIcon=true] {
+    padding: 6px 12px 6px 36px;
+}
+
+HyperlinkButton:hover {
+    color: #5f9ea0;
+    background-color: rgba(0, 0, 0, 10);
+    border: none;
+}
+
+HyperlinkButton:pressed {
+    color: #5f9ea0;
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+HyperlinkButton:disabled {
+    color: rgba(0, 0, 0, 0.43);
+    background-color: transparent;
+    border: none;
+}
+
+
+RadioButton {
+    min-height: 24px;
+    max-height: 24px;
+    background-color: transparent;
+    font: 14px 'Segoe UI', 'Microsoft YaHei', 'PingFang SC';
+    color: black;
+}
+
+RadioButton::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 11px;
+    border: 2px solid #999999;
+    background-color: rgba(0, 0, 0, 5);
+    margin-right: 4px;
+}
+
+RadioButton::indicator:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+RadioButton::indicator:pressed {
+    border: 2px solid #bbbbbb;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgb(225, 224, 223),
+            stop:1 rgb(225, 224, 223));
+}
+
+RadioButton::indicator:checked {
+    height: 22px;
+    width: 22px;
+    border: none;
+    border-radius: 11px;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton::indicator:checked:hover {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.6 rgb(255, 255, 255),
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton::indicator:checked:pressed {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton:disabled {
@@ -4230,7 +6691,7 @@ PillToolButton:disabled:checked {
             </widget>
            </item>
            <item>
-            <widget class="PrimaryPushButton" name="PrimaryPushButton_2">
+            <widget class="PrimaryPushButton" name="pushButton_bg_add">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -4303,7 +6764,7 @@ PrimaryToolButton,
 ToggleButton:checked,
 ToggleToolButton:checked {
     color: white;
-    background-color: #009faa;
+    background-color: #5f9ea0;
     border: 1px solid #00a7b3;
     border-bottom: 1px solid #007780;
 }
@@ -4371,7 +6832,7 @@ PrimarySplitDropButton:pressed {
 HyperlinkButton {
     /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
     padding: 6px 12px 6px 12px;
-    color: #009faa;
+    color: #5f9ea0;
     border: none;
     border-radius: 6px;
     background-color: transparent;
@@ -4386,13 +6847,13 @@ HyperlinkButton[hasIcon=true] {
 }
 
 HyperlinkButton:hover {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 10);
     border: none;
 }
 
 HyperlinkButton:pressed {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 6);
     border: none;
 }
@@ -4442,24 +6903,24 @@ RadioButton::indicator:checked {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:hover {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.6 rgb(255, 255, 255),
-            stop:0.7 #009faa,
-            stop:1 #009faa);
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:pressed {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton:disabled {
@@ -4550,7 +7011,7 @@ PillToolButton:disabled:checked {
             </widget>
            </item>
            <item>
-            <widget class="PrimaryPushButton" name="PrimaryPushButton_3">
+            <widget class="PrimaryPushButton" name="pushButton_bg_save">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -4623,7 +7084,7 @@ PrimaryToolButton,
 ToggleButton:checked,
 ToggleToolButton:checked {
     color: white;
-    background-color: #009faa;
+    background-color: #5f9ea0;
     border: 1px solid #00a7b3;
     border-bottom: 1px solid #007780;
 }
@@ -4691,7 +7152,7 @@ PrimarySplitDropButton:pressed {
 HyperlinkButton {
     /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
     padding: 6px 12px 6px 12px;
-    color: #009faa;
+    color: #5f9ea0;
     border: none;
     border-radius: 6px;
     background-color: transparent;
@@ -4706,13 +7167,13 @@ HyperlinkButton[hasIcon=true] {
 }
 
 HyperlinkButton:hover {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 10);
     border: none;
 }
 
 HyperlinkButton:pressed {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 6);
     border: none;
 }
@@ -4762,24 +7223,24 @@ RadioButton::indicator:checked {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:hover {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.6 rgb(255, 255, 255),
-            stop:0.7 #009faa,
-            stop:1 #009faa);
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:pressed {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton:disabled {
@@ -4865,12 +7326,12 @@ PillToolButton:disabled:checked {
 </string>
              </property>
              <property name="text">
-              <string>将修改更新到文件</string>
+              <string>保存修改</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="PrimaryPushButton" name="PrimaryPushButton_4">
+            <widget class="PrimaryPushButton" name="pushButton_bg_export">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -4943,7 +7404,7 @@ PrimaryToolButton,
 ToggleButton:checked,
 ToggleToolButton:checked {
     color: white;
-    background-color: #009faa;
+    background-color: #5f9ea0;
     border: 1px solid #00a7b3;
     border-bottom: 1px solid #007780;
 }
@@ -5011,7 +7472,7 @@ PrimarySplitDropButton:pressed {
 HyperlinkButton {
     /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
     padding: 6px 12px 6px 12px;
-    color: #009faa;
+    color: #5f9ea0;
     border: none;
     border-radius: 6px;
     background-color: transparent;
@@ -5026,13 +7487,13 @@ HyperlinkButton[hasIcon=true] {
 }
 
 HyperlinkButton:hover {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 10);
     border: none;
 }
 
 HyperlinkButton:pressed {
-    color: #009faa;
+    color: #5f9ea0;
     background-color: rgba(0, 0, 0, 6);
     border: none;
 }
@@ -5082,24 +7543,344 @@ RadioButton::indicator:checked {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:hover {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.6 rgb(255, 255, 255),
-            stop:0.7 #009faa,
-            stop:1 #009faa);
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton::indicator:checked:pressed {
     background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
             stop:0 rgb(255, 255, 255),
             stop:0.5 rgb(255, 255, 255),
-            stop:0.6 #009faa,
-            stop:1 #009faa);
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton:disabled {
+    color: rgba(0, 0, 0, 110);
+}
+
+RadioButton::indicator:disabled {
+    border: 2px solid #bbbbbb;
+    background-color: transparent;
+}
+
+RadioButton::indicator:disabled:checked {
+    border: none;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgba(0, 0, 0, 0.2169),
+            stop:1 rgba(0, 0, 0, 0.2169));
+}
+
+TransparentToolButton,
+TransparentToggleToolButton,
+TransparentDropDownToolButton,
+TransparentPushButton,
+TransparentDropDownPushButton,
+TransparentTogglePushButton {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    margin: 0;
+}
+
+TransparentToolButton:hover,
+TransparentToggleToolButton:hover,
+TransparentDropDownToolButton:hover,
+TransparentPushButton:hover,
+TransparentDropDownPushButton:hover,
+TransparentTogglePushButton:hover {
+    background-color: rgba(0, 0, 0, 9);
+    border: none;
+}
+
+TransparentToolButton:pressed,
+TransparentToggleToolButton:pressed,
+TransparentDropDownToolButton:pressed,
+TransparentPushButton:pressed,
+TransparentDropDownPushButton:pressed,
+TransparentTogglePushButton:pressed {
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+TransparentToolButton:disabled,
+TransparentToggleToolButton:disabled,
+TransparentDropDownToolButton:disabled,
+TransparentPushButton:disabled,
+TransparentDropDownPushButton:disabled,
+TransparentTogglePushButton:disabled {
+    background-color: transparent;
+    border: none;
+}
+
+
+PillPushButton,
+PillPushButton:hover,
+PillPushButton:pressed,
+PillPushButton:disabled,
+PillPushButton:checked,
+PillPushButton:checked:hover,
+PillPushButton:checked:pressed,
+PillPushButton:disabled:checked,
+PillToolButton,
+PillToolButton:hover,
+PillToolButton:pressed,
+PillToolButton:disabled,
+PillToolButton:checked,
+PillToolButton:checked:hover,
+PillToolButton:checked:pressed,
+PillToolButton:disabled:checked {
+    background-color: transparent;
+    border: none;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>保存为文件</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="PrimaryPushButton" name="pushButton_bg_tools">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">PushButton, ToolButton, ToggleButton, ToggleToolButton {
+	font: 15pt &quot;幼圆&quot;;
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.073);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+    border-radius: 10px;
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 5px 12px 6px 12px;
+    outline: none;
+}
+
+ToolButton {
+    padding: 5px 9px 6px 8px;
+}
+
+PushButton[isPlaceholderText=true] {
+    color: rgba(0, 0, 0, 0.6063);
+}
+
+PushButton[hasIcon=false] {
+    padding: 5px 12px 6px 12px;
+}
+
+PushButton[hasIcon=true] {
+    padding: 5px 12px 6px 36px;
+}
+
+DropDownToolButton, PrimaryDropDownToolButton {
+    padding: 5px 31px 6px 8px;
+}
+
+DropDownPushButton[hasIcon=false],
+PrimaryDropDownPushButton[hasIcon=false] {
+    padding: 5px 31px 6px 12px;
+}
+
+DropDownPushButton[hasIcon=true],
+PrimaryDropDownPushButton[hasIcon=true] {
+    padding: 5px 31px 6px 36px;
+}
+
+PushButton:hover, ToolButton:hover, ToggleButton:hover, ToggleToolButton:hover {
+    background: rgba(249, 249, 249, 0.5);
+}
+
+PushButton:pressed, ToolButton:pressed, ToggleButton:pressed, ToggleToolButton:pressed {
+    color: rgba(0, 0, 0, 0.63);
+    background: rgba(249, 249, 249, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.073);
+}
+
+PushButton:disabled, ToolButton:disabled, ToggleButton:disabled, ToggleToolButton:disabled {
+    color: rgba(0, 0, 0, 0.36);
+    background: rgba(249, 249, 249, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+
+PrimaryPushButton,
+PrimaryToolButton,
+ToggleButton:checked,
+ToggleToolButton:checked {
+    color: white;
+    background-color: #5f9ea0;
+    border: 1px solid #00a7b3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:hover,
+PrimaryToolButton:hover,
+ToggleButton:checked:hover,
+ToggleToolButton:checked:hover {
+    background-color: #00a7b3;
+    border: 1px solid #2daab3;
+    border-bottom: 1px solid #007780;
+}
+
+PrimaryPushButton:pressed,
+PrimaryToolButton:pressed,
+ToggleButton:checked:pressed,
+ToggleToolButton:checked:pressed {
+    color: rgba(255, 255, 255, 0.63);
+    background-color: #3eabb3;
+    border: 1px solid #3eabb3;
+}
+
+PrimaryPushButton:disabled,
+PrimaryToolButton:disabled,
+ToggleButton:checked:disabled,
+ToggleToolButton:checked:disabled {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(205, 205, 205);
+    border: 1px solid rgb(205, 205, 205);
+}
+
+SplitDropButton,
+PrimarySplitDropButton {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#splitPushButton,
+#splitToolButton,
+#primarySplitPushButton,
+#primarySplitToolButton {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#splitPushButton:pressed,
+#splitToolButton:pressed,
+SplitDropButton:pressed {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.183);
+}
+
+PrimarySplitDropButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+#primarySplitPushButton, #primarySplitToolButton {
+    border-right: 1px solid #3eabb3;
+}
+
+#primarySplitPushButton:pressed, #primarySplitToolButton:pressed {
+    border-bottom: 1px solid #007780;
+}
+
+HyperlinkButton {
+    /* font: 14px 'Segoe UI', 'Microsoft YaHei'; */
+    padding: 6px 12px 6px 12px;
+    color: #5f9ea0;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+HyperlinkButton[hasIcon=false] {
+    padding: 6px 12px 6px 12px;
+}
+
+HyperlinkButton[hasIcon=true] {
+    padding: 6px 12px 6px 36px;
+}
+
+HyperlinkButton:hover {
+    color: #5f9ea0;
+    background-color: rgba(0, 0, 0, 10);
+    border: none;
+}
+
+HyperlinkButton:pressed {
+    color: #5f9ea0;
+    background-color: rgba(0, 0, 0, 6);
+    border: none;
+}
+
+HyperlinkButton:disabled {
+    color: rgba(0, 0, 0, 0.43);
+    background-color: transparent;
+    border: none;
+}
+
+
+RadioButton {
+    min-height: 24px;
+    max-height: 24px;
+    background-color: transparent;
+    font: 14px 'Segoe UI', 'Microsoft YaHei', 'PingFang SC';
+    color: black;
+}
+
+RadioButton::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 11px;
+    border: 2px solid #999999;
+    background-color: rgba(0, 0, 0, 5);
+    margin-right: 4px;
+}
+
+RadioButton::indicator:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+RadioButton::indicator:pressed {
+    border: 2px solid #bbbbbb;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 rgb(225, 224, 223),
+            stop:1 rgb(225, 224, 223));
+}
+
+RadioButton::indicator:checked {
+    height: 22px;
+    width: 22px;
+    border: none;
+    border-radius: 11px;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton::indicator:checked:hover {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.6 rgb(255, 255, 255),
+            stop:0.7 #5f9ea0,
+            stop:1 #5f9ea0);
+}
+
+RadioButton::indicator:checked:pressed {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5,
+            stop:0 rgb(255, 255, 255),
+            stop:0.5 rgb(255, 255, 255),
+            stop:0.6 #5f9ea0,
+            stop:1 #5f9ea0);
 }
 
 RadioButton:disabled {
@@ -5194,45 +7975,28 @@ PillToolButton:disabled:checked {
          <item row="0" column="0">
           <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0">
            <item>
-            <widget class="TableWidget" name="TableWidget">
-             <property name="styleSheet">
-              <string notr="true"/>
+            <widget class="TableWidget" name="TableWidget_bg">
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectItems</enum>
              </property>
-             <row>
-              <property name="text">
-               <string>1</string>
-              </property>
-             </row>
-             <column>
-              <property name="text">
-               <string>1</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>2</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>3</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>4</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>5</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>6</string>
-              </property>
-             </column>
+             <property name="rowCount">
+              <number>2</number>
+             </property>
+             <property name="columnCount">
+              <number>10</number>
+             </property>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
             </widget>
            </item>
           </layout>

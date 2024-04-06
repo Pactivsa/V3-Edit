@@ -1,5 +1,5 @@
 #用于添加与控制的模板类
-from typing import Any, Literal
+from typing import Literal
 from enum import Enum
 from abc import ABC, abstractmethod
 
@@ -27,13 +27,6 @@ class BaseTemplate:
     @abstractmethod
     def _clone(self, name):
         pass
-
-    @staticmethod
-    @abstractmethod
-    def structure():
-        pass
-
-
 
     def clone_from(self, prototype: "BaseTemplate", new_name: str):
         '''
@@ -255,6 +248,19 @@ class BaseTemplate:
     def __str__(self) -> str:
         return str(self.data)
     
+    def __getitem__(self, key):
+        #如果key为int，则返回data中的第key项
+        if isinstance(key, int):
+            return self.data[key]
+        #如果key为str，则返回data中第二项中的key项
+        if isinstance(key, str):
+            return self.data[1][key]
+        raise Exception("key必须为int或str")
+
+    
+    
+    
+    
     @staticmethod
     def compile_template(template_list: list["BaseTemplate"],
                          output_file: str
@@ -363,22 +369,6 @@ class BaseManager:
         
     def pop(self, key) -> BaseTemplate:
         return self.map.pop(key)
-    
-    #将两个manager合并
-    def merge(self, manager: "BaseManager") -> None:
-        # 检测manager的class_type是否与当前的class_type相同
-        if self.class_type != manager.class_type:
-            raise Exception("class_type不一致")
-        for key in manager.map:
-            self.map[key] = manager.map[key]
-
-    def __add__(self, manager: "BaseManager") -> "BaseManager":
-        result = BaseManager(self.class_type)
-        result.merge(self)
-        result.merge(manager)
-        return result
-    
-    
     
 
     # manager输出时把map中的所有template合并输出
