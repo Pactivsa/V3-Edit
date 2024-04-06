@@ -13,7 +13,7 @@ print(BM.get_part("buildings"))
 building_textile_mills ,rc = get_building_detail(BM, "building_textile_mills")
 
 
-pm_test, rc = get_pm_detail(BM, "pm_atmospheric_engine_pump_building_coal_mine")
+pm_test, rc = get_pm_detail(BM, "pm_patent_stills")
 
 for key in pm_test.keys():
     print(key, pm_test[key])
