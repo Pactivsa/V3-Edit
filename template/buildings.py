@@ -289,6 +289,7 @@ class Pm(BaseTemplate):
             返回生产方法的结构
             以 key: path返回
         '''
+        #完整占据一个子结构的属性
         f_structure = {
             "name": "name",
             "texture": "texture",
@@ -299,7 +300,7 @@ class Pm(BaseTemplate):
             "level_scaled": "building_modifiers.level_scaled",
             "unscaled": "building_modifiers.unscaled"
         }
-
+        #从某一子结构中部分提取的属性
         p_structure = {
             "inputs": "building_modifiers.workforce_scaled",
             "outputs": "building_modifiers.workforce_scaled",
