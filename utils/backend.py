@@ -1,5 +1,5 @@
 #后端的初始化部分
-from utils.structure import parser_default,output_manager,init_folder_structure,replace_empty
+from utils.folder import parser_default,output_manager,init_folder_structure
 
 from utils.template import BaseManager
 
@@ -36,25 +36,6 @@ class BackendManager():
                 if key in raw_manager.keys():
                     raw_manager.pop(key)
 
-        if True:
-            self.replacement()
-
-    def replacement(self):
-        '''
-            将原版的所有文件置空，并全部转入
-        '''
-
-        #将raw中的所有内容移动到mods中
-        for part in self.raw.keys():
-            mods_manager:BaseManager = self.mods[part]
-            raw_manager:BaseManager = self.raw[part]
-
-            mods_manager.merge(raw_manager)
-
-        #输出空文件到mods中
-        replace_empty(self.mod_path, self.game_path)
-
-
     def output(self):
         '''
             将mods中的所有内容输出到mod_path中
@@ -69,13 +50,6 @@ class BackendManager():
         '''
             从raw和mods中获取指定的组件的所有key
             @param part: 组件的名称
-            允许值从 utls.structure获取，包括：[
-                "buildings",
-                "bg",
-                "pmg",
-                "pm",
-                "goods"
-            ]
             @return: mods中的key列表，raw中的key列表
         '''
         mods_manager:BaseManager = self.mods[part]
@@ -87,15 +61,7 @@ class BackendManager():
         '''
             从raw和mods中获取指定的组件的详细信息
             @param part: 组件的名称
-            @param key: 组件的key,
-            
-            允许值从 utls.structure获取，包括：[
-                "buildings",
-                "bg",
-                "pmg",
-                "pm",
-                "goods"
-            ]
+            @param key: 组件的key
             @return: mods中的组件，raw中的组件
         '''
         mods_manager:BaseManager = self.mods[part]
