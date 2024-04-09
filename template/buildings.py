@@ -501,6 +501,54 @@ class Pm(BaseTemplate):
         self.delete("building_modifiers.unscaled")
         self.add("building_modifiers.unscaled", "=", unscaled)
 
+
+    def get_country_modifiers_workforce(self):
+        return self.trace("country_modifiers.workforce_scaled")
+
+    def get_country_modifiers_level(self):
+        return self.trace("country_modifiers.level_scaled")
+
+    def get_country_modifiers_unscaled(self):
+        return self.trace("country_modifiers.unscaled")
+
+    def get_state_modifiers_workforce(self):
+        return self.trace("state_modifiers.workforce_scaled")
+
+    def get_state_modifiers_level(self):
+        return self.trace("state_modifiers.level_scaled")
+
+    def get_state_modifiers_unscaled(self):
+        return self.trace("state_modifiers.unscaled")
+
+    def get_timed_modifiers(self):
+        return self.trace("timed_modifier")
+
+    def get_texture(self):
+        return self.trace("texture")
+
+    def get_required_input_goods(self):
+        return self.trace("required_input_goods")
+
+    def get_is_default(self):
+        return self.trace("is_default")
+
+    def get_unlocking_laws(self):
+        return self.trace("unlocking_laws")
+
+    def get_unlocking_technologies(self):
+        return self.trace("unlocking_technologies")
+
+    def get_unlocking_production_methods(self):
+        return self.trace("unlocking_production_methods")
+
+    def get_unlocking_global_technologies(self):
+        return self.trace("unlocking_global_technologies")
+
+    def get_ai_weight(self):
+        return self.trace("ai_weight")
+
+    def get_pollution_generation(self):
+        return self.trace("pollution_generation")
     # unscaled.shares
     
     def add_share(self, type, amount):
