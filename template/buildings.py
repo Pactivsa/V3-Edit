@@ -1,6 +1,6 @@
 from utils.template import BaseTemplate
 from template.goods import Goods
-from typing import Literal
+from typing import Literal, Union
 import pandas as pd
 
 class Buildings_group(BaseTemplate):
@@ -150,7 +150,7 @@ class Buildings(BaseTemplate):
         self.add("level_per_mesh", "=", lpm)
 
     # building_group
-    def set_building_group(self, bg: str|Buildings_group):
+    def set_building_group(self, bg: Union[str, Buildings_group]) -> None:
         if isinstance(bg, Buildings_group):
             bg = bg.name
         self.add("building_group", "=", bg)
@@ -165,7 +165,7 @@ class Buildings(BaseTemplate):
     def remove_unlocking_technology(self, tech: str) -> None:
         self.delete(tech, "unlocking_technologies")
 
-    def get_unlocking_technologies(self) -> str|list|None:
+    def get_unlocking_technologies(self) -> list:
         return self.trace("unlocking_technologies")
     
     def set_unlocking_technologies(self, techs: list):
@@ -254,7 +254,7 @@ class Pmg(BaseTemplate):
     def remove_pm(self, pm_name: str):
         self.delete(pm_name, "production_methods")
 
-    def get_pms(self) -> list|None:
+    def get_pms(self) -> list:
         return self.trace("production_methods")
     
     def set_pms(self, pms: list):
@@ -331,7 +331,7 @@ class Pm(BaseTemplate):
     
     # disallowing_laws
 
-    def get_disallowing_laws(self) -> list|None:
+    def get_disallowing_laws(self) -> list:
         return self.trace("disallowing_laws")
     
     def add_disallowing_law(self, law: str):
@@ -348,7 +348,7 @@ class Pm(BaseTemplate):
 
     # unlocking_technologies
             
-    def get_unlocking_technologies(self) -> list|None:
+    def get_unlocking_technologies(self) -> list:
         return self.trace("unlocking_technologies")
     
     def add_unlocking_technology(self, tech: str):

@@ -7,11 +7,15 @@ from utils.utils import output_to_txt
 from utils.folder import parser_folder
 
 
+
+
+
 class BaseTemplate:
     def __init__(self, name ,original_file,if_init=False):
         self.if_init = if_init
         self.original_file = original_file
         self.name = name
+        self.classify = None
         #self.Localizations = Localization()
         self.data = {
             name: 
@@ -270,12 +274,11 @@ class BaseTemplate:
 
 
 
-
 class BaseManager:
     '''
         模板管理器,对于每一个类都有一个对应的管理器
     '''
-    def __init__(self,class_type:BaseTemplate,if_init=False):
+    def __init__(self,class_type,if_init=False):
         if not issubclass(class_type, BaseTemplate):
             raise Exception("class_type必须为BaseTemplate的子类")
         self.map = {}
@@ -283,6 +286,37 @@ class BaseManager:
         #基于class_type创建一个新的类
         self.prototype = self.class_type(name="prototype",if_init=if_init)
 
+        #分类组,分类名:[template.name...]
+        self.classify = {}
+
+    def set_classify(self, name, classify) -> None:
+        '''
+            设置分类
+        '''
+        #检测name是否已经有一个分类,如果有,将其从原分类中删除
+        property = self.map.get(name)
+        if property is None:
+            raise Exception("未找到对应的属性:"+name)
+
+        if property.classify:
+            self.classify[property.classify].remove(name)
+
+        #设置新的分类
+        property.classify = classify
+        if classify not in self.classify:
+            self.classify[classify] = []
+        self.classify[classify].append(name)
+
+    def rm_classify(self, name) -> None:
+        '''
+            删除分类
+        '''
+        property = self.map.get(name)
+        if property is None:
+            raise Exception("未找到对应的属性:"+name)
+        if property.classify:
+            self.classify[property.classify].remove(name)
+            property.classify = None
 
     def set_property(self, name, property) -> None:
         '''
