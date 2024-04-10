@@ -54,6 +54,111 @@ class Buildings(BaseTemplate):
     def get_required_construction(self):
         return self.trace("required_construction")
 
+    def get_building_group(self):
+        return self.trace("required_construction")
+
+    def get_buildable(self):
+        return self.trace("buildable")
+
+    def get_expandable(self):
+        return self.trace("expandable")
+
+    def get_downsizeable(self):
+        return self.trace("downsizeable")
+
+    def get_unique(self):
+        return self.trace("unique")
+
+    def get_has_max_level(self):
+        return self.trace("has_max_level")
+
+    def get_ignore_stateregion_max_level(self):
+        return self.trace("ignore_stateregion_max_level")
+
+    def get_enable_air_connection(self):
+        return self.trace("enable_air_connection")
+
+    def get_port(self):
+        return self.trace("port")
+
+    def get_can_build(self):
+        return self.trace("can_build")
+
+    def get_construction_points(self):
+        return self.trace("required_construction")
+
+    def get_construction_modifier(self):
+        return self.trace("construction_modifier")
+
+    def get_owners(self):
+        return self.trace("owners")
+
+    def get_economic_contribution(self):
+        return self.trace("economic_contribution")
+
+    def get_min_raise_to_hire(self):
+        return self.trace("min_raise_to_hire")
+
+    def get_naval(self):
+        return self.trace("naval")
+
+    def get_canal(self):
+        return self.trace("canal")
+
+    def get_ai_value(self):
+        return self.trace("ai_value")
+
+    def get_ai_subsidies_weight(self):
+        return self.trace("ai_subsidies_weight")
+
+    def get_slaves_role(self):
+        return self.trace("slaves_role")
+
+    def get_production_methods(self):
+        return self.trace("production_method_groups")
+
+    def get_should_auto_expand(self):
+        return self.trace("should_auto_expand")
+
+    def get_city_type(self):
+        return self.trace("city_type")
+
+    def get_generates_residences(self):
+        return self.trace("generates_residences")
+
+    def get_terrain_manipulator(self):
+        return self.trace("terrain_manipulator")
+
+    def get_levels_per_mesh(self):
+        return self.trace("levels_per_mesh")
+
+    def get_residence_points_per_level(self):
+        return self.trace("residence_points_per_level")
+
+    def get_override_centerpiece_mesh(self):
+        return self.trace("override_centerpiece_mesh")
+
+    def get_centerpiece_mesh_weight(self):
+        return self.trace("centerpiece_mesh_weight")
+
+    def get_meshes(self):
+        return self.trace("meshes")
+
+    def get_entity_not_constructed(self):
+        return self.trace("entity_not_constructed")
+
+    def get_entity_under_construction(self):
+        return self.trace("entity_under_construction")
+
+    def get_entity_constructed(self):
+        return self.trace("entity_constructed")
+
+    def get_locator(self):
+        return self.trace("locator")
+
+    def get_lens(self):
+        return self.trace("lens")
+
 
 class Pmg(BaseTemplate):
     def __init__(self, name, if_init=False, Buildings: Buildings = None):
@@ -79,6 +184,15 @@ class Pmg(BaseTemplate):
 
     def set_texture(self, texture_path):
         self.add("texture", "=", texture_path)
+
+    def get_is_hidden_when_unavailable(self):
+        return self.trace("is_hidden_when_unavailable")
+
+    def get_ai_selection(self):
+        return self.trace("ai_selection")
+
+    def get_texture(self):
+        return self.trace("texture")
 
 
 class Pm(BaseTemplate):

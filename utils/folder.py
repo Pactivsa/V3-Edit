@@ -1,7 +1,7 @@
 # 对文件夹内的所有文件进行操作
 import os
 from utils.utils import ContentParser
-
+from PyQt5.QtWidgets import *
 
 def parser_file(path):
     '''
@@ -52,6 +52,7 @@ def parser_folder(path):
             result = parser_file(file_path)
         except Exception as e:
             print('文件解析错误：', file_path)
+            QMessageBox.information(None, '错误', '文件解析错误：'+file_path+'\n'+str(e), QMessageBox.Ok)
             raise e
         # 将解析结果添加到列表中，并将解析结果中的每一项添加到最终结果中
         result_list.append(result)

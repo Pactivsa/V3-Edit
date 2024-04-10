@@ -164,7 +164,7 @@ color:black
 </string>
          </property>
          <property name="text">
-          <string>生成代码并复制</string>
+          <string>生成代码并导入编辑器中</string>
          </property>
         </widget>
        </item>
