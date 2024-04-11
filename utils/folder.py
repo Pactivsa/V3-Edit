@@ -2,6 +2,7 @@
 import os
 from utils.utils import ContentParser
 from PyQt5.QtWidgets import *
+import warnings
 
 def parser_file(path):
     '''
@@ -30,7 +31,7 @@ def parser_file(path):
 def parser_folder(path):
     '''
         @param path: 文件夹路径
-    '''
+    ''' 
     final_result = {}
     result_list = []
     files = os.listdir(path)
@@ -62,6 +63,48 @@ def parser_folder(path):
     return final_result, result_list
 
 
+def parser_folder_wr(path) -> tuple[dict, dict, set]:
+    """
+        有记录的解析文件夹
+        @param path: 文件夹路径
+    """
+
+    final_result = {}
+    result_record = {}
+    files_record = set()
+    files = os.listdir(path)
+    for file in files:
+        file_path = os.path.join(path, file)
+        # 如果目标是文件夹，递归调用parser_folder，将返回的结果添加到最终结果中
+        if os.path.isdir(file_path):
+            result, reco = parser_folder_wr(file_path)
+            for key in result:
+                final_result[key] = result[key]
+                result_record[key] = reco[key]
+            continue
+
+        # 如果目标不是txt文件,则跳过
+        if not file_path.endswith('.txt'):
+            continue
+        # 如果目标是txt文件,则进行解析
+        try:
+            result = parser_file(file_path)
+        except Exception as e:
+            print('文件解析错误：', file_path)
+            # QMessageBox.information(None, '错误', '文件解析错误：'+file_path+'\n'+str(e), QMessageBox.Ok)
+            raise e
+        # 记录当前解析结果的来源文件
+        # 将解析结果中的每一项添加到最终结果中
+        for key in result:
+            final_result[key] = result[key]
+            #只记录文件名
+            result_record[key] = file
+
+        files_record.add(file)
+
+    return final_result, result_record, files_record
+
+
 # 返回指定文件夹下中所有txt文件的文件名序列
 def get_all_txt_files(path) -> list:
     '''
@@ -91,7 +134,13 @@ def parser_default(path) -> dict:
         在给定的根目录下，按V3结构依次解析所有文件夹的内容
         @param path: 游戏或mod的根目录
         @return: 以文件夹名为key, 对应模板的manager为value的字典
+
+
+        增加此项目中的解析内容时需同步更新utils.backend/BackendManager类中函数的str的类型注解限制
     '''
+
+    warnings.warn("folder.parser_default已经过时，请使用structure.parser_default", DeprecationWarning)
+
 
     from utils.template import BaseManager
     from template.buildings import Buildings, Buildings_group, Pmg, Pm
