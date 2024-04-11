@@ -1,7 +1,8 @@
 #后端的初始化部分
 from utils.folder import parser_default,output_manager,init_folder_structure
-
 from utils.template import BaseManager
+
+from typing import Literal
 
 
 def singleton(cls):
@@ -14,6 +15,7 @@ def singleton(cls):
 
 @singleton
 class BackendManager():
+
     def __init__(self, game_path, mod_path):
         self.game_path = game_path
         self.mod_path = mod_path
@@ -46,7 +48,12 @@ class BackendManager():
 
             output_manager(mods_manager, output_path)
         
-    def get_part(self, part:str):
+
+    '''
+        path 应该是 bg,buildings,pmgs,pm,goods
+    
+    '''    
+    def get_part(self, part:Literal['bg','buildings','pmgs','pm','goods']):
         '''
             从raw和mods中获取指定的组件的所有key
             @param part: 组件的名称
@@ -57,7 +64,8 @@ class BackendManager():
 
         return mods_manager.keys() , raw_manager.keys()
     
-    def get_part_detail(self, part:str, key:str):
+    def get_part_detail(self, part:Literal['bg','buildings','pmgs','pm','goods']
+                        , key:str):
         '''
             从raw和mods中获取指定的组件的详细信息
             @param part: 组件的名称
@@ -75,7 +83,8 @@ class BackendManager():
         #再从raw中获取
         return raw_manager[key],"raw"
     
-    def set_modified(self, part:str, key:str) -> None:
+    def set_modified(self, part:Literal['bg','buildings','pmgs','pm','goods']
+                    ,  key:str) -> None:
         '''
             设置指定的组件为已修改
             @param part: 组件的名称
