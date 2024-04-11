@@ -6,6 +6,8 @@ from utils.folder import get_all_txt_files
 import os
 import pandas as pd
 
+
+
 class structure():
     
     def __init__(self) -> None:
@@ -18,35 +20,94 @@ class structure():
             返回整个项目的文件夹结构
             @return: index为组件名，列包括路径和manager
         '''
-        folder_structure = pd.DataFrame(columns=['path', 'manager'])
 
-        folder_structure.loc['bg'] = ['common/building_groups', BaseManager(Buildings_group)]
-        folder_structure.loc['buildings'] = ['common/buildings', BaseManager(Buildings)]
-        folder_structure.loc['pmg'] = ['common/production_method_groups', BaseManager(Pmg)]
-        folder_structure.loc['pm'] = ['common/production_methods', BaseManager(Pm)]
-        folder_structure.loc['goods'] = ['common/goods', BaseManager(Goods)]
-        return folder_structure
+        # 每一次调用时应当是一个新的BaseManager实例
+        structure = pd.DataFrame(columns=['path', 'manager'])
 
-def parser_default(path) -> dict:
+        structure.loc['bg'] = ['common/building_groups', BaseManager(Buildings_group)]
+        structure.loc['buildings'] = ['common/buildings', BaseManager(Buildings)]
+        structure.loc['pmgs'] = ['common/production_method_groups', BaseManager(Pmg)]
+        structure.loc['pm'] = ['common/production_methods', BaseManager(Pm)]
+        structure.loc['goods'] = ['common/goods', BaseManager(Goods)]
+
+        return structure
+
+def parser_default_single(path) -> dict[str, BaseManager]:
     '''
         在给定的根目录下，按V3结构依次解析所有文件夹的内容
         @param path: 游戏或mod的根目录
+        @param exclude: 排除的 index:set 
         @return: 以文件夹名为key, 对应模板的manager为value的字典
+
+        
+        增加此项目中的解析内容时需同步更新utils.backend/BackendManager类中函数的str的类型注解限制
     '''
+
     folder_structure = structure.folder_structure()
     result = {}
 
     for index in folder_structure.index:
         folder = folder_structure.loc[index]
         folder_path = os.path.join(path, folder['path'])
-        manager = folder['manager']
-        manager.init_from_folder(folder_path)
+
+        manager:BaseManager = folder['manager']
+        #manager.init_from_folder(folder_path)
+        _, error = manager.init_from_folder_wr(folder_path) 
         result[index] = manager
+        
+        if error:
+            print(f"在{index}中有{error}文件未被解析")
 
     return result
 
+def parser_default(game_path, mod_path, exclude:bool = False) -> tuple[dict[str, BaseManager], dict[str, BaseManager]
+                                                                     ]:
+    '''
+        在给定的根目录下，按V3结构依次解析所有文件夹的内容
+        @param game_path: 游戏的根目录
+        @param mod_path: mod的根目录
+        @param if_exclude: 是否排除已经存在的文件
+        @return: 以文件夹名为key, 对应模板的manager为value的字典
+        返回值前者为mods，后者为raw
+
+        
+        增加此项目中的解析内容时需同步更新utils.backend/BackendManager类中函数的str的类型注解限制
+    '''
+
+    folder_structure = structure.folder_structure()
+    mods_result = {}
+    raw_result = {}
+
+    for index in folder_structure.index:
+        folder = folder_structure.loc[index]
+        game_folder_path = os.path.join(game_path, folder['path'])
+        mod_folder_path = os.path.join(mod_path, folder['path'])
+
+        mod_manager:BaseManager = structure.folder_structure().loc[index]['manager']
+        raw_manager:BaseManager = structure.folder_structure().loc[index]['manager']
+
+        #解析mod,并获取exclude的文件
+        exclude_i, error = mod_manager.init_from_folder_wr(mod_folder_path)
+        if error:
+            print(f"在{index}中有{error}文件未被解析")
+
+        error = None
+
+        if exclude:
+            _,error = raw_manager.init_from_folder_wr(game_folder_path, exclude_i)
+        else:
+            _,error = raw_manager.init_from_folder_wr(game_folder_path)
+
+        if error:
+            print(f"在{index}中有{error}文件未被解析")
+
+        mods_result[index] = mod_manager
+        raw_result[index] = raw_manager
+
+    return mods_result, raw_result
+
 #将指定的BaseManager输出成文件
-def output_manager(manager, path, outputname = 'zzz_generated.txt'):
+def output_manager(manager, path, outputname = 'zzzzz_generated.txt'):
     '''
         将指定的BaseManager编译成文件
         @param manager: BaseManager对象
@@ -116,8 +177,6 @@ def replace_empty(mod_path, game_path):
             if not os.path.exists(file):
                 with open(file, 'w') as f:
                     f.write('')
-    
-    return
 
 
 
