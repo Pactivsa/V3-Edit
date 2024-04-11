@@ -3,19 +3,18 @@ from typing import Literal
 from enum import Enum
 from abc import ABC, abstractmethod
 
-from utils.utils import output_to_txt
-from utils.folder import parser_folder
+from utils.utils import output_to_txt,output_block_to_str
+from utils.folder import parser_folder,parser_folder_wr
 
-
-
-
+import warnings
 
 class BaseTemplate:
     def __init__(self, name ,original_file,if_init=False):
         self.if_init = if_init
         self.original_file = original_file
         self.name = name
-        self.classify = None
+        self.classify = None #分类
+        self.source = ""   #来源文件名
         #self.Localizations = Localization()
         self.data = {
             name: 
@@ -31,6 +30,7 @@ class BaseTemplate:
     @abstractmethod
     def _clone(self, name):
         pass
+    
 
     def clone_from(self, prototype: "BaseTemplate", new_name: str):
         '''
@@ -279,7 +279,6 @@ class BaseTemplate:
         output_to_txt(output_path=output_file, dict=result)
 
 
-
 class BaseManager:
     '''
         模板管理器,对于每一个类都有一个对应的管理器
@@ -388,6 +387,8 @@ class BaseManager:
             从文件夹初始化
         '''
 
+        warnings.warn("init_from_folder已经过时，请使用init_from_folder_wr", DeprecationWarning)
+
         result, result_list = parser_folder(folder_path)
         for key in result:
             self.map[key] = self.prototype._clone(key)
@@ -395,7 +396,54 @@ class BaseManager:
                 key: result[key]
             }
 
-    def keys(self) -> list:
+    def init_from_folder_wr(self, file_path: str,exclude_source: set = set()) -> tuple[set,list[str]]:
+        '''
+            有记录的文件初始化
+            @param file_path: 文件路径
+            @param exclude_source: 需要排除的来源
+
+            @return: 当前文件的来源集合,错误的key
+
+        '''
+        result, result_record, file_record = parser_folder_wr(file_path)
+
+        error = []
+        source_set = set()
+        #如果exclude_source为空，则直接初始化
+        if not exclude_source:
+            for key in result:
+                self.map[key] = self.prototype._clone(key)
+                self.map[key].data = {
+                    key: result[key]
+                }
+                try:
+                    self.map[key].source = result_record[key]
+                    source_set.add(result_record[key])
+                except:
+                    error.append(key)
+
+        else:
+            for key in result:
+                if result_record[key] in exclude_source:
+                    continue
+                self.map[key] = self.prototype._clone(key)
+                self.map[key].data = {
+                    key: result[key]
+                }
+                try:
+                    self.map[key].source = result_record[key]
+                    source_set.add(result_record[key])
+                except:
+                    error.append(key)
+
+        #将file_recode合并到 source_recode
+
+        source_set = source_set.union(file_record)
+
+        return source_set, error
+        
+            
+    def keys(self):
         '''
             获取所有的key
         '''
@@ -404,6 +452,19 @@ class BaseManager:
     def pop(self, key) -> BaseTemplate:
         return self.map.pop(key)
     
+    #将两个manager合并
+    def merge(self, manager: "BaseManager") -> None:
+        # 检测manager的class_type是否与当前的class_type相同
+        if self.class_type != manager.class_type:
+            raise Exception("class_type不一致")
+        for key in manager.map:
+            self.map[key] = manager.map[key]
+
+    def __add__(self, manager: "BaseManager") -> "BaseManager":
+        result = BaseManager(self.class_type)
+        result.merge(self)
+        result.merge(manager)
+        return result
 
     # manager输出时把map中的所有template合并输出
     def __iter__(self) -> iter:
