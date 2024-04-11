@@ -178,6 +178,13 @@ class ContentParser():
         self.next_token()
         #获取下一个token
         token = self.current_token()
+
+        
+        #检测当前token是否为block_end，如果是，返回空字典
+        if token[1] == 'BLOCK_END':
+            self.next_token()
+            return {}
+        
         #探测下一个token是否为KEY_VALUE，如果不是KEY_VALUE，则为list，否则为dict
         next_token = self.peek()
         #如果下一个token是KEY_VALUE，则为dict
@@ -266,7 +273,8 @@ class ContentParser():
 #输出一个block到txt文件中
 def output_block_to_txt(block,f,depth=0):
     '''
-        将block输出到txt文件中其中key和value之间用link_type连接
+        将block输出到txt文件中
+        其中key和value之间用link_type连接
     '''
     # 若block为dict,按以下格式输出
     if isinstance(block, dict):
@@ -319,6 +327,84 @@ def output_block_to_txt(block,f,depth=0):
             #输出item，换行
             f.write("{}\n".format(item))
 
+# 输出一个block到str中，格式与txt文件一致
+def output_block_to_str(block,depth=0) -> str:
+    '''
+        将block输出到str中
+        其中key和value之间用link_type连接
+    '''
+    result = ""
+    # 若block为dict,按以下格式输出
+    if isinstance(block, dict):
+        #遍历block
+        for key, v_list in block.items():
+            #检测key是否有__i__后缀，如果有，去掉后缀
+            match = re.match(r'(.*)__\d+__', key)
+            if match:
+                key = match.group(1)
+
+            #v_list中低位为link_type,高位为value
+            link_type = v_list[0]
+            value = v_list[1]
+
+            #如果value是block，递归调用
+            if isinstance(value, dict) or isinstance(value, list):
+                #输出tab，depth个
+                result += '\t' * depth
+                #输出key，空格，link，空格，{，换行
+                result += "{} {} {{\n".format(key,link_type)
+                #递归调用
+                result += output_block_to_str(value,depth+1)
+                #输出tab，depth个
+                result += '\t' * depth
+                #输出}，换行
+                result += '}\n'
+            else:
+                #输出tab，depth个
+                result += '\t' * depth
+                #输出key，空格，link，空格，value，换行
+                result += "{} {} {}\n".format(key,link_type,value)
+
+
+    # 若block为list,按以下格式输出
+    elif isinstance(block, list):
+        #遍历block
+        for item in block:
+            #输出tab，depth个
+            result += '\t' * depth
+            #输出item，换行
+            result += "{}\n".format(item)
+
+    return result
+
+def is_blocklike(input: dict) -> bool:
+    '''
+        判断输入是否为一个block结构
+        block存储结构应当满足有
+        input = {
+            key: [link_type, value],
+            ...
+        }
+        其中link_type为["=","!=","?=","<",">","<=",">="]中的一种
+    '''
+    lt_set = set(["=","!=","?=","<",">","<=",">="])
+    #检测是否为dict
+    if not isinstance(input, dict):
+        return False
+    #遍历input
+    for key, v_list in input.items():
+        #检测v_list是否为list
+        if not isinstance(v_list, list):
+            return False
+        #检测v_list长度是否为2
+        if len(v_list) != 2:
+            return False
+        #检测v_list[0]是否为link_type中的一种
+        if v_list[0] not in lt_set:
+            return False
+    return True
+
+
 #将结果按照一定格式输出到txt文件中
 def output_to_txt(output_path,dict):
     #以utf-8编码打开文件
@@ -327,6 +413,8 @@ def output_to_txt(output_path,dict):
         f.write('\ufeff')
         #递归输出block
         output_block_to_txt(dict,f)
+
+
 
 
 
