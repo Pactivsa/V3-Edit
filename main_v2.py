@@ -14,6 +14,7 @@ from utils.BackendManager import BM
 from API.building import *
 from template.buildings import *
 from template.goods import *
+from utils.utils import output_block_to_str,is_blocklike
 
 
 import UI.我不知道我抄csdn的_rc
@@ -142,25 +143,18 @@ class OpeningUI(QDialog):
                 single_pm, rc = BM.get_part_detail("pm", pm_name)
                 single_pm:Pm
                 # print(single_pm)
-
                 for i in range(len(pm_header)):
                     i_data = single_pm[pm_header[i]]
                     text = ''
-                    
                     if i_data is None:
                         text = ''
+                    elif is_blocklike(i_data):
+                        text = output_block_to_str(i_data)
                     #如果是字典，每行放一个key = value字符串
                     elif isinstance(i_data, dict):
-                        print(pm_name,":",pm_header[i],":",i_data)
-                        try:
-                            for j in i_data.keys():
-                                temptext = '{} = {}\n'.format(j, i_data[j])
-                                text = text + temptext
-                        except Exception as e:
-                            print(pm_name,":",pm_header[i],":",i_data)
-                            print(e)
-                            
-
+                        for j in i_data.keys():
+                            temptext = '{} = {}\n'.format(j, i_data[j])
+                            text = text + temptext
                     #如果是列表，每行放一个字符串
                     elif isinstance(i_data, list):
                         for j in i_data:
@@ -172,7 +166,7 @@ class OpeningUI(QDialog):
                         text = str(i_data)
 
                     main_ui.ui.tableWidget_pm.setItem(k, i, QTableWidgetItem(text))
-                    k = k+1
+                k = k+1
 
                 row_count = main_ui.ui.tableWidget_pm.rowCount()
                 main_ui.ui.tableWidget_pm.insertRow(row_count)
@@ -192,6 +186,9 @@ class OpeningUI(QDialog):
                     text = ''
                     if i_data is None:
                         text = ''
+                    #如果是blocklike，转为字符串
+                    elif is_blocklike(i_data):
+                        text = output_block_to_str(i_data)
                     #如果是字典，每行放一个key = value字符串
                     elif isinstance(i_data, dict):
                         for j in i_data.keys():
@@ -209,64 +206,16 @@ class OpeningUI(QDialog):
                         text = str(i_data)
 
                     main_ui.ui.tableWidget_pmg.setItem(k, i, QTableWidgetItem(text))
-                    k = k+1
+                k = k+1
 
                 row_count = main_ui.ui.tableWidget_pmg.rowCount()
                 main_ui.ui.tableWidget_pmg.insertRow(row_count)
 
-            # k = 0
-            # for i in pmg:
-            #     single_pmg, rc = get_pmg_detail(BM, i)
-            #     single_pmg_str = str(single_pmg)
-            #     single_pmg_dict = ast.literal_eval(single_pmg_str)
-
-            #     single_pmg_input = single_pmg_dict.get('production_methods', [])
-            #     if single_pmg_input is None:
-            #         single_pmg_input = []
-            #     text = ''
-            #     for j in single_pmg_input:
-            #         temptext = '{}\n'.format(j)
-            #         text = text + temptext
-            #     main_ui.ui.tableWidget_pmg.setItem(k, 1, QTableWidgetItem(text))
-
-            #     main_ui.ui.tableWidget_pmg.setItem(k, 0, QTableWidgetItem(i))
-
-            #     single_pmg_input = single_pmg_dict.get('is_hidden_when_unavailable', "")
-            #     if single_pmg_input is None:
-            #         single_pmg_input = ""
-            #     text = str(single_pmg_input)
-            #     main_ui.ui.tableWidget_pmg.setItem(k, 3, QTableWidgetItem(text))
-
-            #     single_pmg_input = single_pmg_dict.get('ai_selection', "")
-            #     if single_pmg_input is None:
-            #         single_pmg_input = ""
-            #     text = str(single_pmg_input)
-            #     main_ui.ui.tableWidget_pmg.setItem(k, 4, QTableWidgetItem(text))
-
-            #     single_pmg_input = single_pmg_dict.get('texture', "")
-            #     if single_pmg_input is None:
-            #         single_pmg_input = ""
-            #     text = str(single_pmg_input)
-            #     main_ui.ui.tableWidget_pmg.setItem(k, 2, QTableWidgetItem(text))
-
-            #     row_count = main_ui.ui.tableWidget_pmg.rowCount()  # 返回当前行数(尾部)
-            #     main_ui.ui.tableWidget_pmg.insertRow(row_count)
-            #     k = k + 1
-
-            # header_labels = ["名称", "解锁科技", "建筑条件", "PMG", "建设时修正", "自动扩张条件", "meshes",
-            #                  "未建设实体", "建设中实体", "建设完实体", "建筑组", "texture", "能否建造", "能否扩张",
-            #                  "能否降级", "是否unique", "有最大等级", "是否忽视区域最大等级", "允许空中连接", "是否港口",
-            #                  "建设点数", "所有者pop类型", "经济贡献", "最小雇佣所需提升", "是否海军建筑", "运河",
-            #                  "AI建设权重", "AI补贴权重", "奴隶人口类型", "城市类型", "是否生成residences",
-            #                  "terrain_manipulator", "levels_per_mesh", "residence_points_per_level",
-            #                  "override_centerpiece_mesh", "centerpiece_mesh_weight", "lens"]
 
             bg_header = Buildings.structure_list()
 
             main_ui.ui.tableWidget_bg.setHorizontalHeaderLabels(bg_header)
-
-            from utils.utils import output_block_to_str,is_blocklike
-
+            
             k = 0
             for bg_name in bg:
                 single_bg, rc = BM.get_part_detail("buildings", bg_name)
@@ -298,7 +247,7 @@ class OpeningUI(QDialog):
 
                 row_count = main_ui.ui.tableWidget_bg.rowCount()
                 main_ui.ui.tableWidget_bg.insertRow(row_count)
-                k = k + 1
+            k = k + 1
 
             opening.ui.hide()
             main_ui.ui.show()
