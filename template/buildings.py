@@ -4,6 +4,19 @@ from typing import Literal, Union
 import pandas as pd
 
 class Buildings_group(BaseTemplate):
+
+    structure = pd.DataFrame(columns=['path', 'default'])
+    # structure.loc['name'] = ['name', '']
+    structure.loc['category'] = ['category', '']
+    structure.loc['always_possible'] = ['always_possible', '']
+    structure.loc['economy_of_scale'] = ['economy_of_scale', '']
+    structure.loc['cash_reserves_max'] = ['cash_reserves_max', '']
+    structure.loc['should_auto_expand'] = ['should_auto_expand', '']
+
+    @classmethod
+    def structure_list(cls) -> list:
+        return cls.structure.index.tolist()
+
     def __init__(self, name ,if_init=False):
         original_file = "template/original/buildings_groups.txt"
         super().__init__(name,original_file, if_init)
@@ -11,36 +24,25 @@ class Buildings_group(BaseTemplate):
     def _clone(self,name):
         return Buildings_group(name, self.if_init)
     
-    @staticmethod
-    def structure() -> dict:
-        '''
-            返回建筑组的结构
-            以 key: path返回
-        '''
-        return {
-            "name": "name",
-            "category": "category",
-            "always_possible": "always_possible",
-            "economy_of_scale": "economy_of_scale",
-            "cash_reserves_max": "cash_reserves_max",
-            "should_auto_expand": "should_auto_expand"
-        }
 
     def __getitem__(self, key):
-        structure = self.structure()
+        structure_path = self.structure["path"]
         #检测key是否存在
-        if key not in structure:
-            raise KeyError(f"bg不存在{key}，允许的key有{list(structure.keys())}")
+        if key not in structure_path:
+            raise KeyError(f"bg不存在{key}，允许的属性有{list(structure_path.keys())}")
         #返回对应的值
-        return self.trace(structure[key])
+        result = self.trace(structure_path[key])
+        if result is None:
+            return structure_path["default"]
+        return result
     
     def __setitem__(self, key, value):
-        structure = self.structure()
+        structure_path = self.structure["path"]
         #检测key是否存在
-        if key not in structure:
-            raise KeyError(f"bg不存在{key}，允许的key有{list(structure.keys())}")
+        if key not in structure_path:
+            raise KeyError(f"bg不存在{key}，允许的属性有{list(structure_path.keys())}")
         #设置对应的值
-        self.add(structure[key], "=", value)
+        self.add(structure_path[key], "=", value)
     
     #category
 
@@ -86,47 +88,50 @@ class Buildings_group(BaseTemplate):
 
     
 class Buildings(BaseTemplate):
+
+    structure = pd.DataFrame(columns=['path', 'default'])
+    # structure.loc['name'] = ['name', '']
+    structure.loc['category'] = ['category', '']
+    structure.loc['level_per_mesh'] = ['level_per_mesh', '']
+    structure.loc['building_group'] = ['building_group', '']
+    structure.loc['unlocking_technologies'] = ['unlocking_technologies', '']
+    structure.loc['production_method_groups'] = ['production_method_groups', '']
+    structure.loc['required_construction'] = ['required_construction', '']
+    structure.loc['terrain_manipulator'] = ['terrain_manipulator', '']
+    structure.loc['texture'] = ['texture', '']
+    structure.loc['city_type'] = ['city_type', '']
+
+    @classmethod
+    def structure_list(cls) -> list:
+        return cls.structure.index.tolist()
+
+
     def __init__(self, name ,if_init=False):
         original_file = "template/original/buildings.txt"
         super().__init__(name,original_file, if_init)
 
     def _clone(self,name) -> "Buildings":
         return Buildings(name,  self.if_init)
-    
-    @staticmethod
-    def structure() -> dict:
-        '''
-            返回建筑的结构
-            以 key: path返回
-        '''
-        return {
-            "name": "name",
-            "category": "category",
-            "level_per_mesh": "level_per_mesh",
-            "building_group": "building_group",
-            "unlocking_technologies": "unlocking_technologies",
-            "production_method_groups": "production_method_groups",
-            "required_construction": "required_construction",
-            "terrain_manipulator": "terrain_manipulator",
-            "texture": "texture",
-            "city_type": "city_type"
-        }
+
     
     def __getitem__(self, key):
-        structure = self.structure()
+        structure_path = self.structure["path"]
         #检测key是否存在
-        if key not in structure:
-            raise KeyError(f"building不存在{key}，允许的key有{list(structure.keys())}")
+        if key not in structure_path:
+            raise KeyError(f"building不存在{key}，允许的属性有{list(structure_path.keys())}")
         #返回对应的值
-        return self.trace(structure[key])
+        result = self.trace(structure_path[key])
+        if result is None:
+            return self.structure["default"][key]
+        return result
     
     def __setitem__(self, key, value):
-        structure = self.structure()
+        structure_path = self.structure["path"]
         #检测key是否存在
-        if key not in structure:
-            raise KeyError(f"building不存在{key}，允许的key有{list(structure.keys())}")
+        if key not in structure_path:
+            raise KeyError(f"building不存在{key}，允许的属性有{list(structure_path.keys())}")
         #设置对应的值
-        self.add(structure[key], "=", value)
+        self.add(structure_path[key], "=", value)
 
     # texture
     def set_texture(self, texture_path) -> None:
@@ -313,6 +318,17 @@ class Buildings(BaseTemplate):
     
 
 class Pmg(BaseTemplate):
+    structure = pd.DataFrame(columns=['path', 'default'])
+    # structure.loc['name'] = ['name', '']
+    structure.loc['production_methods'] = ['production_methods', '']
+    structure.loc['texture'] = ['texture', '']
+    structure.loc['is_hidden_when_unavailable'] = ['is_hidden_when_unavailable', '']
+    structure.loc['ai_selection'] = ['ai_selection', '']
+
+    @classmethod
+    def structure_list(cls) -> list:
+        return cls.structure.index.tolist()
+
     def __init__(self,name , if_init=False,Buildings: Buildings=None):
         original_file = "template/original/production_method_groups.txt"
         super().__init__(name ,original_file, if_init)
@@ -324,33 +340,25 @@ class Pmg(BaseTemplate):
     def _clone(self,name):
         return Pmg(name, self.if_init)
     
-    @staticmethod
-    def structure() -> dict:
-        '''
-            返回生产方法组的结构
-            以 key: path返回
-        '''
-        return {
-            "name": "name",
-            "production_methods": "production_methods",
-            "texture": "texture"
-        }
     
     def __getitem__(self, key):
-        structure = self.structure()
+        structure_path = self.structure["path"]
         #检测key是否存在
-        if key not in structure:
-            raise KeyError(f"pmg不存在{key}，允许的key有{list(structure.keys())}")
+        if key not in structure_path:
+            raise KeyError(f"pmg不存在{key}，允许的属性有{list(structure_path.keys())}")
         #返回对应的值
-        return self.trace(structure[key])
+        result = self.trace(structure_path[key])
+        if result is None:
+            return self.structure["default"][key]
+        return result
     
     def __setitem__(self, key, value):
-        structure = self.structure()
+        structure_path = self.structure["path"]
         #检测key是否存在
-        if key not in structure:
-            raise KeyError(f"pmg不存在{key}，允许的key有{list(structure.keys())}")
+        if key not in structure_path:
+            raise KeyError(f"pmg不存在{key}，允许的属性有{list(structure_path.keys())}")
         #设置对应的值
-        self.add(structure[key], "=", value)
+        self.add(structure_path[key], "=", value)
     
     # production_methods
     def add_pm(self, pm_name: str):
@@ -385,6 +393,30 @@ class Pmg(BaseTemplate):
         return self.trace("texture")
     
 class Pm(BaseTemplate):
+    f_structure = pd.DataFrame(columns=['path', 'default'])
+    # f_structure.loc['name'] = ['name', '']
+    f_structure.loc['texture'] = ['texture', '']
+    f_structure.loc['disallowing_laws'] = ['disallowing_laws', '']
+    f_structure.loc['building_modifiers'] = ['building_modifiers', '']
+    f_structure.loc['unlocking_technologies'] = ['unlocking_technologies', '']
+    f_structure.loc['workforce_scaled'] = ['building_modifiers.workforce_scaled', '']
+    f_structure.loc['level_scaled'] = ['building_modifiers.level_scaled', '']
+    f_structure.loc['unscaled'] = ['building_modifiers.unscaled', '']
+
+    p_structure = pd.DataFrame(columns=['path', 'default'])
+    p_structure.loc['inputs'] = ['building_modifiers.workforce_scaled', '']
+    p_structure.loc['outputs'] = ['building_modifiers.workforce_scaled', '']
+    p_structure.loc['employees'] = ['building_modifiers.level_scaled', '']
+    p_structure.loc['shares'] = ['building_modifiers.unscaled', '']
+
+    structure = pd.concat([f_structure, p_structure])
+
+    @classmethod
+    def structure_list(cls) -> list:
+        return cls.structure.index.tolist()
+
+
+
     def __init__(self,name , if_init=False,Pmg: Pmg=None):
         original_file = "template/original/production_methods.txt"
         super().__init__(name , if_init)
@@ -397,46 +429,49 @@ class Pm(BaseTemplate):
     def _clone(self,name):
         return Pm(name, self.if_init)
     
-    @staticmethod
-    def structure() -> dict:
-        '''
-            返回生产方法的结构
-            以 key: path返回
-        '''
-        #完整占据一个子结构的属性
-        f_structure = {
-            "name": "name",
-            "texture": "texture",
-            "disallowing_laws": "disallowing_laws",
-            "building_modifiers": "building_modifiers",
-            "unlocking_technologies": "unlocking_technologies",
-            "workforce_scaled": "building_modifiers.workforce_scaled",
-            "level_scaled": "building_modifiers.level_scaled",
-            "unscaled": "building_modifiers.unscaled"
-        }
-        #从某一子结构中部分提取的属性
-        p_structure = {
-            "inputs": "building_modifiers.workforce_scaled",
-            "outputs": "building_modifiers.workforce_scaled",
-            "employees": "building_modifiers.level_scaled",
-            "shares": "building_modifiers.unscaled"
-        }
-
-        return f_structure, p_structure
-
-    
     def __getitem__(self, key):
-        f_structure, p_structure = self.structure()
-        #检测key是否存在
-        if key in f_structure:
+        f_structure_path = self.f_structure["path"]
+        p_structure_path = self.p_structure["path"]
+        result = None
+        #检测key是否存在Series
+        if key in f_structure_path: #返回对应的值
             #返回对应的值
-            return self.trace(f_structure[key])
-        elif key in p_structure:
-            return self.trace(p_structure[key])
+            result = self.trace(f_structure_path[key])
+            if result is None:
+                return self.f_structure["default"][key]
+        elif key == "inputs":
+            result = self.get_inputs()
+        elif key == "outputs":
+            result = self.get_outputs()
+        elif key == "employees":
+            result = self.get_employees()
+        elif key == "shares":
+            result = self.get_shares()
         else:
-            raise KeyError(f"pm不存在{key}，允许的key有{list(f_structure.keys())+list(p_structure.keys())}")
+            raise KeyError(f"pm不存在{key}，允许的属性有{list(f_structure_path.keys())+list(p_structure_path.keys())}")
+        if result is None:
+            return self.f_structure["default"][key]
 
+        return result
 
+    def __setitem__(self, key, value):
+        f_structure_path = self.f_structure["path"]
+        p_structure_path = self.p_structure["path"]
+        #检测key是否存在
+        if key in f_structure_path:
+            #设置对应的值
+            self.add(f_structure_path[key], "=", value)
+        elif key == "inputs":
+            self.set_inputs(value)
+        elif key == "outputs":
+            self.set_outputs(value)
+        elif key == "employees":
+            self.set_employees(value)
+        elif key == "shares":
+            self.set_shares(value)
+        else:
+            raise KeyError(f"pm不存在{key}，允许的属性有{list(f_structure_path.keys())+list(p_structure_path.keys())}")
+        
     # texture
     def set_texture(self, texture_path):
         self.add("texture", "=", texture_path)
